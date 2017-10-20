@@ -7,11 +7,12 @@ using namespace std;
 class GerenteVolumedeControle
 {
 	public:
-		GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre);
+		GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre);
 		vector<double> getCampoDeTemperaturas();
 		void SalvaCampoDeTemperaturascsv(string NomedoArquivo);
+		void MostraTiposdeConfiguracao();
 	private:
-		double getkInterface(double delta, double delta_Mais, double delta_Menos, double kmais, double kmenos);
+		double getkInterface(double delta, double delta_Mais, double delta_Menos, double kmais, double kmenos,int TipoDeKinterface);
 		int ContaTotaldePontos(vector<int> Nptoscadamat, int Nmalhas);
 		vector<double> CriaVetordeNulos(int NumerodePontos);
 		vector<vector<double> > CriaMatrizQuadradadeNulos(int NumerodePontos);

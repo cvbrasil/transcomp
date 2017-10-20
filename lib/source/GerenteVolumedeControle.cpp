@@ -13,7 +13,7 @@
 
 using namespace std;
 
-GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre)
+GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre)
 {
 	Malha malha1(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha);
 	PropriedadeTermica propriedadetermica1(k,Nptoscadamat);
@@ -63,10 +63,10 @@ GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nma
 
 	vector<double> ksobredeltamarginalinterno;
 	ksobredeltamarginalinterno.resize(2);
-	kinterface1 = getkInterface(malha1.getdelta_e(0),malha1.getDelta_e_Mais(0),malha1.getDelta_e_Menos(0),propriedadetermica1.getk(1),propriedadetermica1.getk(0));
+	kinterface1 = getkInterface(malha1.getdelta_e(0),malha1.getDelta_e_Mais(0),malha1.getDelta_e_Menos(0),propriedadetermica1.getk(1),propriedadetermica1.getk(0),TipoDeKinterface);
 	ksobredeltamarginalinterno[0] = kinterface1/malha1.getdelta_e(0);
 
-	kinterface1 = getkInterface(malha1.getdelta_e(TotaldePontos-1-1),malha1.getDelta_e_Mais(TotaldePontos-1-1),malha1.getDelta_e_Menos(TotaldePontos-1-1),propriedadetermica1.getk(TotaldePontos-1),propriedadetermica1.getk(TotaldePontos-1-1));
+	kinterface1 = getkInterface(malha1.getdelta_e(TotaldePontos-1-1),malha1.getDelta_e_Mais(TotaldePontos-1-1),malha1.getDelta_e_Menos(TotaldePontos-1-1),propriedadetermica1.getk(TotaldePontos-1),propriedadetermica1.getk(TotaldePontos-1-1),TipoDeKinterface);
 	ksobredeltamarginalinterno[1] = kinterface1/malha1.getdelta_w(TotaldePontos-1);
 
 	CondicoesdeContorno condicoesdecontorno1(Pre1,Pre2,TiposPre,TipoMalha,ksobredeltaexterno,ksobredeltamarginalinterno);
@@ -83,8 +83,8 @@ GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nma
 	{
 		for(int i=1; i<TotaldePontos-1;i++)
 		{
-			kinterface2 = getkInterface(malha1.getdelta_e(i),malha1.getDelta_e_Mais(i),malha1.getDelta_e_Menos(i),propriedadetermica1.getk(i+1),propriedadetermica1.getk(i));
-			kinterface1 = getkInterface(malha1.getdelta_w(i),malha1.getDelta_w_Mais(i),malha1.getDelta_w_Menos(i),propriedadetermica1.getk(i),propriedadetermica1.getk(i-1));
+			kinterface2 = getkInterface(malha1.getdelta_e(i),malha1.getDelta_e_Mais(i),malha1.getDelta_e_Menos(i),propriedadetermica1.getk(i+1),propriedadetermica1.getk(i),TipoDeKinterface);
+			kinterface1 = getkInterface(malha1.getdelta_w(i),malha1.getDelta_w_Mais(i),malha1.getDelta_w_Menos(i),propriedadetermica1.getk(i),propriedadetermica1.getk(i-1),TipoDeKinterface);
 			A[i][i-1] = -kinterface1/malha1.getdelta_e(i);
 			A[i][i] = (kinterface1/malha1.getdelta_e(i)+kinterface2/malha1.getdelta_w(i));
 			A[i][i+1] = -kinterface2/malha1.getdelta_w(i);
@@ -95,9 +95,23 @@ GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nma
 	SolverLinear solucionador(A,b,TotaldePontos);
 	this->CampoDeTemperaturas = solucionador.getCampodeTemperaturas();
 }
-double GerenteVolumedeControle::getkInterface(double delta, double delta_Mais, double delta_Menos, double kmais, double kmenos)
+double GerenteVolumedeControle::getkInterface(double delta, double delta_Mais, double delta_Menos, double kmais, double kmenos, int TipoDeKinterface)
 {
-	return(delta/(delta_Mais/kmais+delta_Menos/kmenos));
+	if(TipoDeKinterface==1)
+	{
+		return(delta/(delta_Mais/kmais+delta_Menos/kmenos));
+	}
+	else
+	{
+		if(TipoDeKinterface==2)
+		{
+			return((kmenos*delta_Menos+kmais*delta_Mais)/delta);
+		}
+		else
+		{
+			cout<<endl<<"Problema! Tipo de K da Interface inexistente. 1-Resistencia equivalente; 2-Interpolacao Linear"<<endl<<endl;
+		}
+	}
 }
 vector<double> GerenteVolumedeControle::getCampoDeTemperaturas()
 {
@@ -147,4 +161,24 @@ vector<vector<double> > GerenteVolumedeControle::CriaMatrizQuadradadeNulos(int N
 		}
 	}
 	return(A);
+}
+void GerenteVolumedeControle::MostraTiposdeConfiguracao()
+{
+	cout<<endl<<"----------------------------------------------------------------------------------------"<<endl;
+	cout<<"-------------------------------------Como Configurar------------------------------------"<<endl;
+	cout<<"----------------------------------------------------------------------------------------"<<endl<<endl;
+	cout<<"Tipo de Malha:"<<endl;
+	cout<<"1-Pontos iniciais e finais nas bordas dos Volumes de Controle"<<endl;
+	cout<<"2-Pontos centrados nos Volumes de Controle"<<endl;
+	cout<<"3-Ponto inicial na borda e final no centro"<<endl;
+	cout<<"4-Ponto inicial no centro e final da borda"<<endl<<endl;
+	cout<<"Tipo de k da Interface:"<<endl;
+	cout<<"1-Pela Resistencia Equivalente"<<endl;
+	cout<<"2-Pela Interpolacao Linear"<<endl<<endl;
+	cout<<"Tipos de Prescricao"<<endl;
+	cout<<"1-Temperatura Prescrita"<<endl;
+	cout<<"2-Fluxo de Calor Prescrito"<<endl;
+	cout<<"3-Temperatura do fluido e Coeficiente de Conveccao Prescritos"<<endl<<endl;
+	cout<<"Ordens de Prescricao nos vetores Pre:"<<endl;
+	cout<<"[Temperatura/Fluxo,Coeficiente de Conveccao"<<endl<<endl;
 }

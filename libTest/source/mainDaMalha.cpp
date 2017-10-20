@@ -455,7 +455,7 @@ TestCase( Ger_borda_Tpre_Conv )
 	TiposPre.push_back(3);
 
 	Malha Malhaaux(Nptoscadamat,LarguraMat,1,1);
-	GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,Pre1,Pre2,TiposPre);
+	GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre);
 
 	Tgerente = GVC.getCampoDeTemperaturas();
 
