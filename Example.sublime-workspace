@@ -1,0 +1,1017 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Malha",
+				"Malhaaux"
+			],
+			[
+				"Pre",
+				"Pre1"
+			],
+			[
+				"Cria",
+				"CriaMatrizQuadradadeNulos"
+			],
+			[
+				"N",
+				"Nmalhas"
+			],
+			[
+				"C",
+				"ContaTotaldePontos"
+			],
+			[
+				"T",
+				"Tgerente"
+			],
+			[
+				"To",
+				"TotaldePontos"
+			],
+			[
+				"s",
+				"size"
+			],
+			[
+				"Ti",
+				"TipoMalha"
+			],
+			[
+				"ge",
+				"getCampodeTemperaturas"
+			],
+			[
+				"get",
+				"getdelta_e"
+			],
+			[
+				"kinte",
+				"kinterface1"
+			],
+			[
+				"ks",
+				"ksobredeltamarginalinterno"
+			],
+			[
+				"re",
+				"resize"
+			],
+			[
+				"Ma",
+				"Malha2MatTipo4"
+			],
+			[
+				"a",
+				"ainterno"
+			],
+			[
+				"Lar",
+				"LarguraTotal"
+			],
+			[
+				"P",
+				"Pre2"
+			],
+			[
+				"getr",
+				"getPrimeiroTermodeEntrada"
+			],
+			[
+				"Tipo",
+				"TipodeMalha"
+			],
+			[
+				"pr",
+				"propriedadetermica1"
+			],
+			[
+				"delta_",
+				"delta_e"
+			],
+			[
+				"k",
+				"kmenos"
+			],
+			[
+				"del",
+				"delta_Menos"
+			],
+			[
+				"i",
+				"include"
+			],
+			[
+				"po",
+				"position2"
+			],
+			[
+				"de",
+				"delta_Menos"
+			],
+			[
+				"positio",
+				"position1"
+			],
+			[
+				"delta",
+				"delta_Mais"
+			],
+			[
+				"Ins",
+				"INSERT_VALUES"
+			],
+			[
+				"Test",
+				"TestCase"
+			],
+			[
+				"li",
+				"libTest"
+			],
+			[
+				"main",
+				"mainDaMalha"
+			],
+			[
+				"d",
+				"distancia1"
+			],
+			[
+				"c",
+				"checkClose"
+			],
+			[
+				"p",
+				"push_back"
+			],
+			[
+				"Defi",
+				"DefineDeltasdeTransferencia"
+			],
+			[
+				"D",
+				"DeltaBase"
+			],
+			[
+				"Delt",
+				"DeltasTransferencia"
+			],
+			[
+				"Delta",
+				"DeltaBase"
+			],
+			[
+				"Np",
+				"Nptoscadamat4"
+			],
+			[
+				"Nptos",
+				"Nptoscadamat"
+			],
+			[
+				"Nu",
+				"NumerodeMalhas"
+			],
+			[
+				"getdelta",
+				"getdelta_e"
+			],
+			[
+				"Def",
+				"DefineDeltaBaseInicial"
+			],
+			[
+				"Numero",
+				"NumerodePontos"
+			],
+			[
+				"numero",
+				"NumerodeMalhas"
+			],
+			[
+				"numer",
+				"NumerodeMalhas"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"De",
+				"DeltaBase"
+			],
+			[
+				"Del",
+				"DeltaBaseInicial"
+			],
+			[
+				"vet",
+				"vetorzin"
+			],
+			[
+				"ve",
+				"vetorzin"
+			],
+			[
+				"larg",
+				"LarguraporMaterial"
+			],
+			[
+				"Lmat",
+				"LarguraporMaterial"
+			],
+			[
+				"G",
+				"GerenciaDados"
+			],
+			[
+				"Ge",
+				"GerenteVolumedeControle"
+			],
+			[
+				"t",
+				"TipodeMalha"
+			],
+			[
+				"Nom",
+				"NomedoArquivoChar"
+			],
+			[
+				"No",
+				"NomedoArquivoChar"
+			],
+			[
+				"n",
+				"NomedoArquivo"
+			],
+			[
+				"Numer",
+				"NumerodeMalhas"
+			],
+			[
+				"Num",
+				"NumerodePontos"
+			],
+			[
+				"L",
+				"Lcadamaterial"
+			],
+			[
+				"erro",
+				"errobackward"
+			],
+			[
+				"log",
+				"logerrobackward"
+			],
+			[
+				"lo",
+				"logerroforward"
+			],
+			[
+				"df",
+				"dfdxanalitica"
+			],
+			[
+				"contadorm",
+				"contadormenos"
+			],
+			[
+				"contador",
+				"contadordelinhas"
+			],
+			[
+				"tamanho",
+				"tamanhodezero"
+			],
+			[
+				"acumul",
+				"acumulador2"
+			],
+			[
+				"cl",
+				"clock"
+			],
+			[
+				"Pet",
+				"PetscScalar"
+			],
+			[
+				"S",
+				"S"
+			],
+			[
+				"Res",
+				"ResolvextgxmenosBi"
+			],
+			[
+				"tol",
+				"tolerancia3"
+			],
+			[
+				"criteriop",
+				"criterioparada3"
+			],
+			[
+				"set",
+				"setw"
+			],
+			[
+				"e",
+				"endl"
+			],
+			[
+				"poten",
+				"PotentialStopCriteriaTolerance"
+			],
+			[
+				"j",
+				"j"
+			],
+			[
+				"max",
+				"MaxNumberofIterations"
+			],
+			[
+				"mes",
+				"mesnasc"
+			],
+			[
+				"sobrenome",
+				"sobrenome"
+			],
+			[
+				"m",
+				"m"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "lib/include/GerenteVolumedeControle.h",
+			"settings":
+			{
+				"buffer_size": 748,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/source/GerenteVolumedeControle.cpp",
+			"settings":
+			{
+				"buffer_size": 4794,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "libTest/source/mainDaMalha.cpp",
+			"settings":
+			{
+				"buffer_size": 10732,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "37-gdb-show interpreter\n=thread-group-added,id=\"i1\"\n~\"GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1\\n\"\n~\"Copyright (C) 2016 Free Software Foundation, Inc.\\n\"\n~\"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\\nThis is free software: you are free to change and redistribute it.\\nThere is NO WARRANTY, to the extent permitted by law.  Type \\\"show copying\\\"\\nand \\\"show warranty\\\" for details.\\n\"\n~\"This GDB was configured as \\\"x86_64-linux-gnu\\\".\\nType \\\"show configuration\\\" for configuration details.\"\n~\"\\nFor bug reporting instructions, please see:\\n\"\n~\"<http://www.gnu.org/software/gdb/bugs/>.\\n\"\n~\"Find the GDB manual and other documentation resources online at:\\n<http://www.gnu.org/software/gdb/documentation/>.\\n\"\n~\"For help, type \\\"help\\\".\\n\"\n~\"Type \\\"apropos word\\\" to search for commands related to \\\"word\\\"...\\n\"\n~\"Lendo símbolos de ./libTest...\"\n~\"(no debugging symbols found)...concluído.\\n\"\n(gdb)\n37^error,msg=\"show command indefinido: \\\"interpreter\\\". Tente \\\"help show\\\".\"\n(gdb)\n38-inferior-tty-set /tmp/tmp58oyw6\n38^done\n(gdb)\n39-enable-pretty-printing\n40-gdb-set target-async 1\n39^done\n(gdb)\n41-gdb-set pagination off\n40^done\n42-gdb-set disassembly-flavor intel\n(gdb)\n41^done\n(gdb)\n42^done\n43-break-insert \"\\\"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/GerenteVolumedeControle.cpp\\\":54\"\n(gdb)\n43^error,msg=\"Nenhuma tabela de s\\303\\255mbolos est\\303\\241 carregada. Use o comando \\\"file\\\".\"\n(gdb)\n44-exec-run\n=thread-group-started,id=\"i1\",pid=\"2702\"\n=thread-created,id=\"1\",group-id=\"i1\"\n=library-loaded,id=\"/lib64/ld-linux-x86-64.so.2\",target-name=\"/lib64/ld-linux-x86-64.so.2\",host-name=\"/lib64/ld-linux-x86-64.so.2\",symbols-loaded=\"0\",thread-group=\"i1\"\n44^running\n*running,thread-id=\"all\"\n(gdb)\n=library-loaded,id=\"/usr/lib/x86_64-linux-gnu/libstdc++.so.6\",target-name=\"/usr/lib/x86_64-linux-gnu/libstdc++.so.6\",host-name=\"/usr/lib/x86_64-linux-gnu/libstdc++.so.6\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/lib/x86_64-linux-gnu/libgcc_s.so.1\",target-name=\"/lib/x86_64-linux-gnu/libgcc_s.so.1\",host-name=\"/lib/x86_64-linux-gnu/libgcc_s.so.1\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/lib/x86_64-linux-gnu/libpthread.so.0\",target-name=\"/lib/x86_64-linux-gnu/libpthread.so.0\",host-name=\"/lib/x86_64-linux-gnu/libpthread.so.0\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/usr/lib/x86_64-linux-gnu/libgfortran.so.3\",target-name=\"/usr/lib/x86_64-linux-gnu/libgfortran.so.3\",host-name=\"/usr/lib/x86_64-linux-gnu/libgfortran.so.3\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/lib/x86_64-linux-gnu/libm.so.6\",target-name=\"/lib/x86_64-linux-gnu/libm.so.6\",host-name=\"/lib/x86_64-linux-gnu/libm.so.6\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/home/cvbrasil/Install/openmpi-2.1.0/lib/libmpi.so.20\",target-name=\"/home/cvbrasil/Install/openmpi-2.1.0/lib/libmpi.so.20\",host-name=\"/home/cvbrasil/Install/openmpi-2.1.0/lib/libmpi.so.20\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/lib/x86_64-linux-gnu/libdl.so.2\",target-name=\"/lib/x86_64-linux-gnu/libdl.so.2\",host-name=\"/lib/x86_64-linux-gnu/libdl.so.2\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/lib/x86_64-linux-gnu/libc.so.6\",target-name=\"/lib/x86_64-linux-gnu/libc.so.6\",host-name=\"/lib/x86_64-linux-gnu/libc.so.6\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/usr/lib/x86_64-linux-gnu/libquadmath.so.0\",target-name=\"/usr/lib/x86_64-linux-gnu/libquadmath.so.0\",host-name=\"/usr/lib/x86_64-linux-gnu/libquadmath.so.0\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/home/cvbrasil/Install/openmpi-2.1.0/lib/libopen-rte.so.20\",target-name=\"/home/cvbrasil/Install/openmpi-2.1.0/lib/libopen-rte.so.20\",host-name=\"/home/cvbrasil/Install/openmpi-2.1.0/lib/libopen-rte.so.20\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/home/cvbrasil/Install/openmpi-2.1.0/lib/libopen-pal.so.20\",target-name=\"/home/cvbrasil/Install/openmpi-2.1.0/lib/libopen-pal.so.20\",host-name=\"/home/cvbrasil/Install/openmpi-2.1.0/lib/libopen-pal.so.20\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/lib/x86_64-linux-gnu/librt.so.1\",target-name=\"/lib/x86_64-linux-gnu/librt.so.1\",host-name=\"/lib/x86_64-linux-gnu/librt.so.1\",symbols-loaded=\"0\",thread-group=\"i1\"\n=library-loaded,id=\"/lib/x86_64-linux-gnu/libutil.so.1\",target-name=\"/lib/x86_64-linux-gnu/libutil.so.1\",host-name=\"/lib/x86_64-linux-gnu/libutil.so.1\",symbols-loaded=\"0\",thread-group=\"i1\"\n~\"[Thread debugging using libthread_db enabled]\\n\"\n~\"Using host libthread_db library \\\"/lib/x86_64-linux-gnu/libthread_db.so.1\\\".\\n\"\n=thread-created,id=\"2\",group-id=\"i1\"\n~\"[New Thread 0x7ffff5949700 (LWP 2733)]\\n\"\n*running,thread-id=\"2\"\n=thread-created,id=\"3\",group-id=\"i1\"\n~\"[New Thread 0x7ffff5148700 (LWP 2735)]\\n\"\n*running,thread-id=\"3\"\n~\"[Thread 0x7ffff5148700 (LWP 2735) exited]\\n\"\n=thread-exited,id=\"3\",group-id=\"i1\"\n~\"[Thread 0x7ffff5949700 (LWP 2733) exited]\\n\"\n=thread-exited,id=\"2\",group-id=\"i1\"\n~\"\\nThread \"\n~\"1 \\\"libTest\\\" received signal SIGSEGV, Segmentation fault.\\n\"\n~\"0x000000000048598c in GerenteVolumedeControle::GerenteVolumedeControle(std::vector<int, std::allocator<int> >, int, std::vector<double, std::allocator<double> >, int, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<int, std::allocator<int> >) ()\\n\"\n*stopped,reason=\"signal-received\",signal-name=\"SIGSEGV\",signal-meaning=\"Segmentation fault\",frame={addr=\"0x000000000048598c\",func=\"GerenteVolumedeControle::GerenteVolumedeControle(std::vector<int, std::allocator<int> >, int, std::vector<double, std::allocator<double> >, int, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<int, std::allocator<int> >)\",args=[]},thread-id=\"1\",stopped-threads=\"all\",core=\"1\"\n45-thread-select 1\n46-stack-info-frame\n45^done,new-thread-id=\"1\",frame={level=\"0\",addr=\"0x000000000048598c\",func=\"GerenteVolumedeControle::GerenteVolumedeControle(std::vector<int, std::allocator<int> >, int, std::vector<double, std::allocator<double> >, int, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<int, std::allocator<int> >)\",args=[]}\n(gdb)\n46^done,frame={level=\"0\",addr=\"0x000000000048598c\",func=\"GerenteVolumedeControle::GerenteVolumedeControle(std::vector<int, std::allocator<int> >, int, std::vector<double, std::allocator<double> >, int, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<int, std::allocator<int> >)\"}\n(gdb)\n47-stack-list-frames\n47^done,stack=[frame={level=\"0\",addr=\"0x000000000048598c\",func=\"GerenteVolumedeControle::GerenteVolumedeControle(std::vector<int, std::allocator<int> >, int, std::vector<double, std::allocator<double> >, int, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<int, std::allocator<int> >)\"},frame={level=\"1\",addr=\"0x000000000041b9ed\",func=\"GerbordaTpreConv::test_method()\"},frame={level=\"2\",addr=\"0x000000000041c0c1\",func=\"GerbordaTpreConv_invoker()\"},frame={level=\"3\",addr=\"0x000000000048193b\",func=\"boost::detail::function::function_obj_invoker0<boost::detail::forward, int>::invoke(boost::detail::function::function_buffer&)\"},frame={level=\"4\",addr=\"0x0000000000480c7d\",func=\"boost::execution_monitor::catch_signals(boost::function<int ()> const&)\"},frame={level=\"5\",addr=\"0x0000000000480d78\",func=\"boost::execution_monitor::execute(boost::function<int ()> const&)\"},frame={level=\"6\",addr=\"0x00000000004814f1\",func=\"boost::execution_monitor::vexecute(boost::function<void ()> const&)\"},frame={level=\"7\",addr=\"0x0000000000448a41\",func=\"boost::unit_test::unit_test_monitor_t::execute_and_translate(boost::function<void ()> const&, unsigned int)\"},frame={level=\"8\",addr=\"0x0000000000426f16\",func=\"boost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned int, boost::unit_test::framework::state::random_generator_helper const*)\"},frame={level=\"9\",addr=\"0x000000000041fea1\",func=\"boost::unit_test::framework::run(unsigned long, bool)\"},frame={level=\"10\",addr=\"0x0000000000446a8f\",func=\"boost::unit_test::unit_test_main(boost::unit_test::test_suite* (*)(int, char**), int, char**)\"},frame={level=\"11\",addr=\"0x00007ffff6641830\",func=\"__libc_start_main\",file=\"../csu/libc-start.c\",fullname=\"/build/glibc-9tT8Do/glibc-2.23/csu/../csu/libc-start.c\",line=\"291\"},frame={level=\"12\",addr=\"0x000000000040fcf9\",func=\"_start\"}]\n(gdb)\n48-stack-list-arguments 1\n48^done,stack-args=[frame={level=\"0\",args=[]},frame={level=\"1\",args=[]},frame={level=\"2\",args=[]},frame={level=\"3\",args=[]},frame={level=\"4\",args=[]},frame={level=\"5\",args=[]},frame={level=\"6\",args=[]},frame={level=\"7\",args=[]},frame={level=\"8\",args=[]},frame={level=\"9\",args=[]},frame={level=\"10\",args=[]},frame={level=\"11\",args=[{name=\"main\",value=\"0x40ee10 <main>\"},{name=\"argc\",value=\"1\"},{name=\"argv\",value=\"0x7fffffffe598\"},{name=\"init\",value=\"<optimized out>\"},{name=\"fini\",value=\"<optimized out>\"},{name=\"rtld_fini\",value=\"<optimized out>\"},{name=\"stack_end\",value=\"0x7fffffffe588\"}]},frame={level=\"12\",args=[]}]\n(gdb)\n49-thread-info\n49^done,threads=[{id=\"1\",target-id=\"Thread 0x7ffff7fc8740 (LWP 2702)\",name=\"libTest\",frame={level=\"0\",addr=\"0x000000000048598c\",func=\"GerenteVolumedeControle::GerenteVolumedeControle(std::vector<int, std::allocator<int> >, int, std::vector<double, std::allocator<double> >, int, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<int, std::allocator<int> >)\",args=[]},state=\"stopped\",core=\"1\"}],current-thread-id=\"1\"\n(gdb)\n50-thread-list-ids\n50^done,thread-ids={thread-id=\"1\"},current-thread-id=\"1\",number-of-threads=\"1\"\n(gdb)\n51-stack-list-arguments 0 0 0\n51^done,stack-args=[frame={level=\"0\",args=[]}]\n(gdb)\n52-stack-list-locals 0\n52^done,locals=[]\n(gdb)\n",
+			"settings":
+			{
+				"buffer_size": 10174,
+				"line_ending": "Unix",
+				"name": "GDB Session",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1\nCopyright (C) 2016 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.  Type \"show copying\"\nand \"show warranty\" for details.\nThis GDB was configured as \"x86_64-linux-gnu\".\nType \"show configuration\" for configuration details.\nFor bug reporting instructions, please see:\n<http://www.gnu.org/software/gdb/bugs/>.\nFind the GDB manual and other documentation resources online at:\n<http://www.gnu.org/software/gdb/documentation/>.\nFor help, type \"help\".\nType \"apropos word\" to search for commands related to \"word\"...\nLendo símbolos de ./libTest...(no debugging symbols found)...concluído.\n&\"warning: GDB: Failed to set controlling terminal: ioctl inapropriado para dispositivo\\n\"\n[Thread debugging using libthread_db enabled]\nUsing host libthread_db library \"/lib/x86_64-linux-gnu/libthread_db.so.1\".\n[New Thread 0x7ffff5949700 (LWP 2733)]\n[New Thread 0x7ffff5148700 (LWP 2735)]\n[Thread 0x7ffff5148700 (LWP 2735) exited]\n[Thread 0x7ffff5949700 (LWP 2733) exited]\n\nThread 1 \"libTest\" received signal SIGSEGV, Segmentation fault.\n0x000000000048598c in GerenteVolumedeControle::GerenteVolumedeControle(std::vector<int, std::allocator<int> >, int, std::vector<double, std::allocator<double> >, int, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<int, std::allocator<int> >) ()\n",
+			"settings":
+			{
+				"buffer_size": 1595,
+				"line_ending": "Unix",
+				"name": "GDB Console",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix",
+				"name": "GDB Variables",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "GerenteVolumedeControle::GerenteVolumedeControle(std::vector<int, std::allocator<int> >, int, std::vector<double, std::allocator<double> >, int, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<int, std::allocator<int> >)();\nGerbordaTpreConv::test_method()();\nGerbordaTpreConv_invoker()();\nboost::detail::function::function_obj_invoker0<boost::detail::forward, int>::invoke(boost::detail::function::function_buffer&)();\nboost::execution_monitor::catch_signals(boost::function<int ()> const&)();\nboost::execution_monitor::execute(boost::function<int ()> const&)();\nboost::execution_monitor::vexecute(boost::function<void ()> const&)();\nboost::unit_test::unit_test_monitor_t::execute_and_translate(boost::function<void ()> const&, unsigned int)();\nboost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned int, boost::unit_test::framework::state::random_generator_helper const*)();\nboost::unit_test::framework::run(unsigned long, bool)();\nboost::unit_test::unit_test_main(boost::unit_test::test_suite* (*)(int, char**), int, char**)();\n__libc_start_main(main = 0x40ee10 <main>,argc = 1,argv = 0x7fffffffe598,init = <optimized out>,fini = <optimized out>,rtld_fini = <optimized out>,stack_end = 0x7fffffffe588,);\n_start();\n",
+			"settings":
+			{
+				"buffer_size": 1341,
+				"line_ending": "Unix",
+				"name": "GDB Callstack",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "001 -    stopped - GerenteVolumedeControle::GerenteVolumedeControle(std::vector<int, std::allocator<int> >, int, std::vector<double, std::allocator<double> >, int, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<double, std::allocator<double> >, std::vector<int, std::allocator<int> >)();\n",
+			"settings":
+			{
+				"buffer_size": 345,
+				"line_ending": "Unix",
+				"name": "GDB Threads",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "-1 - /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/GerenteVolumedeControle.cpp:54\n",
+			"settings":
+			{
+				"buffer_size": 136,
+				"line_ending": "Unix",
+				"name": "GDB Breakpoints",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 132.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"gd",
+				"SublimeGDB: Start Debugging"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Install Package Control"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 513.0,
+		"history":
+		[
+			"import urllib2,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation') "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/doc",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/libTest",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/libTest/source"
+	],
+	"file_history":
+	[
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/CondicoesdeContorno.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/CondicoesdeContorno.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/SolverLinear.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/SolverLinear.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/SolucaoAnalitica.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/SolucaoAnalitica.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/Malha.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/PropriedadeTermica.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/CSV/untitled.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/libTest/source/mainDaMalha.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/CSV/arquivoteste2.csv",
+		"/home/cvbrasil/Documentos/C++/Teste/Variados/testetextout.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/Malha.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/PropriedadeTermica.h",
+		"/home/cvbrasil/Downloads/xtgx/app/source/main.cpp",
+		"/home/cvbrasil/.config/sublime-text-3/Packages/SublimeGDB/SublimeGDB.sublime-settings",
+		"/home/cvbrasil/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/libTest/source/testeDoTeste.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/app/source/main.cpp",
+		"/home/cvbrasil/Downloads/cmake_template-master/lib/source/functions.cpp",
+		"/home/cvbrasil/Downloads/cmake_template-master/libTest/source/TestGridLib.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/Classe/relogio.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/Classe/gerenciarelogio.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/Classe/gerenciarelogio.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho2/resolvematriz.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho2/Metodojacobi.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho2/Metodojacobi.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho1/processosgasideal.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho1/Gasideal.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho1/Gasideal.h",
+		"/home/cvbrasil/Documentos/C++/Teste/Arrays/Vectors/lavamosnos.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Modo Teste/main.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/Arrays/Vectors/criodireto.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/lib/include/SolverLinear.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/lib/include/CondicoesdeContorno.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/lib/include/PropriedadeTermica.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/lib/include/Malha.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/lib/include/GerenteVolumedeControle.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/app/source/main.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho3/resolvederivadas.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/Variados/ioteste.cpp",
+		"/home/cvbrasil/Documentos/C++/Exercícios/Cap5/5.23.cpp",
+		"/home/cvbrasil/Documentos/C++/Exercícios/Cap4/4,34c.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/lib/source/Malha.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/Classe/classe_a.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/lib/source/functions.cpp",
+		"/home/cvbrasil/Downloads/bdfasd/lib/source/functions.cpp",
+		"/home/cvbrasil/Downloads/bdfasd/lib/include/functions.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/lib/include/functions.h",
+		"/home/cvbrasil/Downloads/bdfasd/app/source/main.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/libTest/source/TestGridLib.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template/UtilsLib/include/Test.h",
+		"/home/cvbrasil/Downloads/apresentacao_gi-master/app/source/main.cpp",
+		"/home/cvbrasil/Documentos/Latex/Teste/teste.tex",
+		"/home/cvbrasil/Documentos/C++/Teste/Variados/vartemporaria.cpp",
+		"/home/cvbrasil/Downloads/apresentacao_gi-master/Build/CMakeCache.txt",
+		"/home/cvbrasil/Downloads/apresentacao_gi-master/CMakeLists.txt",
+		"/home/cvbrasil/Downloads/teste/app/source/main.cpp",
+		"/home/cvbrasil/Downloads/main.cpp",
+		"/home/cvbrasil/Downloads/xtgx/main.cpp",
+		"/home/cvbrasil/Downloads/teste/app/CMakeLists.txt",
+		"/home/cvbrasil/Downloads/teste/CMakeLists.txt",
+		"/home/cvbrasil/Downloads/bdfasd/CMakeLists.txt",
+		"/home/cvbrasil/Documentos/C++/Teste/Petsc/static chart help[] = \"Hello world program. \\n\\n\";",
+		"/home/cvbrasil/Downloads/Teste/lib/CMakeLists.txt",
+		"/home/cvbrasil/Downloads/Teste/app/CMakeLists.txt",
+		"/home/cvbrasil/Downloads/Teste/app/source/main.cpp",
+		"/home/cvbrasil/Downloads/Teste/CMakeLists.txt",
+		"/home/cvbrasil/Downloads/apresentacao_gi-master/lib/CMakeLists.txt",
+		"/home/cvbrasil/Downloads/apresentacao_gi-master/app/CMakeLists.txt",
+		"/home/cvbrasil/Documentos/C++/Teste/Arrays/Vectors/testetrabalho.cpp",
+		"/home/cvbrasil/Documentos/C++/Exercícios/Cap3/3.17/healthrecords.cpp",
+		"/home/cvbrasil/Documentos/C++/Exercícios/Cap3/3.17/healthprofile.cpp",
+		"/home/cvbrasil/Documentos/C++/Exercícios/Cap3/3.17/healthprofile.h",
+		"/home/cvbrasil/Documentos/C++/Teste/Classe/teste.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/Classe/classe_b.2.h",
+		"/home/cvbrasil/Documentos/C++/Teste/Classe/classe_b.1.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/Classe/classe_b.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/Arrays/Vectors/vector.cpp",
+		"/home/cvbrasil/Documentos/C++/Teste/olamundo.cpp"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\t\n",
+			"TotaldePontos",
+			"getdelta_w_Mais",
+			"getdelta_e_Menos",
+			"getdelta_e_Mais",
+			"contiguo",
+			"extremo",
+			"contiguo",
+			"extremo",
+			"->",
+			"this",
+			"CampodeTemperaturas",
+			"];\n",
+			"DeltaBaseInicial",
+			"nomeafigura"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "lib/include/GerenteVolumedeControle.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 748,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								659,
+								659
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lib/source/GerenteVolumedeControle.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4794,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1274,
+								1274
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "libTest/source/mainDaMalha.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10732,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10730,
+								10730
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6385.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10174,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10174,
+								10174
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SublimeGDB/gdb_session.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1305.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1595,
+								1595
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 536.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1341,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1341,
+								1341
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 405.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 345,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								345,
+								345
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								136,
+								136
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				3,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			],
+			[
+				2,
+				1,
+				3,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.33,
+			0.66,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.75,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "lib - lib",
+	"project": "Example.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 295.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
