@@ -12,13 +12,13 @@ class Malha
 
 		double getdelta_e(int position);
 
-		double getDelta_e_Mais(int position);
+		double getDelta_e_Mais(int position,bool DeltinhaTrueRealFalseMedio);
 
-		double getDelta_e_Menos(int position);
+		double getDelta_e_Menos(int position,bool DeltinhaTrueRealFalseMedio);
 
-		double getDelta_w_Mais(int position);
+		double getDelta_w_Mais(int position,bool DeltinhaTrueRealFalseMedio);
 
-		double getDelta_w_Menos(int position);
+		double getDelta_w_Menos(int position,bool DeltinhaTrueRealFalseMedio);
 
 		double getLarguraTotal();
 

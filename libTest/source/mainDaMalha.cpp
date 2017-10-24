@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <fstream>
+#include <cstring>
 
 #include "Malha.h"
 #include "PropriedadeTermica.h"
@@ -27,13 +29,13 @@ TestCase( ummaterialtipo1 )
 
 	checkClose(Malha1MatTipo1.getdelta_e(1),0.5,1e-5);
 
-	checkClose(Malha1MatTipo1.getDelta_w_Menos(1),0.25,1e-5);
+	checkClose(Malha1MatTipo1.getDelta_w_Menos(1,true),0.25,1e-5);
 
-	checkClose(Malha1MatTipo1.getDelta_w_Mais(1),0.25,1e-5);
+	checkClose(Malha1MatTipo1.getDelta_w_Mais(1,true),0.25,1e-5);
 
-	checkClose(Malha1MatTipo1.getDelta_e_Menos(1),0.25,1e-5);
+	checkClose(Malha1MatTipo1.getDelta_e_Menos(1,true),0.25,1e-5);
 
-	checkClose(Malha1MatTipo1.getDelta_e_Mais(1),0.25,1e-5);
+	checkClose(Malha1MatTipo1.getDelta_e_Mais(1,true),0.25,1e-5);
 }
 TestCase( ummaterialtipo2 )
 {
@@ -49,13 +51,13 @@ TestCase( ummaterialtipo2 )
 
 	checkClose(Malha1MatTipo2.getdelta_e(1),0.3333333333,1e-5);
 
-	checkClose(Malha1MatTipo2.getDelta_w_Menos(1),0.166666666666,1e-5);
+	checkClose(Malha1MatTipo2.getDelta_w_Menos(1,true),0.166666666666,1e-5);
 
-	checkClose(Malha1MatTipo2.getDelta_w_Mais(1),0.166666666666,1e-5);
+	checkClose(Malha1MatTipo2.getDelta_w_Mais(1,true),0.166666666666,1e-5);
 
-	checkClose(Malha1MatTipo2.getDelta_e_Menos(1),0.166666666666,1e-5);
+	checkClose(Malha1MatTipo2.getDelta_e_Menos(1,true),0.166666666666,1e-5);
 
-	checkClose(Malha1MatTipo2.getDelta_e_Mais(1),0.166666666666,1e-5);
+	checkClose(Malha1MatTipo2.getDelta_e_Mais(1,true),0.166666666666,1e-5);
 }
 TestCase( ummaterialtipo3 )
 {
@@ -71,13 +73,13 @@ TestCase( ummaterialtipo3 )
 
 	checkClose(Malha1MatTipo2.getdelta_e(1),0.4,1e-5);
 
-	checkClose(Malha1MatTipo2.getDelta_w_Menos(1),0.2,1e-5);
+	checkClose(Malha1MatTipo2.getDelta_w_Menos(1,true),0.2,1e-5);
 
-	checkClose(Malha1MatTipo2.getDelta_w_Mais(1),0.2,1e-5);
+	checkClose(Malha1MatTipo2.getDelta_w_Mais(1,true),0.2,1e-5);
 
-	checkClose(Malha1MatTipo2.getDelta_e_Menos(1),0.2,1e-5);
+	checkClose(Malha1MatTipo2.getDelta_e_Menos(1,true),0.2,1e-5);
 
-	checkClose(Malha1MatTipo2.getDelta_e_Mais(1),0.2,1e-5);
+	checkClose(Malha1MatTipo2.getDelta_e_Mais(1,true),0.2,1e-5);
 }
 TestCase( ummaterialtipo4 )
 {
@@ -93,13 +95,13 @@ TestCase( ummaterialtipo4 )
 
 	checkClose(Malha1MatTipo4.getdelta_e(1),0.4,1e-5);
 
-	checkClose(Malha1MatTipo4.getDelta_w_Menos(1),0.2,1e-5);
+	checkClose(Malha1MatTipo4.getDelta_w_Menos(1,true),0.2,1e-5);
 
-	checkClose(Malha1MatTipo4.getDelta_w_Mais(1),0.2,1e-5);
+	checkClose(Malha1MatTipo4.getDelta_w_Mais(1,true),0.2,1e-5);
 
-	checkClose(Malha1MatTipo4.getDelta_e_Menos(1),0.2,1e-5);
+	checkClose(Malha1MatTipo4.getDelta_e_Menos(1,true),0.2,1e-5);
 
-	checkClose(Malha1MatTipo4.getDelta_e_Mais(1),0.2,1e-5);
+	checkClose(Malha1MatTipo4.getDelta_e_Mais(1,true),0.2,1e-5);
 }
 TestCase( doismateriaistipo1 )
 {
@@ -117,13 +119,13 @@ TestCase( doismateriaistipo1 )
 
 	checkClose(Malha2MatTipo1.getdelta_e(3),0.25,1e-5);
 
-	checkClose(Malha2MatTipo1.getDelta_w_Menos(3),0.5,1e-5);
+	checkClose(Malha2MatTipo1.getDelta_w_Menos(3,true),0.5,1e-5);
 
-	checkClose(Malha2MatTipo1.getDelta_w_Mais(3),0.25,1e-5);
+	checkClose(Malha2MatTipo1.getDelta_w_Mais(3,true),0.25,1e-5);
 
-	checkClose(Malha2MatTipo1.getDelta_e_Menos(3),0.125,1e-5);
+	checkClose(Malha2MatTipo1.getDelta_e_Menos(3,true),0.125,1e-5);
 
-	checkClose(Malha2MatTipo1.getDelta_e_Mais(3),0.125,1e-5);
+	checkClose(Malha2MatTipo1.getDelta_e_Mais(3,true),0.125,1e-5);
 }
 TestCase( doismateriaistipo2 )
 {
@@ -141,13 +143,13 @@ TestCase( doismateriaistipo2 )
 
 	checkClose(Malha2MatTipo2.getdelta_e(2),0.5,1e-5);
 
-	checkClose(Malha2MatTipo2.getDelta_w_Menos(2),0.33333333333,1e-5);
+	checkClose(Malha2MatTipo2.getDelta_w_Menos(2,true),0.33333333333,1e-5);
 
-	checkClose(Malha2MatTipo2.getDelta_w_Mais(2),0.333333333333,1e-5);
+	checkClose(Malha2MatTipo2.getDelta_w_Mais(2,true),0.333333333333,1e-5);
 
-	checkClose(Malha2MatTipo2.getDelta_e_Menos(2),0.33333333333,1e-5);
+	checkClose(Malha2MatTipo2.getDelta_e_Menos(2,true),0.33333333333,1e-5);
 
-	checkClose(Malha2MatTipo2.getDelta_e_Mais(2),0.16666666666666,1e-5);
+	checkClose(Malha2MatTipo2.getDelta_e_Mais(2,true),0.16666666666666,1e-5);
 }
 TestCase( doismateriaistipo4 )
 {
@@ -166,15 +168,43 @@ TestCase( doismateriaistipo4 )
 
 	checkClose(Malha2MatTipo4.getdelta_e(2),0.6,1e-5);
 
-	checkClose(Malha2MatTipo4.getDelta_w_Menos(2),0.2,1e-5);
+	checkClose(Malha2MatTipo4.getDelta_w_Menos(2,true),0.2,1e-5);
 
-	checkClose(Malha2MatTipo4.getDelta_w_Mais(2),0.2,1e-5);
+	checkClose(Malha2MatTipo4.getDelta_w_Mais(2,true),0.2,1e-5);
 
-	checkClose(Malha2MatTipo4.getDelta_e_Menos(2),0.4,1e-5);
+	checkClose(Malha2MatTipo4.getDelta_e_Menos(2,true),0.4,1e-5);
 
-	checkClose(Malha2MatTipo4.getDelta_e_Mais(2),0.2,1e-5);
+	checkClose(Malha2MatTipo4.getDelta_e_Mais(2,true),0.2,1e-5);
 
 	checkClose(Malha2MatTipo4.getLarguraTotal(),3,1e-5);
+}
+TestCase( doismateriaistipo2MALHA_IGUALMENTE_ESPACADA )
+{
+	vector<int> Nptoscadamat;
+	Nptoscadamat.push_back(3);
+	Nptoscadamat.push_back(6);
+
+	vector<double> LarguraMat;
+	LarguraMat.push_back(2);
+	LarguraMat.push_back(2);
+
+	Malha Malha2MatTipo2(Nptoscadamat,LarguraMat,2,2);
+
+	checkClose(Malha2MatTipo2.getdelta_e(0),0.6666666666666,1e-5);
+
+	checkClose(Malha2MatTipo2.getdelta_e(1),0.6666666666666,1e-5);
+
+	checkClose(Malha2MatTipo2.getdelta_e(2),0.5,1e-5);
+
+	checkClose(Malha2MatTipo2.getdelta_e(3),0.3333333333333,1e-5);
+
+	checkClose(Malha2MatTipo2.getdelta_e(4),0.3333333333333,1e-5);
+
+	checkClose(Malha2MatTipo2.getdelta_e(5),0.3333333333333,1e-5);
+
+	checkClose(Malha2MatTipo2.getdelta_e(6),0.3333333333333,1e-5);
+
+	checkClose(Malha2MatTipo2.getdelta_e(7),0.3333333333333,1e-5);
 }
 TestCase( TestePropriedadeTermica )
 {
@@ -431,7 +461,7 @@ TestCase( Ger_borda_Tpre_Conv )
 	vector<double> Tgerente;
 
 	vector<int> Nptoscadamat;
-	Nptoscadamat.push_back(500);
+	Nptoscadamat.push_back(4);
 
 	int Nmalhas = 1;
 
@@ -455,14 +485,43 @@ TestCase( Ger_borda_Tpre_Conv )
 	TiposPre.push_back(3);
 
 	Malha Malhaaux(Nptoscadamat,LarguraMat,1,1);
-	GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre);
+	GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
 
 	Tgerente = GVC.getCampoDeTemperaturas();
 
-	double Tanalitica;
-	for(int i=0;i<500;i++)
+	vector<double> Tanalitica;
+	Tanalitica.resize(Tgerente.size());
+	vector<double> DistanciaDaOrigem;
+
+	DistanciaDaOrigem = GVC.getDistanciaDaOrigem();
+
+	string NomedoArquivo = "TabelasTrab4Analit1mat.csv";
+	char NomedoArquivoChar[NomedoArquivo.length()+1];
+	strcpy(NomedoArquivoChar,NomedoArquivo.c_str());
+	ofstream myfile;
+	myfile.open (NomedoArquivoChar);
+
+	for(int i=0;i<DistanciaDaOrigem.size();i++)
 	{
-		Tanalitica = (Pre2[1]/k[0])*(Pre2[0]-(Pre2[1]/k[0]*LarguraMat[0]*Pre2[0]+Pre1[0])/(1+Pre2[1]*LarguraMat[0]/k[0]))*Malhaaux.getDistanciadaOrigemPosicional(i)+Pre1[0];
-		checkClose(Tgerente[i],Tanalitica,1e-10);
+		Tanalitica[i] = (Pre2[1]/k[0])*(Pre2[0]-(Pre2[1]/k[0]*LarguraMat[0]*Pre2[0]+Pre1[0])/(1+Pre2[1]*LarguraMat[0]/k[0]))*Malhaaux.getDistanciadaOrigemPosicional(i)+Pre1[0];
+		checkClose(Tgerente[i],Tanalitica[i],1e-10);
+		myfile<<Tanalitica[i]<<setprecision(17)<<","<<DistanciaDaOrigem[i]<<setprecision(17)<<"\n";
 	}
+	myfile.close();
+	string Nome = "TabelasTrab4Simul1mat.csv";
+	GVC.SalvaCampoDeTemperaturascsv(Nome);
+
+	vector<double>erro;
+	erro.resize(DistanciaDaOrigem.size());
+	string NomedoArquivo2 = "TabelasTrab4erro1mat.csv";
+	char NomedoArquivoChar2[NomedoArquivo2.length()+1];
+	strcpy(NomedoArquivoChar2,NomedoArquivo2.c_str());
+	ofstream myfile2;
+	myfile2.open (NomedoArquivoChar2);
+	for(int i=0;i<DistanciaDaOrigem.size();i++)
+	{
+		erro[i] = fabs(Tanalitica[i]-Tgerente[i])/Tgerente[i];
+		myfile2<<erro[i]<<setprecision(17)<<","<<i+1<<setprecision(17)<<"\n";
+	}
+	myfile2.close();
 }

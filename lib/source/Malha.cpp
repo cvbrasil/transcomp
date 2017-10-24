@@ -44,7 +44,7 @@ double Malha::getdelta_e(int position)
 		return (delta_e);
 	}
 }
-double Malha::getDelta_e_Mais(int position)
+double Malha::getDelta_e_Mais(int position,bool Flag)
 {
 	if(position >= this->DistanciadaOrigem.size()-1 || position<0)
 	{
@@ -54,31 +54,38 @@ double Malha::getDelta_e_Mais(int position)
 	else
 	{
 		double delta_e_Mais;
-		int DefineMatPtoP=0;
-		int DefineMatPtoE=0;
-		for(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)
+		if(Flag == true)
 		{
-			if(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])
+			int DefineMatPtoP=0;
+			int DefineMatPtoE=0;
+			for(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)
 			{
-				DefineMatPtoP = i+1;
+				if(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])
+				{
+					DefineMatPtoP = i+1;
+				}
+				if(this->DistanciadaOrigem[position+1]>this->DistanciadaOrigemMaterial[i])
+				{
+					DefineMatPtoE = i+1;
+				}
 			}
-			if(this->DistanciadaOrigem[position+1]>this->DistanciadaOrigemMaterial[i])
+			if(DefineMatPtoE==DefineMatPtoP)
 			{
-				DefineMatPtoE = i+1;
+				delta_e_Mais = (this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position])/2;
 			}
-		}
-		if(DefineMatPtoE==DefineMatPtoP)
-		{
-			delta_e_Mais = (this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position])/2;
+			else
+			{
+				delta_e_Mais = (this->DistanciadaOrigem[position+1]-this->DistanciadaOrigemMaterial[DefineMatPtoE-1]);
+			}
 		}
 		else
 		{
-			delta_e_Mais = (this->DistanciadaOrigem[position+1]-this->DistanciadaOrigemMaterial[DefineMatPtoE-1]);
+			delta_e_Mais = (this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position])/2;
 		}
 		return (delta_e_Mais);
 	}
 }
-double Malha::getDelta_e_Menos(int position)
+double Malha::getDelta_e_Menos(int position,bool Flag)
 {
 	if(position >= this->DistanciadaOrigem.size()-1 || position<0)
 	{
@@ -87,32 +94,40 @@ double Malha::getDelta_e_Menos(int position)
 	}
 	else
 	{
+
 		double delta_e_Menos;
-		int DefineMatPtoP=0;
-		int DefineMatPtoE=0;
-		for(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)
+		if(Flag == true)
 		{
-			if(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])
+			int DefineMatPtoP=0;
+			int DefineMatPtoE=0;
+			for(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)
 			{
-				DefineMatPtoP = i+1;
+				if(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])
+				{
+					DefineMatPtoP = i+1;
+				}
+				if(this->DistanciadaOrigem[position+1]>this->DistanciadaOrigemMaterial[i])
+				{
+					DefineMatPtoE = i+1;
+				}
 			}
-			if(this->DistanciadaOrigem[position+1]>this->DistanciadaOrigemMaterial[i])
+			if(DefineMatPtoE==DefineMatPtoP)
 			{
-				DefineMatPtoE = i+1;
+				delta_e_Menos = (this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position])/2;
 			}
-		}
-		if(DefineMatPtoE==DefineMatPtoP)
-		{
-			delta_e_Menos = (this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position])/2;
+			else
+			{
+				delta_e_Menos = (this->DistanciadaOrigemMaterial[DefineMatPtoE-1]-this->DistanciadaOrigem[position]);
+			}
 		}
 		else
 		{
-			delta_e_Menos = (this->DistanciadaOrigemMaterial[DefineMatPtoE-1]-this->DistanciadaOrigem[position]);
+			delta_e_Menos = (this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position])/2;
 		}
 		return (delta_e_Menos);
 	}
 }
-double Malha::getDelta_w_Mais(int position)
+double Malha::getDelta_w_Mais(int position,bool Flag)
 {
 	if(position <= 0|| position>this->DistanciadaOrigem.size())
 	{
@@ -122,31 +137,38 @@ double Malha::getDelta_w_Mais(int position)
 	else
 	{
 		double delta_w_Mais;
-		int DefineMatPtoP=0;
-		int DefineMatPtoW=0;
-		for(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)
+		if(Flag == true)
 		{
-			if(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])
+			int DefineMatPtoP=0;
+			int DefineMatPtoW=0;
+			for(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)
 			{
-				DefineMatPtoP = i+1;
+				if(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])
+				{
+					DefineMatPtoP = i+1;
+				}
+				if(this->DistanciadaOrigem[position-1]>this->DistanciadaOrigemMaterial[i])
+				{
+					DefineMatPtoW = i+1;
+				}
 			}
-			if(this->DistanciadaOrigem[position-1]>this->DistanciadaOrigemMaterial[i])
+			if(DefineMatPtoP==DefineMatPtoW)
 			{
-				DefineMatPtoW = i+1;
+				delta_w_Mais = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;
 			}
-		}
-		if(DefineMatPtoP==DefineMatPtoW)
-		{
-			delta_w_Mais = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;
+			else
+			{
+				delta_w_Mais = this->DistanciadaOrigem[position] - this->DistanciadaOrigemMaterial[DefineMatPtoP-1];
+			}
 		}
 		else
 		{
-			delta_w_Mais = this->DistanciadaOrigem[position] - this->DistanciadaOrigemMaterial[DefineMatPtoP-1];
+			delta_w_Mais = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;
 		}
 		return (delta_w_Mais);
 	}
 }
-double Malha::getDelta_w_Menos(int position)
+double Malha::getDelta_w_Menos(int position,bool Flag)
 {
 	if(position <= 0|| position>this->DistanciadaOrigem.size())
 	{
@@ -156,26 +178,33 @@ double Malha::getDelta_w_Menos(int position)
 	else
 	{
 		double delta_w_Menos;
-		int DefineMatPtoP=0;
-		int DefineMatPtoW=0;
-		for(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)
+		if(Flag == true)
 		{
-			if(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])
+			int DefineMatPtoP=0;
+			int DefineMatPtoW=0;
+			for(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)
 			{
-				DefineMatPtoP = i+1;
+				if(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])
+				{
+					DefineMatPtoP = i+1;
+				}
+				if(this->DistanciadaOrigem[position-1]>this->DistanciadaOrigemMaterial[i])
+				{
+					DefineMatPtoW = i+1;
+				}
 			}
-			if(this->DistanciadaOrigem[position-1]>this->DistanciadaOrigemMaterial[i])
+			if(DefineMatPtoP==DefineMatPtoW)
 			{
-				DefineMatPtoW = i+1;
+				delta_w_Menos = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;
 			}
-		}
-		if(DefineMatPtoP==DefineMatPtoW)
-		{
-			delta_w_Menos = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;
+			else
+			{
+				delta_w_Menos = this->DistanciadaOrigemMaterial[DefineMatPtoP-1] - this->DistanciadaOrigem[position-1];
+			}
 		}
 		else
 		{
-			delta_w_Menos = this->DistanciadaOrigemMaterial[DefineMatPtoP-1] - this->DistanciadaOrigem[position-1];
+			delta_w_Menos = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;
 		}
 		return (delta_w_Menos);
 	}
