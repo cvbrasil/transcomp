@@ -97,6 +97,10 @@ GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nma
 	SolverLinear solucionador(A,b,TotaldePontos);
 	this->CampoDeTemperaturas = solucionador.getCampodeTemperaturas();
 }
+GerenteVolumedeControle::~GerenteVolumedeControle()
+{
+
+}
 double GerenteVolumedeControle::getkInterface(double delta, double delta_Mais, double delta_Menos, double kmais, double kmenos, int TipoDeKinterface)
 {
 	if(TipoDeKinterface==1)
@@ -137,7 +141,7 @@ void GerenteVolumedeControle::SalvaCampoDeTemperaturascsv(string NomedoArquivo)
 }
 int GerenteVolumedeControle::ContaTotaldePontos(vector<int> Nptoscadamat, int Nmalhas)
 {
-	int TotaldePontos;
+	int TotaldePontos=0;
 	for(int i=0;i<Nmalhas;i++)
 	{
 		TotaldePontos = TotaldePontos + Nptoscadamat[i];

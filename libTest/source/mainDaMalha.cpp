@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <fstream>
 #include <cstring>
+#include <petscksp.h>
 
 #include "Malha.h"
 #include "PropriedadeTermica.h"
@@ -456,14 +457,22 @@ TestCase( CC6 )
 // 	checkClose(T[0],2,1e-5);
 // 	checkClose(T[1],-2,1e-5);
 // }
-TestCase( Ger_borda_Tpre_Conv )
+TestCase( Ger_borda_Tpre_Conv_Erro )
 {
-	vector<double> Tgerente;
+	PetscInitialize(0,0,0,0);
 
 	vector<int> Nptoscadamat;
 	Nptoscadamat.push_back(4);
 
-	int Nmalhas = 1;
+	int Nmalhas=1;
+
+	int Ntestes = 4;
+	vector<double> ErroMax;
+	ErroMax.resize(Ntestes);
+	for(int i=0;i<ErroMax.size();i++)
+	{
+		ErroMax[i] = 0;
+	}
 
 	vector<double> LarguraMat;
 	LarguraMat.push_back(1);
@@ -484,44 +493,67 @@ TestCase( Ger_borda_Tpre_Conv )
 	TiposPre.push_back(1);
 	TiposPre.push_back(3);
 
-	Malha Malhaaux(Nptoscadamat,LarguraMat,1,1);
-	GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
-
-	Tgerente = GVC.getCampoDeTemperaturas();
-
-	vector<double> Tanalitica;
-	Tanalitica.resize(Tgerente.size());
-	vector<double> DistanciaDaOrigem;
-
-	DistanciaDaOrigem = GVC.getDistanciaDaOrigem();
-
-	string NomedoArquivo = "TabelasTrab4Analit1mat.csv";
-	char NomedoArquivoChar[NomedoArquivo.length()+1];
-	strcpy(NomedoArquivoChar,NomedoArquivo.c_str());
-	ofstream myfile;
-	myfile.open (NomedoArquivoChar);
-
-	for(int i=0;i<DistanciaDaOrigem.size();i++)
+	//Escopo para 4 volumes
 	{
-		Tanalitica[i] = (Pre2[1]/k[0])*(Pre2[0]-(Pre2[1]/k[0]*LarguraMat[0]*Pre2[0]+Pre1[0])/(1+Pre2[1]*LarguraMat[0]/k[0]))*Malhaaux.getDistanciadaOrigemPosicional(i)+Pre1[0];
-		checkClose(Tgerente[i],Tanalitica[i],1e-10);
-		myfile<<Tanalitica[i]<<setprecision(17)<<","<<DistanciaDaOrigem[i]<<setprecision(17)<<"\n";
-	}
-	myfile.close();
-	string Nome = "TabelasTrab4Simul1mat.csv";
-	GVC.SalvaCampoDeTemperaturascsv(Nome);
+		vector<double> Tgerente;
+		vector<double> Tanalitica;
+		Malha Malhaaux(Nptoscadamat,LarguraMat,1,1);
+		GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
 
-	vector<double>erro;
-	erro.resize(DistanciaDaOrigem.size());
-	string NomedoArquivo2 = "TabelasTrab4erro1mat.csv";
+		Tgerente = GVC.getCampoDeTemperaturas();
+
+
+		Tanalitica.resize(Tgerente.size());
+		vector<double> DistanciaDaOrigem;
+
+		DistanciaDaOrigem = GVC.getDistanciaDaOrigem();
+
+		string NomedoArquivo = "TabelasTrab4Analit1mat.csv";
+		char NomedoArquivoChar[NomedoArquivo.length()+1];
+		strcpy(NomedoArquivoChar,NomedoArquivo.c_str());
+		ofstream myfile;
+		myfile.open (NomedoArquivoChar);
+
+		for(int i=0;i<Tgerente.size();i++)
+		{
+			Tanalitica[i] = (Pre2[1]/k[0])*(Pre2[0]-(Pre2[1]/k[0]*LarguraMat[0]*Pre2[0]+Pre1[0])/(1+Pre2[1]*LarguraMat[0]/k[0]))*Malhaaux.getDistanciadaOrigemPosicional(i)+Pre1[0];
+			checkClose(Tgerente[i],Tanalitica[i],1e-10);
+			myfile<<Tanalitica[i]<<setprecision(17)<<","<<DistanciaDaOrigem[i]<<setprecision(17)<<"\n";
+		}
+		myfile.close();
+		string Nome = "TabelasTrab4Simul1mat.csv";
+		GVC.SalvaCampoDeTemperaturascsv(Nome);
+	}
+	string NomedoArquivo2 = "TabelasTrab4erroMAX1mat.csv";
 	char NomedoArquivoChar2[NomedoArquivo2.length()+1];
 	strcpy(NomedoArquivoChar2,NomedoArquivo2.c_str());
 	ofstream myfile2;
 	myfile2.open (NomedoArquivoChar2);
-	for(int i=0;i<DistanciaDaOrigem.size();i++)
+	for(int j=0;j<Ntestes;j++)
 	{
-		erro[i] = fabs(Tanalitica[i]-Tgerente[i])/Tgerente[i];
-		myfile2<<erro[i]<<setprecision(17)<<","<<i+1<<setprecision(17)<<"\n";
+		vector<double> Tgerente;
+		vector<double> Tanalitica;
+
+		Malha Malhaaux(Nptoscadamat,LarguraMat,1,1);
+		GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
+		Tgerente = GVC.getCampoDeTemperaturas();
+		Tanalitica.resize(Tgerente.size());
+
+		vector<double>erro;
+		erro.resize(Tgerente.size());
+		for(int i=0;i<Tgerente.size();i++)
+		{
+			Tanalitica[i] = (Pre2[1]/k[0])*(Pre2[0]-(Pre2[1]/k[0]*LarguraMat[0]*Pre2[0]+Pre1[0])/(1+Pre2[1]*LarguraMat[0]/k[0]))*Malhaaux.getDistanciadaOrigemPosicional(i)+Pre1[0];
+			erro[i] = fabs(Tanalitica[i]-Tgerente[i])/Tgerente[i];
+			if(ErroMax[j]<erro[i])
+			{
+				ErroMax[j]=erro[i];
+			}
+		}
+		myfile2<<ErroMax[j]<<setprecision(17)<<","<<Nptoscadamat[0]<<setprecision(17)<<"\n";
+		Nptoscadamat[0]=Nptoscadamat[0]*2;
 	}
 	myfile2.close();
+	PetscFinalize();
+	
 }

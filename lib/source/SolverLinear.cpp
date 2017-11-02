@@ -33,7 +33,7 @@ SolverLinear::SolverLinear(vector<vector<double> >Avec,vector<double>bvec,int ni
     PetscInt       n = nint;
     PetscScalar    Valor[1];
 
-    PetscInitialize(0,0,0,0);
+    
     PetscOptionsGetInt(NULL,NULL,"-n",&n,NULL);
 
 
@@ -167,7 +167,7 @@ SolverLinear::SolverLinear(vector<vector<double> >Avec,vector<double>bvec,int ni
          - provides summary and diagnostic information if certain runtime
            options are chosen (e.g., -log_view).
     */
-    PetscFinalize();
+    
   }
   else
   {
