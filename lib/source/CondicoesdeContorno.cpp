@@ -78,7 +78,7 @@ void CondicoesdeContorno::setCondicoesdeContorno(vector<double>Pre1,vector<doubl
 					{
 						this->TermodeEntrada[0] = ainterno[0];
 						this->TermodeEntrada[1] = -ainterno[0];
-						this->TermodeEntrada[2] = -Pre1[0];
+						this->TermodeEntrada[2] = Pre1[0];
 					}
 					else
 					{
@@ -103,9 +103,9 @@ void CondicoesdeContorno::setCondicoesdeContorno(vector<double>Pre1,vector<doubl
 					{
 						if(TipodeMalha == 2||TipodeMalha==4)
 						{
-							this->TermodeEntrada[0] = ainterno[0]+1/(1/Pre1[1]+aexterno[0]);
+							this->TermodeEntrada[0] = ainterno[0]+1/(1/Pre1[1]+1/aexterno[0]);
 							this->TermodeEntrada[1] = -ainterno[0];
-							this->TermodeEntrada[2] = Pre1[0]/(1/Pre1[1]+aexterno[0]);
+							this->TermodeEntrada[2] = Pre1[0]/(1/Pre1[1]+1/aexterno[0]);
 						}
 						else
 						{
@@ -193,8 +193,8 @@ void CondicoesdeContorno::setCondicoesdeContorno(vector<double>Pre1,vector<doubl
 						if(TipodeMalha == 2||TipodeMalha==3)
 						{
 							this->TermodeSaida[0] = -ainterno[1];
-							this->TermodeSaida[1] = ainterno[1]+1/(1/Pre2[1]+aexterno[1]);
-							this->TermodeSaida[2] = Pre2[0]/(1/Pre2[1]+aexterno[1]);
+							this->TermodeSaida[1] = ainterno[1]+1/(1/Pre2[1]+1/aexterno[1]);
+							this->TermodeSaida[2] = Pre2[0]/(1/Pre2[1]+1/aexterno[1]);
 						}
 						else
 						{

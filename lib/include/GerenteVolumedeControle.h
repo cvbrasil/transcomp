@@ -18,6 +18,7 @@ class GerenteVolumedeControle
 		int ContaTotaldePontos(vector<int> Nptoscadamat, int Nmalhas);
 		vector<double> CriaVetordeNulos(int NumerodePontos);
 		vector<vector<double> > CriaMatrizQuadradadeNulos(int NumerodePontos);
+		double ContaLarguraTotal(vector<double>LarguraMat);
 
 		vector<double> CampoDeTemperaturas;
 		vector<double> DistanciaDaOrigem;

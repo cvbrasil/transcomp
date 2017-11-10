@@ -21,6 +21,7 @@ GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nma
 	this->DistanciaDaOrigem = malha1.getDistanciadaOrigem();
 
 	int TotaldePontos;
+	double LarguraTotal;
 	vector<vector<double> >A;
 	vector<double>b;
 	double kinterface1;
@@ -38,6 +39,7 @@ GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nma
 	double kmais_w;
 	double kmenos_w;
 
+	LarguraTotal = ContaLarguraTotal(LarguraMat);
 	TotaldePontos = ContaTotaldePontos(Nptoscadamat, Nmalhas);
 
 	b = CriaVetordeNulos(TotaldePontos);
@@ -59,7 +61,7 @@ GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nma
 	}
 	else
 	{
-		ksobredeltaexterno[1] = propriedadetermica1.getk(TotaldePontos-1)/malha1.getDistanciadaOrigemPosicional(TotaldePontos-1);
+		ksobredeltaexterno[1] = propriedadetermica1.getk(TotaldePontos-1)/(LarguraTotal - malha1.getDistanciadaOrigemPosicional(TotaldePontos-1));
 	}
 	
 
@@ -81,21 +83,44 @@ GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nma
 	A[TotaldePontos-1][TotaldePontos-1] = condicoesdecontorno1.getSegundoTermodeSaida();
 	b[TotaldePontos-1] = condicoesdecontorno1.getTerceiroTermodeSaida();
 
+	// cout<<endl<<endl<<"++++++++++++++++++++++++++++++MALHA+++++++++++++++++++++++++"<<endl;
+	// cout<<A[0][0]<<"		"<<A[0][1]<<"		"<<b[0]<<endl;
+
 	if(TotaldePontos>2)
 	{
 		for(int i=1; i<TotaldePontos-1;i++)
 		{
 			kinterface2 = getkInterface(malha1.getdelta_e(i),malha1.getDelta_e_Mais(i,DeltinhaTrueRealFalseMedio),malha1.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(i+1),propriedadetermica1.getk(i),TipoDeKinterface);
 			kinterface1 = getkInterface(malha1.getdelta_w(i),malha1.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio),malha1.getDelta_w_Menos(i,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(i),propriedadetermica1.getk(i-1),TipoDeKinterface);
-			A[i][i-1] = -kinterface1/malha1.getdelta_e(i);
-			A[i][i] = (kinterface1/malha1.getdelta_e(i)+kinterface2/malha1.getdelta_w(i));
-			A[i][i+1] = -kinterface2/malha1.getdelta_w(i);
+			A[i][i-1] = -kinterface1/malha1.getdelta_w(i);
+			A[i][i] = (kinterface1/malha1.getdelta_w(i)+kinterface2/malha1.getdelta_e(i));
+			A[i][i+1] = -kinterface2/malha1.getdelta_e(i);
+			// cout<<"------------------i="<<i<<"---------------"<<endl;
+			// cout<<A[i][i-1]<<"		"<<A[i][i]<<"		"<<A[i][i-1]<<endl;
+			// cout<<kinterface1<<"	"<<kinterface2<<endl;
+			// cout<<malha1.getdelta_w(i)<<"	"<<malha1.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio)<<"	"<<malha1.getDelta_w_Menos(i,DeltinhaTrueRealFalseMedio)<<endl;
 		}
+		// cout<<A[TotaldePontos-1][TotaldePontos-2]<<"		"<<setprecision(10)<<A[TotaldePontos-1][TotaldePontos-1]<<"		"<<b[TotaldePontos-1]<<endl;
 	}
+
+	// cout<<endl<<endl<<"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl<<endl;
+	// for(int i=0; i<TotaldePontos; i++)
+	// {
+	// 	for(int j=0; j<TotaldePontos; j++)
+	// 	{
+	// 		cout<<A[i][j]<<"	";
+	// 	}
+	// 	cout<<"	|"<<b[i]<<endl;
+	// }
 	
 
 	SolverLinear solucionador(A,b,TotaldePontos);
 	this->CampoDeTemperaturas = solucionador.getCampodeTemperaturas();
+
+	// for(int i = 0; i<TotaldePontos; i++)
+	// {
+	// 	cout<<setprecision(17)<<CampoDeTemperaturas[i]<<"	"<<endl<<endl;
+	// }
 }
 GerenteVolumedeControle::~GerenteVolumedeControle()
 {
@@ -171,6 +196,15 @@ vector<vector<double> > GerenteVolumedeControle::CriaMatrizQuadradadeNulos(int N
 		}
 	}
 	return(A);
+}
+double GerenteVolumedeControle::ContaLarguraTotal(vector<double>LarguraMat)
+{
+	double LarguraTotal=0;
+	for(int i = 0; i<LarguraMat.size(); i++)
+	{
+		LarguraTotal = LarguraTotal + LarguraMat[i];
+	}
+	return(LarguraTotal);
 }
 void GerenteVolumedeControle::MostraTiposdeConfiguracao()
 {
