@@ -227,11 +227,10 @@ void Malha::setVariaveisdeMalha(vector<int>NumerodePontos,vector<double>Largurap
 			vector<double> DeltasTransferencia;
 			int PontosTotais = 0;
 			int cont = 0;
-			double DeltaInicial;
+			vector<double> DeltaInicial;
 
 			DeltaBase = DefineDeltaBase(NumerodePontos,LarguraporMaterial,NumerodeMalhas,TipodeMalha);
-			DeltaInicial = DefineDeltaBaseInicial(TipodeMalha,DeltaBase[0]);
-			DeltasTransferencia = DefineDeltasdeTransferencia(DeltaBase[0],DeltaBase[NumerodeMalhas-1],TipodeMalha);
+			DeltaInicial = DefineDeltaBaseInicial(TipodeMalha,DeltaBase,NumerodeMalhas);
 
 			this->TipodeMalha = TipodeMalha;
 
@@ -251,7 +250,7 @@ void Malha::setVariaveisdeMalha(vector<int>NumerodePontos,vector<double>Largurap
 				{
 					if(j==0)
 					{
-						this->DistanciadaOrigem[0] = DeltaInicial;
+						this->DistanciadaOrigem[0] = DeltaInicial[0];
 					}
 					else
 					{
@@ -265,58 +264,11 @@ void Malha::setVariaveisdeMalha(vector<int>NumerodePontos,vector<double>Largurap
 				double acumulaLarguras = 0;
 				for(int i=0;i<NumerodeMalhas;i++)
 				{
-					for(int j=0;j<NumerodePontos[i];j++)
+					this->DistanciadaOrigem[cont]=DeltaInicial[i]+acumulaLarguras;
+					cont++;
+					for(int j=1;j<NumerodePontos[i];j++)
 					{
-						if(j==0)
-						{
-							if(i==0)
-							{
-								this->DistanciadaOrigem[0] = DeltaInicial;
-							}
-							else
-							{
-								if(i==NumerodeMalhas-1)
-								{
-									this->DistanciadaOrigem[cont] = acumulaLarguras + DeltasTransferencia[1];
-								}
-								else
-								{
-									this->DistanciadaOrigem[cont] = acumulaLarguras + DeltaBase[i]/2;
-								}
-							}
-						}
-						else
-						{
-							if(j==NumerodePontos[i]-1)
-							{
-								if(i==0)
-								{
-									this->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1] + DeltasTransferencia[0];
-								}
-								else
-								{
-									this->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1] + DeltaBase[i];
-								}
-							}
-							else
-							{
-								if(j==1)
-								{
-									if(i==NumerodeMalhas-1)
-									{
-										this->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1] + DeltasTransferencia[2];
-									}
-									else
-									{
-										this->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1] + DeltaBase[i];
-									}
-								}
-								else
-								{
-									this->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1] + DeltaBase[i];
-								}
-							}
-						}
+						this->DistanciadaOrigem[cont]=DeltaBase[i]+this->DistanciadaOrigem[cont-1];
 						cont++;
 					}
 					this->DistanciadaOrigemMaterial[i] = acumulaLarguras;
@@ -343,12 +295,19 @@ vector<double> Malha::DefineDeltaBase(vector<int>NumerodePontos,vector<double>La
 	//++++++++++++++++++++++++++TIPO1++++++++++++++++++++++++++++++++++++++++++++
 	if(TipodeMalha==1)
 	{
-		DeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-1);
-		for(int i=1;i<NumerodeMalhas-1;i++)
+		if(NumerodeMalhas==1)
 		{
-			DeltaBase[i] = LarguraporMaterial[i]/NumerodePontos[i];
+			DeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-1);
 		}
-		DeltaBase[NumerodeMalhas-1] = LarguraporMaterial[NumerodeMalhas-1]/(NumerodePontos[NumerodeMalhas-1]-1);
+		else
+		{
+			DeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-0.5);
+			for(int i=1;i<NumerodeMalhas-1;i++)
+			{
+				DeltaBase[i] = LarguraporMaterial[i]/NumerodePontos[i];
+			}
+			DeltaBase[NumerodeMalhas-1] = LarguraporMaterial[NumerodeMalhas-1]/(NumerodePontos[NumerodeMalhas-1]-0.5);
+		}
 	}
 	//++++++++++++++++++++++++++TIPO2++++++++++++++++++++++++++++++++++++++++++++
 	if(TipodeMalha==2)
@@ -361,81 +320,58 @@ vector<double> Malha::DefineDeltaBase(vector<int>NumerodePontos,vector<double>La
 	//++++++++++++++++++++++++++TIPO3++++++++++++++++++++++++++++++++++++++++++++
 	if(TipodeMalha==3)
 	{
-		DeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-0.5);
-		for(int i=1;i<NumerodeMalhas-1;i++)
+		if(NumerodeMalhas==1)
 		{
-			DeltaBase[i] = LarguraporMaterial[i]/NumerodePontos[i];
+			DeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-0.5);
 		}
-		DeltaBase[NumerodeMalhas-1] = LarguraporMaterial[NumerodeMalhas-1]/(NumerodePontos[NumerodeMalhas-1]-0.5);
+		else
+		{
+			DeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-0.5);
+			for(int i=1;i<NumerodeMalhas;i++)
+			{
+				DeltaBase[i] = LarguraporMaterial[i]/NumerodePontos[i];
+			}
+		}
 	}
 	//++++++++++++++++++++++++++TIPO4++++++++++++++++++++++++++++++++++++++++++++
 	if(TipodeMalha==4)
 	{
-		DeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-0.5);
-		for(int i=1;i<NumerodeMalhas-1;i++)
+		if(NumerodeMalhas==1)
 		{
-			DeltaBase[i] = LarguraporMaterial[i]/NumerodePontos[i];
+			DeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-0.5);	
 		}
-		DeltaBase[NumerodeMalhas-1] = LarguraporMaterial[NumerodeMalhas-1]/(NumerodePontos[NumerodeMalhas-1]-0.5);
+		else
+		{
+			for(int i=0;i<NumerodeMalhas-1;i++)
+			{
+				DeltaBase[i] = LarguraporMaterial[i]/NumerodePontos[i];
+			}
+			DeltaBase[NumerodeMalhas-1] = LarguraporMaterial[NumerodeMalhas-1]/(NumerodePontos[NumerodeMalhas-1]-0.5);
+		}
 	}
 	return(DeltaBase);
 }
-double Malha::DefineDeltaBaseInicial(int TipodeMalha,double DeltaBaseMaterial1)
+vector<double> Malha::DefineDeltaBaseInicial(int TipodeMalha,vector<double> DeltaBase,int NumerodeMalhas)
 {
-	double DeltaInicial;
-	//++++++++++++++++++++++++++TIPO1++++++++++++++++++++++++++++++++++++++++++++
-	if(TipodeMalha==1)
+	vector<double> DeltaInicial;
+	DeltaInicial.resize(3);
+	//++++++++++++++++++++++++++TIPO1 e 3++++++++++++++++++++++++++++++++++++++++++++
+	if(TipodeMalha==1||TipodeMalha==3)
 	{
-		DeltaInicial = 0;
+		DeltaInicial[0] = 0;
+		for(int i=1;i<NumerodeMalhas;i++)
+		{
+			DeltaInicial[i] = DeltaBase[i]/2;
+		}
 	}
-	//++++++++++++++++++++++++++TIPO2++++++++++++++++++++++++++++++++++++++++++++
-	if(TipodeMalha==2)
+	//++++++++++++++++++++++++++TIPO2 e 4++++++++++++++++++++++++++++++++++++++++++++
+	if(TipodeMalha==2||TipodeMalha==4)
 	{
-		DeltaInicial = DeltaBaseMaterial1/2;
+		for(int i=0;i<NumerodeMalhas;i++)
+		{
+			DeltaInicial[i] = DeltaBase[i]/2;
+		}	
 	}
-	//++++++++++++++++++++++++++TIPO3++++++++++++++++++++++++++++++++++++++++++++
-	if(TipodeMalha==3)
-	{
-		DeltaInicial = 0;
-	}
-	//++++++++++++++++++++++++++TIPO4++++++++++++++++++++++++++++++++++++++++++++
-	if(TipodeMalha==4)
-	{
-		DeltaInicial = DeltaBaseMaterial1/2;
-	}
+
 	return(DeltaInicial);
-}
-vector<double> Malha::DefineDeltasdeTransferencia(double DeltaBaseMat1,double DeltaBaseMatUltimo,int TipodeMalha)
-{
-	vector<double> DeltasTransferencia;
-	DeltasTransferencia.resize(3);
-	//++++++++++++++++++++++++++TIPO1++++++++++++++++++++++++++++++++++++++++++++
-	if(TipodeMalha==1)
-	{
-		DeltasTransferencia[0] = DeltaBaseMat1/2;
-		DeltasTransferencia[1] = DeltaBaseMatUltimo/2;
-		DeltasTransferencia[2] = DeltaBaseMatUltimo/2;
-	}
-	//++++++++++++++++++++++++++TIPO2++++++++++++++++++++++++++++++++++++++++++++
-	if(TipodeMalha==2)
-	{
-		DeltasTransferencia[0] = DeltaBaseMat1;
-		DeltasTransferencia[1] = DeltaBaseMatUltimo/2;
-		DeltasTransferencia[2] = DeltaBaseMatUltimo;
-	}
-	//++++++++++++++++++++++++++TIPO3++++++++++++++++++++++++++++++++++++++++++++
-	if(TipodeMalha==3)
-	{
-		DeltasTransferencia[0] = DeltaBaseMat1;
-		DeltasTransferencia[1] = DeltaBaseMatUltimo/2;
-		DeltasTransferencia[2] = DeltaBaseMatUltimo/2;
-	}
-	//++++++++++++++++++++++++++TIPO4++++++++++++++++++++++++++++++++++++++++++++
-	if(TipodeMalha==4)
-	{
-		DeltasTransferencia[0] = DeltaBaseMat1/2;
-		DeltasTransferencia[1] = DeltaBaseMatUltimo/2;
-		DeltasTransferencia[2] = DeltaBaseMatUltimo;
-	}
-	return(DeltasTransferencia);
 }

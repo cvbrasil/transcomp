@@ -116,17 +116,17 @@ TestCase( doismateriaistipo1 )
 
 	Malha Malha2MatTipo1(Nptoscadamat,LarguraMat,2,1);
 
-	checkClose(Malha2MatTipo1.getdelta_w(3),0.75,1e-5);
+	checkClose(Malha2MatTipo1.getdelta_w(3),0.6,1e-5);
 
-	checkClose(Malha2MatTipo1.getdelta_e(3),0.25,1e-5);
+	checkClose(Malha2MatTipo1.getdelta_e(3),0.4,1e-5);
 
-	checkClose(Malha2MatTipo1.getDelta_w_Menos(3,true),0.5,1e-5);
+	checkClose(Malha2MatTipo1.getDelta_w_Menos(3,true),0.4,1e-5);
 
-	checkClose(Malha2MatTipo1.getDelta_w_Mais(3,true),0.25,1e-5);
+	checkClose(Malha2MatTipo1.getDelta_w_Mais(3,true),0.2,1e-5);
 
-	checkClose(Malha2MatTipo1.getDelta_e_Menos(3,true),0.125,1e-5);
+	checkClose(Malha2MatTipo1.getDelta_e_Menos(3,true),0.2,1e-5);
 
-	checkClose(Malha2MatTipo1.getDelta_e_Mais(3,true),0.125,1e-5);
+	checkClose(Malha2MatTipo1.getDelta_e_Mais(3,true),0.2,1e-5);
 }
 TestCase( doismateriaistipo2 )
 {
@@ -152,6 +152,33 @@ TestCase( doismateriaistipo2 )
 
 	checkClose(Malha2MatTipo2.getDelta_e_Mais(2,true),0.16666666666666,1e-5);
 }
+TestCase( doismateriaistipo3 )
+{
+	vector<int> Nptoscadamat;
+	Nptoscadamat.push_back(3);
+	Nptoscadamat.push_back(3);
+
+	vector<double> LarguraMat;
+	LarguraMat.push_back(2);
+	LarguraMat.push_back(1);
+
+	Malha Malha2MatTipo3(Nptoscadamat,LarguraMat,2,3);
+
+
+	checkClose(Malha2MatTipo3.getdelta_w(2),0.8,1e-5);
+
+	checkClose(Malha2MatTipo3.getdelta_e(2),0.566666666666666,1e-5);
+
+	checkClose(Malha2MatTipo3.getDelta_w_Menos(2,true),0.4,1e-5);
+
+	checkClose(Malha2MatTipo3.getDelta_w_Mais(2,true),0.4,1e-5);
+
+	checkClose(Malha2MatTipo3.getDelta_e_Menos(2,true),0.4,1e-5);
+
+	checkClose(Malha2MatTipo3.getDelta_e_Mais(2,true),0.1666666666666,1e-5);
+
+	checkClose(Malha2MatTipo3.getLarguraTotal(),3,1e-5);
+}
 TestCase( doismateriaistipo4 )
 {
 	vector<int> Nptoscadamat;
@@ -165,15 +192,15 @@ TestCase( doismateriaistipo4 )
 	Malha Malha2MatTipo4(Nptoscadamat,LarguraMat,2,4);
 
 
-	checkClose(Malha2MatTipo4.getdelta_w(2),0.4,1e-5);
+	checkClose(Malha2MatTipo4.getdelta_w(2),0.66666666666,1e-5);
 
-	checkClose(Malha2MatTipo4.getdelta_e(2),0.6,1e-5);
+	checkClose(Malha2MatTipo4.getdelta_e(2),0.5333333333333,1e-5);
 
-	checkClose(Malha2MatTipo4.getDelta_w_Menos(2,true),0.2,1e-5);
+	checkClose(Malha2MatTipo4.getDelta_w_Menos(2,true),0.33333333333,1e-5);
 
-	checkClose(Malha2MatTipo4.getDelta_w_Mais(2,true),0.2,1e-5);
+	checkClose(Malha2MatTipo4.getDelta_w_Mais(2,true),0.33333333333,1e-5);
 
-	checkClose(Malha2MatTipo4.getDelta_e_Menos(2,true),0.4,1e-5);
+	checkClose(Malha2MatTipo4.getDelta_e_Menos(2,true),0.333333333333,1e-5);
 
 	checkClose(Malha2MatTipo4.getDelta_e_Mais(2,true),0.2,1e-5);
 
@@ -649,6 +676,7 @@ TestCase( Ger_borda_Tpre_Tpre_1Mat )
 	{
 		vector<double> Tgerente;
 		vector<double> Tanalitica;
+		double Erro4Vol;
 		Malha Malhaaux(Nptoscadamat,LarguraMat,1,1);
 		GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
 
@@ -675,6 +703,19 @@ TestCase( Ger_borda_Tpre_Tpre_1Mat )
 		myfile.close();
 		string Nome = "TabelasTrab4Simul1mat.csv";
 		GVC.SalvaCampoDeTemperaturascsv(Nome);
+
+		string NomedoArquivo2 = "TabelasTrab4Erro1mat4Vol.csv";
+		char NomedoArquivoChar2[NomedoArquivo2.length()+1];
+		strcpy(NomedoArquivoChar2,NomedoArquivo2.c_str());
+		ofstream myfile2;
+		myfile2.open(NomedoArquivoChar2);
+
+		for(int i=0;i<Tgerente.size();i++)
+		{
+			Erro4Vol = fabs(Tanalitica[i]-Tgerente[i])/Tanalitica[i];
+			myfile2<<Erro4Vol<<setprecision(17)<<","<<DistanciaDaOrigem[i]<<setprecision(17)<<"\n";
+		}
+		myfile2.close();
 	}
 	string NomedoArquivo2 = "TabelasTrab4erroMAX1mat.csv";
 	char NomedoArquivoChar2[NomedoArquivo2.length()+1];
@@ -757,7 +798,9 @@ TestCase( Ger_central_Qpre_Conv_Erro )
 
 	Malha Malhaaux(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha);
 
-
+	vector<double>PredoGuesser;
+	PredoGuesser.push_back(290);
+	PredoGuesser.push_back(10000);
 	double Ts2;
 	double Ts0;
 	Ts2=Pre1[0]/Pre2[1]+Pre2[0];
@@ -832,6 +875,7 @@ TestCase( Ger_central_Qpre_Conv_Erro )
 		}
 	}
 	{
+
 		GerenteVolumedeControle DoisMatQpreConvInterpAlinhada(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true);
 		vector<double>Tsimulacao;
 		Tsimulacao = DoisMatQpreConvInterpAlinhada.getCampoDeTemperaturas();

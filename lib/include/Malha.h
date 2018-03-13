@@ -31,11 +31,9 @@ class Malha
 		void setVariaveisdeMalha(vector<int>NumerodePontos,vector<double>LarguraporMaterial,int NumerodeMalhas,int TipodeMalha);
 
 		vector<double> DefineDeltaBase(vector<int>NumerodePontos,vector<double>LarguraporMaterial,int NumerodeMalhas,int TipodeMalha);
-		double DefineDeltaBaseInicial(int TipodeMalha,double DeltaBaseMaterial1);
-		vector<double>DefineDeltasdeTransferencia(double DeltaBaseMat1,double DeltaBaseMatUltimo,int TipodeMalha);
+		vector<double> DefineDeltaBaseInicial(int TipodeMalha,vector<double> DeltaBase,int NumerodeMalhas);
 
 		vector<double>DistanciadaOrigem;
-
 		vector<double>DistanciadaOrigemMaterial;
 
 		double LarguraTotal;
