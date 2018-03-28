@@ -16,6 +16,50 @@
 
 #include "Test.h"
 
+void SalvaDoisVetorescsv(string NomedoArquivo, vector<double> V1, vector<double> V2);
+
+void SalvaDoisVetorescsv(string NomedoArquivo, vector<double> V1, vector<double> V2)
+{
+	if(V1.size()==V2.size())
+	{
+		char NomedoArquivoChar[NomedoArquivo.length()+1];
+		strcpy(NomedoArquivoChar,NomedoArquivo.c_str());
+		ofstream myfile;
+		myfile.open (NomedoArquivoChar);
+		for(int i=0; i<V1.size(); i++)
+		{
+				myfile<<V1[i]<<setprecision(17)<<","<<V2[i]<<setprecision(17)<<"\n";
+		}
+		myfile.close();
+	}
+	else
+	{
+		cout<<endl<<endl<<"PROBLEMA! Vetores a serem salvos nao possuem mesma dimensao!"<<endl<<endl;
+	}
+}
+
+void SalvaDoisVetoresComIntcsv(string NomedoArquivo, vector<double> V1, vector<int> V2);
+
+void SalvaDoisVetoresComIntcsv(string NomedoArquivo, vector<double> V1, vector<int> V2)
+{
+	if(V1.size()==V2.size())
+	{
+		char NomedoArquivoChar[NomedoArquivo.length()+1];
+		strcpy(NomedoArquivoChar,NomedoArquivo.c_str());
+		ofstream myfile;
+		myfile.open (NomedoArquivoChar);
+		for(int i=0; i<V1.size(); i++)
+		{
+				myfile<<V1[i]<<setprecision(17)<<","<<V2[i]<<setprecision(17)<<"\n";
+		}
+		myfile.close();
+	}
+	else
+	{
+		cout<<endl<<endl<<"PROBLEMA! Vetores a serem salvos nao possuem mesma dimensao!"<<endl<<endl;
+	}
+}
+
 TestCase( ummaterialtipo1 )
 {
 	vector<int> Nptoscadamat;
@@ -323,7 +367,7 @@ TestCase( CC2 )
 
 	checkClose(cc1.getPrimeiroTermodeEntrada(),5,1e-5);
 	checkClose(cc1.getSegundoTermodeEntrada(),-5,1e-5);
-	checkClose(cc1.getTerceiroTermodeEntrada(),-20,1e-5);
+	checkClose(cc1.getTerceiroTermodeEntrada(),20,1e-5);
 
 	checkClose(cc1.getPrimeiroTermodeSaida(),-5,1e-5);
 	checkClose(cc1.getSegundoTermodeSaida(),5,1e-5);
@@ -1012,5 +1056,306 @@ TestCase( Ger_central_Qpre_Conv_Erro )
 			myfile2.close();
 		}
 	}
+	//PetscFinalize();
+}
+TestCase( Trabalho1_de_Transcomp )
+{
+	PetscInitialize(0,0,0,0);
+	vector<int> Nptoscadamat;
+	Nptoscadamat.push_back(5);
+	Nptoscadamat.push_back(5);
+
+	int TotaldePontos=0;
+	for(int i=0; i<Nptoscadamat.size(); i++)
+	{
+		TotaldePontos=TotaldePontos+Nptoscadamat[i];
+	}
+
+	int Nmalhas=2;
+
+	// int Ntestes = 6;
+	// vector<double> ErroMax;
+	// ErroMax.resize(Ntestes);
+	// for(int i=0;i<ErroMax.size();i++)
+	// {
+	// 	ErroMax[i] = 0;
+	// }
+
+	vector<double> LarguraMat;
+	LarguraMat.push_back(.083);
+	LarguraMat.push_back(0.027);
+
+	int TipoMalha = 1;
+
+	vector<double>k;
+	k.push_back(10);
+	k.push_back(1);
+
+	vector<double>Pre1;
+	Pre1.push_back(5000);
+
+	vector<double>Pre2;
+	Pre2.push_back(303.15);
+	Pre2.push_back(70);
+
+	vector<int> TiposPre;
+	TiposPre.push_back(2);
+	TiposPre.push_back(3);
+
+	vector<double>TsimulacaoResist;
+	vector<double>TsimulacaoInterp;
+
+	//+++++++++++++++++++++++++++++++SOLUCAO ANALITICA+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	double Ts2;
+	double Ts0;
+	vector<double> Tanalitica;
+	vector<double> TanaliticaVariavel;
+	Malha Malhaaux(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha);
+	Tanalitica.resize(TotaldePontos);
+
+	Ts2=Pre1[0]/Pre2[1]+Pre2[0];
+	Ts0=Pre1[0]*(LarguraMat[1]/k[1]+LarguraMat[0]/k[0])+Ts2;
+
+	for(int i=0; i<TotaldePontos; i++)
+	{
+		if(i<Nptoscadamat[0])
+		{
+			Tanalitica[i]=Ts0-Pre1[0]*Malhaaux.getDistanciadaOrigemPosicional(i)/k[0];
+		}
+		else
+		{
+			Tanalitica[i]=Ts0+LarguraMat[0]*Pre1[0]*(1/k[1]-1/k[0])-Malhaaux.getDistanciadaOrigemPosicional(i)*Pre1[0]/k[1];
+		}
+	}
+
+	SalvaDoisVetorescsv("Trabalho1_de_Transcomp_SolAnalit.csv",Tanalitica,Malhaaux.getDistanciadaOrigem());
+
+
+	//+++++++++++++++++++++++++++++++SIMULACAO RESISTENCIA EQUIVALENTE++++++++++++++++++++++++++++++++++
+	{
+		vector<double> ErroRelativo;
+		vector<double> Erro;
+
+		Erro.resize(TotaldePontos);
+		ErroRelativo.resize(TotaldePontos);
+
+		GerenteVolumedeControle DoisMatQpreConvResistAlinhadaTrab1(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
+
+		TsimulacaoResist = DoisMatQpreConvResistAlinhadaTrab1.getCampoDeTemperaturas();
+
+		DoisMatQpreConvResistAlinhadaTrab1.SalvaCampoDeTemperaturascsv("Trabalho1_de_Transcomp_SimResist.csv");
+		
+		for(int i=0; i<TotaldePontos; i++)
+		{
+			ErroRelativo[i] = fabs(Tanalitica[i]-TsimulacaoResist[i])/Tanalitica[i];
+			Erro[i] = fabs(Tanalitica[i]-TsimulacaoResist[i]);
+		}
+		SalvaDoisVetorescsv("Trabalho1_de_Transcomp_ErroResistRelat.csv",Malhaaux.getDistanciadaOrigem(),ErroRelativo);
+		SalvaDoisVetorescsv("Trabalho1_de_Transcomp_ErroResist.csv",Malhaaux.getDistanciadaOrigem(),Erro);
+	}
+	//+++++++++++++++++++++++++++++++SIMULACAO INTERPOLACAO LINEAR+++++++++++++++++++++++++++++++++++++
+	{
+		vector<double> ErroRelativo;
+		vector<double> Erro;
+
+		Erro.resize(TotaldePontos);
+		ErroRelativo.resize(TotaldePontos);
+
+		GerenteVolumedeControle DoisMatQpreConvInterpAlinhadaTrab1(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true);
+
+		TsimulacaoInterp = DoisMatQpreConvInterpAlinhadaTrab1.getCampoDeTemperaturas();
+		
+		DoisMatQpreConvInterpAlinhadaTrab1.SalvaCampoDeTemperaturascsv("Trabalho1_de_Transcomp_SimInterp.csv");
+
+		for(int i=0; i<TotaldePontos; i++)
+		{
+			ErroRelativo[i] = fabs(Tanalitica[i]-TsimulacaoInterp[i])/Tanalitica[i];
+			Erro[i] = fabs(Tanalitica[i]-TsimulacaoInterp[i]);
+		}
+		SalvaDoisVetorescsv("Trabalho1_de_Transcomp_ErroInterpRelat.csv",Malhaaux.getDistanciadaOrigem(),ErroRelativo);
+		SalvaDoisVetorescsv("Trabalho1_de_Transcomp_ErroInterp.csv",Malhaaux.getDistanciadaOrigem(),Erro);
+	}
+	//+++++++++++++++++++++++++++SIMULACAO INTERPOLACAO LINEAR COM MAIS VC+++++++++++++++++++++++++++++
+	{
+		vector<int> NptoscadamatMAIOR;
+		NptoscadamatMAIOR.push_back(50);
+		NptoscadamatMAIOR.push_back(50);
+
+		GerenteVolumedeControle DoisMatQpreConvInterpAlinhadaTrab1MAIOR(NptoscadamatMAIOR,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true);
+
+		DoisMatQpreConvInterpAlinhadaTrab1MAIOR.SalvaCampoDeTemperaturascsv("Trabalho1_de_Transcomp_SimInterpMaior.csv");
+	}
+	// ++++++++++++++++++++++++++++++++ERRO MAXIMO+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	{
+		int NumeroDeTestes = 6;
+		vector<double>TanaliticaVariavel;
+		TanaliticaVariavel.resize(TotaldePontos);
+		double ErroInterp;
+		double ErroResist;
+		vector<double> ErroMaxInterp;
+		vector<double> ErroMaxResist;
+		vector<double> NumeroDeVolumes;
+
+		ErroMaxResist.resize(NumeroDeTestes);
+		ErroMaxInterp.resize(NumeroDeTestes);
+		NumeroDeVolumes.resize(NumeroDeTestes);
+
+		for(int i=0;i<NumeroDeTestes;i++)
+		{
+			ErroMaxResist[i]=0;
+			ErroMaxInterp[i]=0;
+		}
+
+		// double Ts2;
+		// double Ts0;
+		// Ts2=Pre1[0]/Pre2[1]+Pre2[0];
+		// Ts0=Pre1[0]*(LarguraMat[1]/k[1]+LarguraMat[0]/k[0])+Ts2;
+
+		vector<int>NptoscadamatVariavel;
+		NptoscadamatVariavel.push_back(2);
+		NptoscadamatVariavel.push_back(2);
+
+		for(int i=0; i<NumeroDeTestes; i++)
+		{	
+			NptoscadamatVariavel[0] = NptoscadamatVariavel[0]*2;
+			NptoscadamatVariavel[1] = NptoscadamatVariavel[1]*2;
+
+			NumeroDeVolumes[i] = NptoscadamatVariavel[0];
+
+			GerenteVolumedeControle DoisMatQpreConvInterpAlinhada(NptoscadamatVariavel,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true);
+			vector<double>TsimulacaoInterp;
+			TsimulacaoInterp = DoisMatQpreConvInterpAlinhada.getCampoDeTemperaturas();
+
+			GerenteVolumedeControle DoisMatQpreConvResistAlinhada(NptoscadamatVariavel,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
+			vector<double>TsimulacaoResist;
+			TsimulacaoResist = DoisMatQpreConvResistAlinhada.getCampoDeTemperaturas();
+
+
+			Malha MalhaauxVariavel(NptoscadamatVariavel,LarguraMat,Nmalhas,TipoMalha);
+			for(int j=0; j<NptoscadamatVariavel[0]+NptoscadamatVariavel[1];j++)
+			{
+				if(i<NptoscadamatVariavel[0])
+				{
+					TanaliticaVariavel[i]=Ts0-Pre1[0]*MalhaauxVariavel.getDistanciadaOrigemPosicional(i)/k[0];
+				}
+				else
+				{
+					TanaliticaVariavel[i]=Ts0+LarguraMat[0]*Pre1[0]*(1/k[1]-1/k[0])-MalhaauxVariavel.getDistanciadaOrigemPosicional(i)*Pre1[0]/k[1];
+				}
+			}
+			ErroInterp = fabs((TanaliticaVariavel[i]-TsimulacaoInterp[i])/TanaliticaVariavel[i]);
+			ErroResist = fabs((TanaliticaVariavel[i]-TsimulacaoResist[i])/TanaliticaVariavel[i]);
+			if(ErroInterp>ErroMaxInterp[i])
+			{
+				ErroMaxInterp[i]=ErroInterp;
+			}
+			if(ErroResist>ErroMaxResist[i])
+			{
+				ErroMaxResist[i]=ErroResist;
+			}
+		}
+		{
+			string NomedoArquivo2 = "Trabalho1_de_Transcomp_ErroMaxDoisMatQpreConvInterpAlinhada.csv";
+			char NomedoArquivoChar2[NomedoArquivo2.length()+1];
+			strcpy(NomedoArquivoChar2,NomedoArquivo2.c_str());
+			ofstream myfile2;
+			myfile2.open (NomedoArquivoChar2);
+			for(int i=0; i<NumeroDeTestes; i++)
+			{
+				myfile2<<ErroMaxInterp[i]<<setprecision(17)<<","<<NumeroDeVolumes[i]<<setprecision(17)<<"\n";
+			}
+			myfile2.close();
+		}
+		{
+			string NomedoArquivo2 = "Trabalho1_de_Transcomp_ErroMaxDoisMatQpreConvResistAlinhada.csv";
+			char NomedoArquivoChar2[NomedoArquivo2.length()+1];
+			strcpy(NomedoArquivoChar2,NomedoArquivo2.c_str());
+			ofstream myfile2;
+			myfile2.open (NomedoArquivoChar2);
+			for(int i=0; i<NumeroDeTestes; i++)
+			{
+				myfile2<<ErroMaxResist[i]<<setprecision(17)<<","<<NumeroDeVolumes[i]<<setprecision(17)<<"\n";
+			}
+			myfile2.close();
+		}
+	}
+}
+TestCase( FuncaoPolinomialDeK )
+{
+	vector<vector<double> > kpol;
+
+	vector<double> k;
+	vector<int> NumerodePontos;
+	vector<double> TemperaturasEstimadas;
+
+	//GERA VETOR NUM DE PTOS
+	NumerodePontos.push_back(2);
+	NumerodePontos.push_back(2);
+
+	PropriedadeTermica P_T_Polinomial(k,NumerodePontos);
+
+	//GERA MATRIZ kpol
+	{
+		vector<double> aux;
+		aux.push_back(0);
+		aux.push_back(1);
+		aux.push_back(2);
+
+		kpol.push_back(aux);
+
+		aux[0]=2;
+		aux[1]=1;
+		aux[2]=0;
+
+		kpol.push_back(aux);
+	}
+
+	//GERA VETOR TEMPERATURAS
+	TemperaturasEstimadas.push_back(300);
+	TemperaturasEstimadas.push_back(310);
+	TemperaturasEstimadas.push_back(320);
+	TemperaturasEstimadas.push_back(330);
+
+	P_T_Polinomial.setTemperaturas(TemperaturasEstimadas);
+	P_T_Polinomial.setkPolinomial(kpol);
+
+	//TESTA VALORES
+	checkClose(P_T_Polinomial.getk(0),180300,1e-5);
+	checkClose(P_T_Polinomial.getk(1),192510,1e-5);
+	checkClose(P_T_Polinomial.getk(2),322,1e-5);
+	checkClose(P_T_Polinomial.getk(3),332,1e-5);
+}
+TestCase( SolverTDMA )
+{
+	PetscInitialize(0,0,0,0);
+
+	vector<vector<double> >A;
+	vector<double> b;
+	vector<double> aux;
+	vector<double> CampodeTTDMA;
+	vector<double> CampodeTPETSc;
+
+	aux.push_back(1);
+	aux.push_back(1);
+	aux.push_back(0);
+	b.push_back(1);
+	A.push_back(aux);
+
+	aux[0]=2;
+	aux[1]=4;
+	aux[2]=3;
+	b.push_back(0);
+	A.push_back(aux);
+
+	aux[0]=0;
+	aux[1]=1;
+	aux[2]=1;
+	b.push_back(2);
+	A.push_back(aux);
+
+	SolverLinear SolverTeste(A,b,3);
+	CampodeTTDMA = SolverTeste.getCampodeTemperaturasTDMA();
+	CampodeTPETSc = SolverTeste.getCampodeTemperaturas();
 	PetscFinalize();
 }

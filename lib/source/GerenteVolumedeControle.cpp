@@ -103,6 +103,7 @@ GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nma
 		// cout<<A[TotaldePontos-1][TotaldePontos-2]<<"		"<<setprecision(10)<<A[TotaldePontos-1][TotaldePontos-1]<<"		"<<b[TotaldePontos-1]<<endl;
 	}
 
+
 	// cout<<endl<<endl<<"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl<<endl;
 	// for(int i=0; i<TotaldePontos; i++)
 	// {
@@ -121,10 +122,6 @@ GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nma
 	// {
 	// 	cout<<setprecision(17)<<CampoDeTemperaturas[i]<<"	"<<endl<<endl;
 	// }
-}
-GerenteVolumedeControle::~GerenteVolumedeControle()
-{
-
 }
 double GerenteVolumedeControle::getkInterface(double delta, double delta_Mais, double delta_Menos, double kmais, double kmenos, int TipoDeKinterface)
 {
@@ -163,6 +160,25 @@ void GerenteVolumedeControle::SalvaCampoDeTemperaturascsv(string NomedoArquivo)
 			myfile<<this->CampoDeTemperaturas[i]<<setprecision(17)<<","<<this->DistanciaDaOrigem[i]<<setprecision(17)<<"\n";
 	}
 	myfile.close();
+}
+void GerenteVolumedeControle::SalvaDoisVetorescsv(string NomedoArquivo, vector<double> V1, vector<double> V2)
+{
+	if(V1.size()==V2.size())
+	{
+		char NomedoArquivoChar[NomedoArquivo.length()+1];
+		strcpy(NomedoArquivoChar,NomedoArquivo.c_str());
+		ofstream myfile;
+		myfile.open (NomedoArquivoChar);
+		for(int i=0; i<V1.size(); i++)
+		{
+				myfile<<V1[i]<<setprecision(17)<<","<<V2[i]<<setprecision(17)<<"\n";
+		}
+		myfile.close();
+	}
+	else
+	{
+		cout<<endl<<endl<<"PROBLEMA! Vetores a serem salvos nao possuem mesma dimensao!"<<endl<<endl;
+	}
 }
 int GerenteVolumedeControle::ContaTotaldePontos(vector<int> Nptoscadamat, int Nmalhas)
 {
@@ -219,10 +235,16 @@ void GerenteVolumedeControle::MostraTiposdeConfiguracao()
 	cout<<"Tipo de k da Interface:"<<endl;
 	cout<<"1-Pela Resistencia Equivalente"<<endl;
 	cout<<"2-Pela Interpolacao Linear"<<endl<<endl;
+	cout<<"Tipo Função k=k(T):"<<endl;
+	cout<<"1-k=constantes"<<endl;
+	cout<<"2-k=A1+A2T+A3T^2+...+AnT^(n-1) | ATENÇÃO! Neste caso, o vetor k deve ter k=[A1 A2 A3 ... An]."<<endl<<endl;
 	cout<<"Tipos de Prescricao"<<endl;
 	cout<<"1-Temperatura Prescrita"<<endl;
 	cout<<"2-Fluxo de Calor Prescrito"<<endl;
 	cout<<"3-Temperatura do fluido e Coeficiente de Conveccao Prescritos"<<endl<<endl;
+	cout<<"Alinhamento da malha com relação à interface de troca de materiais:"<<endl<<endl;
+	cout<<"true:Alinhada"<<endl<<endl;
+	cout<<"false: Desalinhada"<<endl<<endl;
 	cout<<"Ordens de Prescricao nos vetores Pre:"<<endl;
 	cout<<"[Temperatura/Fluxo,Coeficiente de Conveccao]"<<endl<<endl;
 	cout<<"----------------------------------------------------------------------------------------"<<endl<<endl;

@@ -70,7 +70,7 @@ void CondicoesdeContorno::setCondicoesdeContorno(vector<double>Pre1,vector<doubl
 				{
 					this->TermodeEntrada[0] = ainterno[0];
 					this->TermodeEntrada[1] = -ainterno[0];
-					this->TermodeEntrada[2] = -Pre1[0];
+					this->TermodeEntrada[2] = Pre1[0];
 				}
 				else
 				{
