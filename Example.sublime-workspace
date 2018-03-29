@@ -4,6 +4,146 @@
 		"selected_items":
 		[
 			[
+				"Ge",
+				"GerentePolinomial"
+			],
+			[
+				"get",
+				"getCampodeTemperaturas"
+			],
+			[
+				"Pre",
+				"Pre2"
+			],
+			[
+				"Tipos",
+				"TiposPre"
+			],
+			[
+				"Pre1",
+				"Pre1"
+			],
+			[
+				"Tipo",
+				"TipoMalha"
+			],
+			[
+				"k",
+				"kpolinomial"
+			],
+			[
+				"kpo",
+				"kpolinomial"
+			],
+			[
+				"Tem",
+				"TemperaturasPorPontoSalvo"
+			],
+			[
+				"T",
+				"TotaldePontos"
+			],
+			[
+				"Pro",
+				"PropriedadeTermica"
+			],
+			[
+				"Cam",
+				"CampodeTPETSc"
+			],
+			[
+				"S",
+				"SolverTeste"
+			],
+			[
+				"Camp",
+				"CampodeTPETSc"
+			],
+			[
+				"A",
+				"A"
+			],
+			[
+				"nint",
+				"nint-2"
+			],
+			[
+				"C",
+				"CampodeTemperaturas"
+			],
+			[
+				"Npt",
+				"NptoscadamatMAIOR"
+			],
+			[
+				"Salv",
+				"SalvaCampoDeTemperaturascsv"
+			],
+			[
+				"DoisMatQpre",
+				"DoisMatQpreConvInterpAlinhadaTrab1MAIOR"
+			],
+			[
+				"Tsun",
+				"TsimulacaoInterpMaisVC"
+			],
+			[
+				"Tsimul",
+				"TsimulacaoInterp"
+			],
+			[
+				"Tsi",
+				"TsimulacaoResist"
+			],
+			[
+				"Tana",
+				"Tanalitica"
+			],
+			[
+				"Erro",
+				"ErroResist"
+			],
+			[
+				"Tota",
+				"TotaldePontosVariavel"
+			],
+			[
+				"n",
+				"NptoscadamatVariavel"
+			],
+			[
+				"ErroMa",
+				"ErroMaxResist"
+			],
+			[
+				"Err",
+				"Erro"
+			],
+			[
+				"sa",
+				"SalvaDoisVetorescsv"
+			],
+			[
+				"DoisMatQpreConvI",
+				"DoisMatQpreConvInterpAlinhadaTrab1"
+			],
+			[
+				"DoisMatQpreC",
+				"DoisMatQpreConvResistAlinhadaTrab1"
+			],
+			[
+				"Ts",
+				"TsimulacaoResist"
+			],
+			[
+				"Numer",
+				"NumerodePontos"
+			],
+			[
+				"Lar",
+				"LarguraporMaterial"
+			],
+			[
 				"Delta",
 				"DeltaBase"
 			],
@@ -22,10 +162,6 @@
 			[
 				"myfile",
 				"myfile2"
-			],
-			[
-				"Err",
-				"Erro4Vol"
 			],
 			[
 				"nome",
@@ -54,18 +190,6 @@
 			[
 				"P",
 				"PredoGuesser"
-			],
-			[
-				"Pre",
-				"PredoGuesser"
-			],
-			[
-				"Npt",
-				"NptoscadamatVariavel"
-			],
-			[
-				"Erro",
-				"ErroMaxResist"
 			],
 			[
 				"ErroM",
@@ -100,10 +224,6 @@
 				"DoisMatQpreConvResistAlinhada"
 			],
 			[
-				"get",
-				"getCampoDeTemperaturas"
-			],
-			[
 				"Ma",
 				"Malhaaux"
 			],
@@ -112,24 +232,12 @@
 				"ksobredeltaexterno"
 			],
 			[
-				"Lar",
-				"LarguraTotal"
-			],
-			[
 				"Conta",
 				"ContaLarguraTotal"
 			],
 			[
 				"Largur",
 				"LarguraTotal"
-			],
-			[
-				"k",
-				"kinterface2"
-			],
-			[
-				"T",
-				"TotaldePontos-1"
 			],
 			[
 				"g",
@@ -164,20 +272,12 @@
 				"delta_Mais"
 			],
 			[
-				"Tipo",
-				"TipoDeKinterface"
-			],
-			[
 				"Malha",
 				"Malhaaux"
 			],
 			[
 				"Cria",
 				"CriaMatrizQuadradadeNulos"
-			],
-			[
-				"C",
-				"ContaTotaldePontos"
 			],
 			[
 				"To",
@@ -316,24 +416,12 @@
 				"GerenciaDados"
 			],
 			[
-				"Ge",
-				"GerenteVolumedeControle"
-			],
-			[
 				"t",
 				"TipodeMalha"
 			],
 			[
 				"No",
 				"NomedoArquivoChar"
-			],
-			[
-				"n",
-				"NomedoArquivo"
-			],
-			[
-				"Numer",
-				"NumerodeMalhas"
 			],
 			[
 				"Num",
@@ -380,10 +468,6 @@
 				"PetscScalar"
 			],
 			[
-				"S",
-				"S"
-			],
-			[
 				"Res",
 				"ResolvextgxmenosBi"
 			],
@@ -428,48 +512,46 @@
 	"buffers":
 	[
 		{
-			"file": "lib/include/GerenteVolumedeControle.h",
-			"settings":
-			{
-				"buffer_size": 1019,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "lib/source/GerenteVolumedeControle.cpp",
 			"settings":
 			{
-				"buffer_size": 8285,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/source/CondicoesdeContorno.cpp",
-			"settings":
-			{
-				"buffer_size": 5677,
+				"buffer_size": 9260,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "lib/include/Malha.h",
+			"file": "lib/include/GerenteVolumedeControle.h",
 			"settings":
 			{
-				"buffer_size": 1308,
+				"buffer_size": 1213,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "#include <vector>\n#include <iostream>\n#include \"Malha.h\"\n\nusing namespace std;\n\nMalha::Malha(vector<int>NumerodePontos,vector<double>LarguraporMaterial,int NumerodeMalhas,int TipodeMalha)\n{\n\tsetVariaveisdeMalha(NumerodePontos,LarguraporMaterial,NumerodeMalhas,TipodeMalha);\n}\ndouble Malha::getDistanciadaOrigemPosicional(int Position)\n{\n\treturn(this->DistanciadaOrigem[Position]);\n}\ndouble Malha::getLarguraTotal()\n{\n\treturn(this->LarguraTotal);\n}\ndouble Malha::getdelta_w(int position)\n{\n\tif(position <= 0|| position>this->DistanciadaOrigem.size())\n\t{\n\t\tcout<<endl<<\"Erro! Posição\"<< position <<\" não possui delta_w.\"<<endl<<endl;\n\t\treturn(0);\n\t}\n\telse\n\t{\n\t\tdouble delta_w;\n\t\tdelta_w = this->DistanciadaOrigem[position] - this->DistanciadaOrigem[position-1];\n\t\treturn (delta_w);\n\t}\n}\ndouble Malha::getdelta_e(int position)\n{\n\tif(position >= this->DistanciadaOrigem.size()-1 || position<0)\n\t{\n\t\tcout<<endl<<\"Erro! Posição\"<< position <<\" não possui delta_e.\"<<endl<<endl;\n\t\treturn(0);\n\t}\n\telse\n\t{\n\t\tdouble delta_e;\n\t\tdelta_e = this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position];\n\t\treturn (delta_e);\n\t}\n}\ndouble Malha::getDelta_e_Mais(int position,bool Flag)\n{\n\tif(position >= this->DistanciadaOrigem.size()-1 || position<0)\n\t{\n\t\tcout<<endl<<\"Erro! Posição\"<< position <<\" não possui delta_e.\"<<endl<<endl;\n\t\treturn(0);\n\t}\n\telse\n\t{\n\t\tdouble delta_e_Mais;\n\t\tif(Flag == true)\n\t\t{\n\t\t\tint DefineMatPtoP=0;\n\t\t\tint DefineMatPtoE=0;\n\t\t\tfor(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)\n\t\t\t{\n\t\t\t\tif(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])\n\t\t\t\t{\n\t\t\t\t\tDefineMatPtoP = i+1;\n\t\t\t\t}\n\t\t\t\tif(this->DistanciadaOrigem[position+1]>this->DistanciadaOrigemMaterial[i])\n\t\t\t\t{\n\t\t\t\t\tDefineMatPtoE = i+1;\n\t\t\t\t}\n\t\t\t}\n\t\t\tif(DefineMatPtoE==DefineMatPtoP)\n\t\t\t{\n\t\t\t\tdelta_e_Mais = (this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position])/2;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tdelta_e_Mais = (this->DistanciadaOrigem[position+1]-this->DistanciadaOrigemMaterial[DefineMatPtoE-1]);\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\tdelta_e_Mais = (this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position])/2;\n\t\t}\n\t\treturn (delta_e_Mais);\n\t}\n}\ndouble Malha::getDelta_e_Menos(int position,bool Flag)\n{\n\tif(position >= this->DistanciadaOrigem.size()-1 || position<0)\n\t{\n\t\tcout<<endl<<\"Erro! Posição\"<< position <<\" não possui delta_e.\"<<endl<<endl;\n\t\treturn(0);\n\t}\n\telse\n\t{\n\n\t\tdouble delta_e_Menos;\n\t\tif(Flag == true)\n\t\t{\n\t\t\tint DefineMatPtoP=0;\n\t\t\tint DefineMatPtoE=0;\n\t\t\tfor(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)\n\t\t\t{\n\t\t\t\tif(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])\n\t\t\t\t{\n\t\t\t\t\tDefineMatPtoP = i+1;\n\t\t\t\t}\n\t\t\t\tif(this->DistanciadaOrigem[position+1]>this->DistanciadaOrigemMaterial[i])\n\t\t\t\t{\n\t\t\t\t\tDefineMatPtoE = i+1;\n\t\t\t\t}\n\t\t\t}\n\t\t\tif(DefineMatPtoE==DefineMatPtoP)\n\t\t\t{\n\t\t\t\tdelta_e_Menos = (this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position])/2;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tdelta_e_Menos = (this->DistanciadaOrigemMaterial[DefineMatPtoE-1]-this->DistanciadaOrigem[position]);\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\tdelta_e_Menos = (this->DistanciadaOrigem[position+1] - this->DistanciadaOrigem[position])/2;\n\t\t}\n\t\treturn (delta_e_Menos);\n\t}\n}\ndouble Malha::getDelta_w_Mais(int position,bool Flag)\n{\n\tif(position <= 0|| position>this->DistanciadaOrigem.size())\n\t{\n\t\tcout<<endl<<\"Erro! Posição\"<< position <<\" não possui delta_w.\"<<endl<<endl;\n\t\treturn(0);\n\t}\n\telse\n\t{\n\t\tdouble delta_w_Mais;\n\t\tif(Flag == true)\n\t\t{\n\t\t\tint DefineMatPtoP=0;\n\t\t\tint DefineMatPtoW=0;\n\t\t\tfor(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)\n\t\t\t{\n\t\t\t\tif(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])\n\t\t\t\t{\n\t\t\t\t\tDefineMatPtoP = i+1;\n\t\t\t\t}\n\t\t\t\tif(this->DistanciadaOrigem[position-1]>this->DistanciadaOrigemMaterial[i])\n\t\t\t\t{\n\t\t\t\t\tDefineMatPtoW = i+1;\n\t\t\t\t}\n\t\t\t}\n\t\t\tif(DefineMatPtoP==DefineMatPtoW)\n\t\t\t{\n\t\t\t\tdelta_w_Mais = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tdelta_w_Mais = this->DistanciadaOrigem[position] - this->DistanciadaOrigemMaterial[DefineMatPtoP-1];\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\tdelta_w_Mais = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;\n\t\t}\n\t\treturn (delta_w_Mais);\n\t}\n}\ndouble Malha::getDelta_w_Menos(int position,bool Flag)\n{\n\tif(position <= 0|| position>this->DistanciadaOrigem.size())\n\t{\n\t\tcout<<endl<<\"Erro! Posição\"<< position <<\" não possui delta_w.\"<<endl<<endl;\n\t\treturn(0);\n\t}\n\telse\n\t{\n\t\tdouble delta_w_Menos;\n\t\tif(Flag == true)\n\t\t{\n\t\t\tint DefineMatPtoP=0;\n\t\t\tint DefineMatPtoW=0;\n\t\t\tfor(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)\n\t\t\t{\n\t\t\t\tif(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])\n\t\t\t\t{\n\t\t\t\t\tDefineMatPtoP = i+1;\n\t\t\t\t}\n\t\t\t\tif(this->DistanciadaOrigem[position-1]>this->DistanciadaOrigemMaterial[i])\n\t\t\t\t{\n\t\t\t\t\tDefineMatPtoW = i+1;\n\t\t\t\t}\n\t\t\t}\n\t\t\tif(DefineMatPtoP==DefineMatPtoW)\n\t\t\t{\n\t\t\t\tdelta_w_Menos = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tdelta_w_Menos = this->DistanciadaOrigemMaterial[DefineMatPtoP-1] - this->DistanciadaOrigem[position-1];\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\tdelta_w_Menos = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;\n\t\t}\n\t\treturn (delta_w_Menos);\n\t}\n}\nint Malha::getTipodeMalha()\n{\n\treturn(this->TipodeMalha);\n}\nvector<double> Malha::getDistanciadaOrigem()\n{\n\treturn(this->DistanciadaOrigem);\n}\nvoid Malha::setVariaveisdeMalha(vector<int>NumerodePontos,vector<double>LarguraporMaterial,int NumerodeMalhas,int TipodeMalha)\n{\n\tif(NumerodePontos.size()==NumerodeMalhas)\n\t{\n\t\tif(LarguraporMaterial.size()==NumerodeMalhas)\n\t\t{\n\t\t\tvector<double> DeltaBase;\n\t\t\tvector<double> DeltasTransferencia;\n\t\t\tint PontosTotais = 0;\n\t\t\tint cont = 0;\n\t\t\tvector<double> DeltaInicial;\n\n\t\t\tDeltaBase = DefineDeltaBase(NumerodePontos,LarguraporMaterial,NumerodeMalhas,TipodeMalha);\n\t\t\tDeltaInicial = DefineDeltaBaseInicial(TipodeMalha,DeltaBase,NumerodeMalhas);\n\t\t\t//DeltasTransferencia = DefineDeltasdeTransferencia(DeltaBase[0],DeltaBase[NumerodeMalhas-1],TipodeMalha);\n\n\t\t\tthis->TipodeMalha = TipodeMalha;\n\n\t\t\tthis->DistanciadaOrigemMaterial.resize(NumerodeMalhas);\n\n\t\t\tfor(int i=0;i<NumerodeMalhas;i++)\n\t\t\t{\n\t\t\t\tPontosTotais = PontosTotais + NumerodePontos[i];\n\t\t\t}\n\t\t\tthis->DistanciadaOrigem.resize(PontosTotais);\n\t\t\t\n\t\t\tif(NumerodeMalhas==1)\n\t\t\t{\n\t\t\t\tthis->DistanciadaOrigemMaterial[0]=LarguraporMaterial[0];\n\t\t\t\tthis->LarguraTotal = LarguraporMaterial[0];\n\t\t\t\tfor(int j=0;j<NumerodePontos[0];j++)\n\t\t\t\t{\n\t\t\t\t\tif(j==0)\n\t\t\t\t\t{\n\t\t\t\t\t\tthis->DistanciadaOrigem[0] = DeltaInicial[0];\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\t{\n\t\t\t\t\t\tthis->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1]+DeltaBase[0];\n\t\t\t\t\t}\n\t\t\t\t\tcont++;\n\t\t\t\t}\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tdouble acumulaLarguras = 0;\n\t\t\t\tfor(int i=0;i<NumerodeMalhas;i++)\n\t\t\t\t{\n\t\t\t\t\tthis->DistanciadaOrigem[cont]=DeltaInicial[i]+acumulaLarguras;\n\t\t\t\t\tcont++;\n\t\t\t\t\tfor(int j=1;j<NumerodePontos[i];j++)\n\t\t\t\t\t{\n\t\t\t\t\t\tthis->DistanciadaOrigem[cont]=DeltaBase[i]+this->DistanciadaOrigem[cont-1];\n\t\t\t\t\t\t// if(j==0)\n\t\t\t\t\t\t// {\n\t\t\t\t\t\t// \tif(i==0)\n\t\t\t\t\t\t// \t{\n\t\t\t\t\t\t// \t\tthis->DistanciadaOrigem[0] = DeltaInicial;\n\t\t\t\t\t\t// \t}\n\t\t\t\t\t\t// \telse\n\t\t\t\t\t\t// \t{\n\t\t\t\t\t\t// \t\tif(i==NumerodeMalhas-1)\n\t\t\t\t\t\t// \t\t{\n\t\t\t\t\t\t// \t\t\tthis->DistanciadaOrigem[cont] = acumulaLarguras + DeltasTransferencia[1];\n\t\t\t\t\t\t// \t\t}\n\t\t\t\t\t\t// \t\telse\n\t\t\t\t\t\t// \t\t{\n\t\t\t\t\t\t// \t\t\tthis->DistanciadaOrigem[cont] = acumulaLarguras + DeltaBase[i]/2;\n\t\t\t\t\t\t// \t\t}\n\t\t\t\t\t\t// \t}\n\t\t\t\t\t\t// }\n\t\t\t\t\t\t// else\n\t\t\t\t\t\t// {\n\t\t\t\t\t\t// \tif(j==NumerodePontos[i]-1)\n\t\t\t\t\t\t// \t{\n\t\t\t\t\t\t// \t\tif(i==0)\n\t\t\t\t\t\t// \t\t{\n\t\t\t\t\t\t// \t\t\tthis->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1] + DeltasTransferencia[0];\n\t\t\t\t\t\t// \t\t}\n\t\t\t\t\t\t// \t\telse\n\t\t\t\t\t\t// \t\t{\n\t\t\t\t\t\t// \t\t\tthis->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1] + DeltaBase[i];\n\t\t\t\t\t\t// \t\t}\n\t\t\t\t\t\t// \t}\n\t\t\t\t\t\t// \telse\n\t\t\t\t\t\t// \t{\n\t\t\t\t\t\t// \t\tif(j==1)\n\t\t\t\t\t\t// \t\t{\n\t\t\t\t\t\t// \t\t\tif(i==NumerodeMalhas-1)\n\t\t\t\t\t\t// \t\t\t{\n\t\t\t\t\t\t// \t\t\t\tthis->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1] + DeltasTransferencia[2];\n\t\t\t\t\t\t// \t\t\t}\n\t\t\t\t\t\t// \t\t\telse\n\t\t\t\t\t\t// \t\t\t{\n\t\t\t\t\t\t// \t\t\t\tthis->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1] + DeltaBase[i];\n\t\t\t\t\t\t// \t\t\t}\n\t\t\t\t\t\t// \t\t}\n\t\t\t\t\t\t// \t\telse\n\t\t\t\t\t\t// \t\t{\n\t\t\t\t\t\t// \t\t\tthis->DistanciadaOrigem[cont] = this->DistanciadaOrigem[cont-1] + DeltaBase[i];\n\t\t\t\t\t\t// \t\t}\n\t\t\t\t\t\t// \t}\n\t\t\t\t\t\t// }\n\t\t\t\t\t\tcont++;\n\t\t\t\t\t}\n\t\t\t\t\tthis->DistanciadaOrigemMaterial[i] = acumulaLarguras;\n\t\t\t\t\tacumulaLarguras = acumulaLarguras + LarguraporMaterial[i];\n\t\t\t\t}\n\t\t\t\tthis->LarguraTotal = acumulaLarguras;\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\tcout<<endl<<\"PROBLEMA DETECTADO! Largura por Material != Numero de Malhas.\"<<endl<<endl;\n\t\t}\n\t}\n\telse\n\t{\n\t\tcout<<endl<<\"PROBLEMA DETECTADO! Numero de pontos por malha ou Largura por Material != Numero de Malhas.\"<<endl<<endl;\n\t}\n}\n\nvector<double> Malha::DefineDeltaBase(vector<int>NumerodePontos,vector<double>LarguraporMaterial,int NumerodeMalhas,int TipodeMalha)\n{\n\tvector<double> DeltaBase;\n\tDeltaBase.resize(NumerodeMalhas);\n\t//++++++++++++++++++++++++++TIPO1++++++++++++++++++++++++++++++++++++++++++++\n\tif(TipodeMalha==1)\n\t{\n\t\tif(NumerodeMalhas==1)\n\t\t{\n\t\t\tDeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-1);\n\t\t}\n\t\telse\n\t\t{\n\t\t\tDeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-0.5);\n\t\t\tfor(int i=1;i<NumerodeMalhas-1;i++)\n\t\t\t{\n\t\t\t\tDeltaBase[i] = LarguraporMaterial[i]/NumerodePontos[i];\n\t\t\t}\n\t\t\tDeltaBase[NumerodeMalhas-1] = LarguraporMaterial[NumerodeMalhas-1]/(NumerodePontos[NumerodeMalhas-1]-0.5);\n\t\t}\n\t}\n\t//++++++++++++++++++++++++++TIPO2++++++++++++++++++++++++++++++++++++++++++++\n\tif(TipodeMalha==2)\n\t{\n\t\tfor(int i=0;i<NumerodeMalhas;i++)\n\t\t{\n\t\t\tDeltaBase[i] = LarguraporMaterial[i]/NumerodePontos[i];\n\t\t}\n\t}\n\t//++++++++++++++++++++++++++TIPO3++++++++++++++++++++++++++++++++++++++++++++\n\tif(TipodeMalha==3)\n\t{\n\t\tif(NumerodeMalhas==1)\n\t\t{\n\t\t\tDeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-0.5);\n\t\t}\n\t\telse\n\t\t{\n\t\t\tDeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-0.5);\n\t\t\tfor(int i=1;i<NumerodeMalhas;i++)\n\t\t\t{\n\t\t\t\tDeltaBase[i] = LarguraporMaterial[i]/NumerodePontos[i];\n\t\t\t}\n\t\t}\n\t}\n\t//++++++++++++++++++++++++++TIPO4++++++++++++++++++++++++++++++++++++++++++++\n\tif(TipodeMalha==4)\n\t{\n\t\tif(NumerodeMalhas==1)\n\t\t{\n\t\t\tDeltaBase[0] = LarguraporMaterial[0]/(NumerodePontos[0]-0.5);\t\n\t\t}\n\t\telse\n\t\t{\n\t\t\tfor(int i=0;i<NumerodeMalhas-1;i++)\n\t\t\t{\n\t\t\t\tDeltaBase[i] = LarguraporMaterial[i]/NumerodePontos[i];\n\t\t\t}\n\t\t\tDeltaBase[NumerodeMalhas-1] = LarguraporMaterial[NumerodeMalhas-1]/(NumerodePontos[NumerodeMalhas-1]-0.5);\n\t\t}\n\n\t}\n\treturn(DeltaBase);\n}\nvector<double> Malha::DefineDeltaBaseInicial(int TipodeMalha,vector<double> DeltaBase,int NumerodeMalhas)\n{\n\tvector<double> DeltaInicial;\n\tDeltaInicial.resize(3);\n\t//++++++++++++++++++++++++++TIPO1 e 3++++++++++++++++++++++++++++++++++++++++++++\n\tif(TipodeMalha==1||TipodeMalha==3)\n\t{\n\t\tDeltaInicial[0] = 0;\n\t\tfor(int i=1;i<NumerodeMalhas;i++)\n\t\t{\n\t\t\tDeltaInicial[i] = DeltaBase[i]/2;\n\t\t}\n\t}\n\t//++++++++++++++++++++++++++TIPO2 e 4++++++++++++++++++++++++++++++++++++++++++++\n\tif(TipodeMalha==2||TipodeMalha==4)\n\t{\n\t\tfor(int i=0;i<NumerodeMalhas;i++)\n\t\t{\n\t\t\tDeltaInicial[i] = DeltaBase[i]/2;\n\t\t}\t\n\t}\n\t// //++++++++++++++++++++++++++TIPO3++++++++++++++++++++++++++++++++++++++++++++\n\t// if(TipodeMalha==3)\n\t// {\n\t// \tDeltaInicial[0] = 0;\n\t// \tfor(int i=1;i<NumerodeMalhas;i++)\n\t// \t{\n\t// \t\tDeltaInicial[i] = DeltaBase[i]/2;\n\t// \t}\n\n\t// }\n\t// //++++++++++++++++++++++++++TIPO4++++++++++++++++++++++++++++++++++++++++++++\n\t// if(TipodeMalha==4)\n\t// {\n\t// \tDeltaInicial[0] = DeltaBase[0]/2;\n\t// \tfor(int i=1;i<NumerodeMalhas;i++)\n\t// \t{\n\t// \t\tDeltaInicial[i] = DeltaBase[i]/2;\n\t// \t}\n\t// }\n\treturn(DeltaInicial);\n}\n// vector<double> Malha::DefineDeltasdeTransferencia(double DeltaBaseMat1,double DeltaBaseMatUltimo,int TipodeMalha)\n// {\n// \tvector<double> DeltasTransferencia;\n// \tDeltasTransferencia.resize(3);\n// \t//++++++++++++++++++++++++++TIPO1++++++++++++++++++++++++++++++++++++++++++++\n// \tif(TipodeMalha==1)\n// \t{\n// \t\tDeltasTransferencia[0] = DeltaBaseMat1/2;\n// \t\tDeltasTransferencia[1] = DeltaBaseMatUltimo/2;\n// \t\tDeltasTransferencia[2] = DeltaBaseMatUltimo/2;\n// \t}\n// \t//++++++++++++++++++++++++++TIPO2++++++++++++++++++++++++++++++++++++++++++++\n// \tif(TipodeMalha==2)\n// \t{\n// \t\tDeltasTransferencia[0] = DeltaBaseMat1;\n// \t\tDeltasTransferencia[1] = DeltaBaseMatUltimo/2;\n// \t\tDeltasTransferencia[2] = DeltaBaseMatUltimo;\n// \t}\n// \t//++++++++++++++++++++++++++TIPO3++++++++++++++++++++++++++++++++++++++++++++\n// \tif(TipodeMalha==3)\n// \t{\n// \t\tDeltasTransferencia[0] = DeltaBaseMat1;\n// \t\tDeltasTransferencia[1] = DeltaBaseMatUltimo/2;\n// \t\tDeltasTransferencia[2] = DeltaBaseMatUltimo/2;\n// \t}\n// \t//++++++++++++++++++++++++++TIPO4++++++++++++++++++++++++++++++++++++++++++++\n// \tif(TipodeMalha==4)\n// \t{\n// \t\tDeltasTransferencia[0] = DeltaBaseMat1/2;\n// \t\tDeltasTransferencia[1] = DeltaBaseMatUltimo/2;\n// \t\tDeltasTransferencia[2] = DeltaBaseMatUltimo;\n// \t}\n// \treturn(DeltasTransferencia);\n// }",
-			"file": "lib/source/Malha.cpp",
-			"file_size": 12991,
-			"file_write_time": 131653666077839612,
+			"file": "lib/source/SolverLinear.cpp",
 			"settings":
 			{
-				"buffer_size": 12970,
+				"buffer_size": 6102,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/include/PropriedadeTermica.h",
+			"settings":
+			{
+				"buffer_size": 644,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/source/PropriedadeTermica.cpp",
+			"settings":
+			{
+				"buffer_size": 2375,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -478,16 +560,7 @@
 			"file": "libTest/source/mainDaMalha.cpp",
 			"settings":
 			{
-				"buffer_size": 27325,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/cvbrasil/Documentos/Latex/Teste/resolvederivadas.tex",
-			"settings":
-			{
-				"buffer_size": 4262,
+				"buffer_size": 39380,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -625,6 +698,7 @@
 	[
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/CMakeModules",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/doc",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include",
@@ -634,20 +708,22 @@
 	],
 	"file_history":
 	[
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/PropriedadeTermica.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/Malha.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/CondicoesdeContorno.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/SolverLinear.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/SolverLinear.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/Malha.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/GerenteVolumedeControle.h",
+		"/home/cvbrasil/Documentos/Latex/Teste/resolvederivadas.tex",
 		"/home/cvbrasil/SINMEC/SinmecApps/EbFVMTutorial/source/main.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/GerenteVolumedeControle.cpp",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/Malha.cpp",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/Malha.h",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/SolverLinear.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/libTest/source/mainDaMalha.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho3/resolvederivadasdata.csv",
 		"/home/cvbrasil/transcomp/libTest/source/mainDaMalha.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/CondicoesdeContorno.h",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/CondicoesdeContorno.cpp",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/SolverLinear.h",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/SolucaoAnalitica.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/SolucaoAnalitica.h",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/PropriedadeTermica.cpp",
 		"/home/cvbrasil/Documentos/C++/Teste/CSV/untitled.cpp",
 		"/home/cvbrasil/Documentos/C++/Teste/CSV/arquivoteste2.csv",
 		"/home/cvbrasil/Documentos/C++/Teste/Variados/testetextout.cpp",
@@ -772,24 +848,112 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lib/include/GerenteVolumedeControle.h",
+					"file": "lib/source/GerenteVolumedeControle.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1019,
+						"buffer_size": 9260,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1019,
-								1019
+								1250,
+								1250
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 450.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lib/include/GerenteVolumedeControle.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1213,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								761,
+								761
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lib/source/SolverLinear.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6102,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								267,
+								267
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/include/PropriedadeTermica.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								577,
+								577
 							]
 						],
 						"settings":
@@ -800,82 +964,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "lib/source/GerenteVolumedeControle.cpp",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 8285,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								595,
-								595
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "lib/source/CondicoesdeContorno.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2115,
-								2115
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "lib/include/Malha.h",
+					"buffer": 4,
+					"file": "lib/source/PropriedadeTermica.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1308,
+						"buffer_size": 2375,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								690,
-								690
+								2025,
+								2025
 							]
 						],
 						"settings":
@@ -887,36 +993,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "lib/source/Malha.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12970,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9254,
-								9278
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4950.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -925,15 +1002,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 27325,
+						"buffer_size": 39380,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3340,
-								3340
+								37971,
+								37971
 							]
 						],
 						"settings":
@@ -942,38 +1019,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1323.0,
+						"translation.y": 20680.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/cvbrasil/Documentos/Latex/Teste/resolvederivadas.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4262,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1955,
-								1955
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -983,7 +1032,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1006,11 +1055,11 @@
 						"translation.y": 1140.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 7,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1033,11 +1082,11 @@
 						"translation.y": 23565.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1060,7 +1109,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 12,
 					"type": "text"
 				}
 			]
@@ -1070,7 +1119,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1093,11 +1142,11 @@
 						"translation.y": 354.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 10,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1121,7 +1170,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1131,7 +1180,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 12,
+					"buffer": 11,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1154,11 +1203,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 12,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1182,7 +1231,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]

@@ -722,7 +722,7 @@ TestCase( Ger_borda_Tpre_Tpre_1Mat )
 		vector<double> Tanalitica;
 		double Erro4Vol;
 		Malha Malhaaux(Nptoscadamat,LarguraMat,1,1);
-		GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
+		GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true,false);
 
 		Tgerente = GVC.getCampoDeTemperaturas();
 
@@ -772,7 +772,7 @@ TestCase( Ger_borda_Tpre_Tpre_1Mat )
 		vector<double> Tanalitica;
 
 		Malha Malhaaux(Nptoscadamat,LarguraMat,1,1);
-		GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
+		GerenteVolumedeControle GVC(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true,false);
 		Tgerente = GVC.getCampoDeTemperaturas();
 		Tanalitica.resize(Tgerente.size());
 
@@ -875,7 +875,7 @@ TestCase( Ger_central_Qpre_Conv_Erro )
 		myfile2.close();
 	}
 	{
-		GerenteVolumedeControle DoisMatQpreConvInterpDesalinhada(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,false);
+		GerenteVolumedeControle DoisMatQpreConvInterpDesalinhada(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,false,false);
 		vector<double>Tsimulacao;
 		Tsimulacao = DoisMatQpreConvInterpDesalinhada.getCampoDeTemperaturas();
 		for(int i=0; i<TotaldePontos; i++)
@@ -897,7 +897,7 @@ TestCase( Ger_central_Qpre_Conv_Erro )
 		}
 	}
 	{
-		GerenteVolumedeControle DoisMatQpreConvResistDesalinhada(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,false);
+		GerenteVolumedeControle DoisMatQpreConvResistDesalinhada(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,false,false);
 		vector<double>Tsimulacao;
 		Tsimulacao = DoisMatQpreConvResistDesalinhada.getCampoDeTemperaturas();
 		for(int i=0; i<TotaldePontos; i++)
@@ -920,7 +920,7 @@ TestCase( Ger_central_Qpre_Conv_Erro )
 	}
 	{
 
-		GerenteVolumedeControle DoisMatQpreConvInterpAlinhada(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true);
+		GerenteVolumedeControle DoisMatQpreConvInterpAlinhada(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true,false);
 		vector<double>Tsimulacao;
 		Tsimulacao = DoisMatQpreConvInterpAlinhada.getCampoDeTemperaturas();
 		for(int i=0; i<TotaldePontos; i++)
@@ -942,7 +942,7 @@ TestCase( Ger_central_Qpre_Conv_Erro )
 		}
 	}
 	{
-		GerenteVolumedeControle DoisMatQpreConvResistAlinhada(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
+		GerenteVolumedeControle DoisMatQpreConvResistAlinhada(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true,false);
 		vector<double>Tsimulacao;
 		Tsimulacao = DoisMatQpreConvResistAlinhada.getCampoDeTemperaturas();
 		for(int i=0; i<TotaldePontos; i++)
@@ -999,11 +999,11 @@ TestCase( Ger_central_Qpre_Conv_Erro )
 
 			NumeroDeVolumes[i] = NptoscadamatVariavel[0];
 
-			GerenteVolumedeControle DoisMatQpreConvInterpAlinhada(NptoscadamatVariavel,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true);
+			GerenteVolumedeControle DoisMatQpreConvInterpAlinhada(NptoscadamatVariavel,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true,false);
 			vector<double>TsimulacaoInterp;
 			TsimulacaoInterp = DoisMatQpreConvInterpAlinhada.getCampoDeTemperaturas();
 
-			GerenteVolumedeControle DoisMatQpreConvResistAlinhada(NptoscadamatVariavel,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
+			GerenteVolumedeControle DoisMatQpreConvResistAlinhada(NptoscadamatVariavel,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true,false);
 			vector<double>TsimulacaoResist;
 			TsimulacaoResist = DoisMatQpreConvResistAlinhada.getCampoDeTemperaturas();
 
@@ -1140,7 +1140,7 @@ TestCase( Trabalho1_de_Transcomp )
 		Erro.resize(TotaldePontos);
 		ErroRelativo.resize(TotaldePontos);
 
-		GerenteVolumedeControle DoisMatQpreConvResistAlinhadaTrab1(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
+		GerenteVolumedeControle DoisMatQpreConvResistAlinhadaTrab1(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true,false);
 
 		TsimulacaoResist = DoisMatQpreConvResistAlinhadaTrab1.getCampoDeTemperaturas();
 
@@ -1162,7 +1162,7 @@ TestCase( Trabalho1_de_Transcomp )
 		Erro.resize(TotaldePontos);
 		ErroRelativo.resize(TotaldePontos);
 
-		GerenteVolumedeControle DoisMatQpreConvInterpAlinhadaTrab1(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true);
+		GerenteVolumedeControle DoisMatQpreConvInterpAlinhadaTrab1(Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true,false);
 
 		TsimulacaoInterp = DoisMatQpreConvInterpAlinhadaTrab1.getCampoDeTemperaturas();
 		
@@ -1182,7 +1182,7 @@ TestCase( Trabalho1_de_Transcomp )
 		NptoscadamatMAIOR.push_back(50);
 		NptoscadamatMAIOR.push_back(50);
 
-		GerenteVolumedeControle DoisMatQpreConvInterpAlinhadaTrab1MAIOR(NptoscadamatMAIOR,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true);
+		GerenteVolumedeControle DoisMatQpreConvInterpAlinhadaTrab1MAIOR(NptoscadamatMAIOR,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true,false);
 
 		DoisMatQpreConvInterpAlinhadaTrab1MAIOR.SalvaCampoDeTemperaturascsv("Trabalho1_de_Transcomp_SimInterpMaior.csv");
 	}
@@ -1223,11 +1223,11 @@ TestCase( Trabalho1_de_Transcomp )
 
 			NumeroDeVolumes[i] = NptoscadamatVariavel[0];
 
-			GerenteVolumedeControle DoisMatQpreConvInterpAlinhada(NptoscadamatVariavel,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true);
+			GerenteVolumedeControle DoisMatQpreConvInterpAlinhada(NptoscadamatVariavel,Nmalhas,LarguraMat,TipoMalha,k,2,Pre1,Pre2,TiposPre,true,false);
 			vector<double>TsimulacaoInterp;
 			TsimulacaoInterp = DoisMatQpreConvInterpAlinhada.getCampoDeTemperaturas();
 
-			GerenteVolumedeControle DoisMatQpreConvResistAlinhada(NptoscadamatVariavel,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true);
+			GerenteVolumedeControle DoisMatQpreConvResistAlinhada(NptoscadamatVariavel,Nmalhas,LarguraMat,TipoMalha,k,1,Pre1,Pre2,TiposPre,true,false);
 			vector<double>TsimulacaoResist;
 			TsimulacaoResist = DoisMatQpreConvResistAlinhada.getCampoDeTemperaturas();
 
@@ -1359,3 +1359,68 @@ TestCase( SolverTDMA )
 	CampodeTPETSc = SolverTeste.getCampodeTemperaturas();
 	PetscFinalize();
 }
+// TestCase( GerentePolinomial )
+// {
+// 	vector<vector<double> > kpol;
+// 	vector<double> k;
+// 	vector<int> NumerodePontos;
+// 	vector<double> TemperaturasEstimadas;
+// 	vector<double> Pre1;
+// 	vector<double> Pre2;
+// 	vector<int> TiposPre;
+
+// 	TiposPre.push_back(1);
+// 	TiposPre.push_back(2);
+
+// 	bool Polinomial = true;
+// 	bool DeltinhaTrueRealFalseMedio=true;
+// 	Pre1.push_back(300);
+// 	Pre2.push_back(500);
+// 	int Nmalhas = 1;
+// 	vector<double>LarguraMat;
+// 	LarguraMat.push_back(1);
+// 	LarguraMat.push_back(1);
+// 	int TipoMalha=1;
+// 	int TipoDeKinterface = 1;
+
+// 	//GERA VETOR NUM DE PTOS
+// 	NumerodePontos.push_back(2);
+// 	NumerodePontos.push_back(2);
+
+// 	//GERA MATRIZ kpol
+// 	{
+// 		vector<double> aux;
+// 		aux.push_back(0);
+// 		aux.push_back(1);
+// 		aux.push_back(2);
+
+// 		kpol.push_back(aux);
+
+// 		aux[0]=2;
+// 		aux[1]=1;
+// 		aux[2]=0;
+
+// 		kpol.push_back(aux);
+// 	}
+
+// 	//GERA VETOR To
+// 	vector<double> To;
+// 	To.push_back(300);
+// 	To.push_back(300);
+// 	To.push_back(300);
+// 	To.push_back(300);
+
+// 	GerenteVolumedeControle GerentePolinomial(NumerodePontos,Nmalhas,LarguraMat,TipoMalha,k,TipoDeKinterface,Pre1,Pre2,TiposPre,DeltinhaTrueRealFalseMedio,Polinomial);
+	
+// 	GerentePolinomial.setTemperaturasIniciais(To);
+// 	GerentePolinomial.setCriterioDeParada(1e-5);
+// 	GerentePolinomial.setLimiteDeIteracoes(100);
+
+// 	vector<double> CampodeT;
+// 	CampodeT = GerentePolinomial.getCampodeTemperaturas();
+// 	//TESTA VALORES
+// 	checkClose(CampodeT[0],180300,1e-5);
+// 	checkClose(CampodeT[1],192510,1e-5);
+// 	checkClose(CampodeT[2],322,1e-5);
+// 	checkClose(CampodeT[3],332,1e-5);
+// }

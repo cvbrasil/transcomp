@@ -1,0 +1,72 @@
+Performing C SOURCE FILE Test MULTIPASS_TEST_1_petsc_works_minimal failed with the following output:
+Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7f88c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7f88c.dir/build.make CMakeFiles/cmTC_7f88c.dir/build
+make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7f88c.dir/src.c.o
+/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc  -I/home/cvbrasil/Install/petsc-3.7.6/Release/include  -DMULTIPASS_TEST_1_petsc_works_minimal   -o CMakeFiles/cmTC_7f88c.dir/src.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp/src.c"
+Linking C executable cmTC_7f88c
+/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f88c.dir/link.txt --verbose=1
+/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc  -DMULTIPASS_TEST_1_petsc_works_minimal    CMakeFiles/cmTC_7f88c.dir/src.c.o  -o cmTC_7f88c /home/cvbrasil/Install/petsc-3.7.6/Release/lib/libpetsc.a 
+/usr/bin/ld: /home/cvbrasil/Install/petsc-3.7.6/Release/lib/libpetsc.a(dt.o): referência indefinida ao símbolo 'cos@@GLIBC_2.2.5'
+//lib/x86_64-linux-gnu/libm.so.6: error adding symbols: DSO missing from command line
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_7f88c.dir/build.make:98: recipe for target 'cmTC_7f88c' failed
+make[1]: *** [cmTC_7f88c] Error 1
+make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_7f88c/fast' failed
+make: *** [cmTC_7f88c/fast] Error 2
+
+Return value: 1
+Source file was:
+
+static const char help[] = "PETSc test program.";
+#include <petscts.h>
+int main(int argc,char *argv[]) {
+  PetscErrorCode ierr;
+  TS ts;
+  ierr = PetscInitialize(&argc,&argv,0,help);CHKERRQ(ierr);
+  ierr = TSCreate(PETSC_COMM_WORLD,&ts);CHKERRQ(ierr);
+  ierr = TSSetFromOptions(ts);CHKERRQ(ierr);
+  ierr = TSDestroy(&ts);CHKERRQ(ierr);
+  ierr = PetscFinalize();CHKERRQ(ierr);
+  return 0;
+}
+
+Performing C SOURCE FILE Test MULTIPASS_TEST_2_petsc_works_allincludes failed with the following output:
+Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0f748/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0f748.dir/build.make CMakeFiles/cmTC_0f748.dir/build
+make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0f748.dir/src.c.o
+/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc  -I/home/cvbrasil/Install/petsc-3.7.6/Release/include  -DMULTIPASS_TEST_2_petsc_works_allincludes   -o CMakeFiles/cmTC_0f748.dir/src.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp/src.c"
+Linking C executable cmTC_0f748
+/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0f748.dir/link.txt --verbose=1
+/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc  -DMULTIPASS_TEST_2_petsc_works_allincludes    CMakeFiles/cmTC_0f748.dir/src.c.o  -o cmTC_0f748 /home/cvbrasil/Install/petsc-3.7.6/Release/lib/libpetsc.a 
+/usr/bin/ld: /home/cvbrasil/Install/petsc-3.7.6/Release/lib/libpetsc.a(dt.o): referência indefinida ao símbolo 'cos@@GLIBC_2.2.5'
+//lib/x86_64-linux-gnu/libm.so.6: error adding symbols: DSO missing from command line
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_0f748.dir/build.make:98: recipe for target 'cmTC_0f748' failed
+make[1]: *** [cmTC_0f748] Error 1
+make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_0f748/fast' failed
+make: *** [cmTC_0f748/fast] Error 2
+
+Return value: 1
+Source file was:
+
+static const char help[] = "PETSc test program.";
+#include <petscts.h>
+int main(int argc,char *argv[]) {
+  PetscErrorCode ierr;
+  TS ts;
+  ierr = PetscInitialize(&argc,&argv,0,help);CHKERRQ(ierr);
+  ierr = TSCreate(PETSC_COMM_WORLD,&ts);CHKERRQ(ierr);
+  ierr = TSSetFromOptions(ts);CHKERRQ(ierr);
+  ierr = TSDestroy(&ts);CHKERRQ(ierr);
+  ierr = PetscFinalize();CHKERRQ(ierr);
+  return 0;
+}
+
