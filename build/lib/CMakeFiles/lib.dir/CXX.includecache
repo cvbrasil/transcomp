@@ -59,6 +59,8 @@ iomanip
 -
 cstring
 -
+math.h
+-
 Malha.h
 /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/Malha.h
 PropriedadeTermica.h

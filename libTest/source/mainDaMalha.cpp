@@ -1364,7 +1364,6 @@ TestCase( SolverTDMA )
 // 	vector<vector<double> > kpol;
 // 	vector<double> k;
 // 	vector<int> NumerodePontos;
-// 	vector<double> TemperaturasEstimadas;
 // 	vector<double> Pre1;
 // 	vector<double> Pre2;
 // 	vector<int> TiposPre;
@@ -1376,7 +1375,7 @@ TestCase( SolverTDMA )
 // 	bool DeltinhaTrueRealFalseMedio=true;
 // 	Pre1.push_back(300);
 // 	Pre2.push_back(500);
-// 	int Nmalhas = 1;
+// 	int Nmalhas = 2;
 // 	vector<double>LarguraMat;
 // 	LarguraMat.push_back(1);
 // 	LarguraMat.push_back(1);
@@ -1411,16 +1410,76 @@ TestCase( SolverTDMA )
 // 	To.push_back(300);
 
 // 	GerenteVolumedeControle GerentePolinomial(NumerodePontos,Nmalhas,LarguraMat,TipoMalha,k,TipoDeKinterface,Pre1,Pre2,TiposPre,DeltinhaTrueRealFalseMedio,Polinomial);
-	
-// 	GerentePolinomial.setTemperaturasIniciais(To);
-// 	GerentePolinomial.setCriterioDeParada(1e-5);
-// 	GerentePolinomial.setLimiteDeIteracoes(100);
+// 	GerentePolinomial.SetVariaveisPolinomiais(kpol,To,200,1e-4);
 
 // 	vector<double> CampodeT;
-// 	CampodeT = GerentePolinomial.getCampodeTemperaturas();
+// 	CampodeT = GerentePolinomial.getCampoDeTemperaturas();
+
+// 	cout<<endl<<endl<<"Tamanho do Campo de Temperaturas e "<<CampodeT.size()<<endl<<endl;
 // 	//TESTA VALORES
 // 	checkClose(CampodeT[0],180300,1e-5);
 // 	checkClose(CampodeT[1],192510,1e-5);
 // 	checkClose(CampodeT[2],322,1e-5);
 // 	checkClose(CampodeT[3],332,1e-5);
 // }
+TestCase( Trab2 )
+{
+	vector<vector<double> > kpol;
+	vector<double> k;
+	vector<int> NumerodePontos;
+	vector<double> Pre1;
+	vector<double> Pre2;
+	vector<int> TiposPre;
+
+	TiposPre.push_back(1);
+	TiposPre.push_back(1);
+
+	bool Polinomial = true;
+	bool DeltinhaTrueRealFalseMedio=true;
+	Pre1.push_back(100);
+	Pre2.push_back(20);
+	int Nmalhas = 1;
+	vector<double>LarguraMat;
+	LarguraMat.push_back(0.1);
+	int TipoMalha=1;
+	int TipoDeKinterface = 2;
+
+	//GERA VETOR NUM DE PTOS
+	NumerodePontos.push_back(50);
+
+	//GERA MATRIZ kpol
+	{
+		vector<double> aux;
+		aux.push_back(1.6);
+		aux.push_back(-0.01);
+
+		kpol.push_back(aux);
+	}
+
+	//GERA VETOR To
+	vector<double> To;
+	for(int i=0; i<NumerodePontos[0]; i++)
+	{
+		To.push_back(50);
+	}
+	
+	GerenteVolumedeControle GerentePolinomial(NumerodePontos,Nmalhas,LarguraMat,TipoMalha,k,TipoDeKinterface,Pre1,Pre2,TiposPre,DeltinhaTrueRealFalseMedio,Polinomial);
+	GerentePolinomial.SetVariaveisPolinomiais(kpol,To,200,1e-10);
+
+	vector<double> CampodeT;
+	CampodeT = GerentePolinomial.getCampoDeTemperaturas();
+
+	cout<<endl<<endl<<"Tamanho do Campo de Temperaturas e "<<CampodeT.size()<<endl<<endl;
+
+	//CRIA MALHA AUXILIAR
+	Malha Malhaaux(NumerodePontos,LarguraMat,Nmalhas,TipoMalha);
+
+	//TESTA VALORES
+	vector<double> Tanalitica;
+	for(int i=0; i<NumerodePontos[0]; i++)
+	{
+		Tanalitica.push_back(160-pow(3600+160000*Malhaaux.getDistanciadaOrigemPosicional(i),0.5));
+		checkClose(CampodeT[i],Tanalitica[i],1e-5);
+	}
+	GerentePolinomial.MostraTiposdeConfiguracao();
+}

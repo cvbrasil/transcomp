@@ -98,6 +98,7 @@ void PropriedadeTermica::CalculakPolinomial()
 			{
 				k[cont]=k[cont]+pow(this->TemperaturasPorPonto[cont],w)*kpolinomial[i][w];
 			}
+			cout<<endl<<endl<<"k["<<cont<<"]="<<k[cont]<<endl<<endl;
 			cont++;
 		}
 	}

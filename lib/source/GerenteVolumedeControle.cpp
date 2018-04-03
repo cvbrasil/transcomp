@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iomanip>
 #include <cstring>
+#include <math.h>
 
 #include "Malha.h"
 #include "PropriedadeTermica.h"
@@ -13,41 +14,108 @@
 
 using namespace std;
 
-GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre,bool DeltinhaTrueRealFalseMedio,bool kPolinomial)
+GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre,bool DeltinhaTrueRealFalseMedio,bool kpolinomial):
+malhaPolinomial(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha),  propriedadetermicaPolinomial(k,Nptoscadamat)
 {
 	Malha malha1(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha);
-	PropriedadeTermica propriedadetermica1(k,Nptoscadamat);
-
 	this->DistanciaDaOrigem = malha1.getDistanciadaOrigem();
 
 	int TotaldePontos;
 	double LarguraTotal;
-	vector<vector<double> >A;
-	vector<double>b;
-	double kinterface1;
-	double kinterface2;
-
 	LarguraTotal = ContaLarguraTotal(LarguraMat);
 	TotaldePontos = ContaTotaldePontos(Nptoscadamat, Nmalhas);
-	
-	vector<double> ksobredeltaexterno;
-	ksobredeltaexterno=Montaksobredeltaexterno(malha1, propriedadetermica1, LarguraTotal, TotaldePontos);
 
-	vector<double> ksobredeltamarginalinterno;
-	ksobredeltamarginalinterno.resize(2);
-	kinterface1 = getkInterface(malha1.getdelta_e(0),malha1.getDelta_e_Mais(0,DeltinhaTrueRealFalseMedio),malha1.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(1),propriedadetermica1.getk(0),TipoDeKinterface);
-	ksobredeltamarginalinterno[0] = kinterface1/malha1.getdelta_e(0);
+	if( kpolinomial == false)
+	{
+		PropriedadeTermica propriedadetermica1(k,Nptoscadamat);
 
-	kinterface1 = getkInterface(malha1.getdelta_e(TotaldePontos-1-1),malha1.getDelta_e_Mais(TotaldePontos-1-1,DeltinhaTrueRealFalseMedio),malha1.getDelta_e_Menos(TotaldePontos-1-1,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(TotaldePontos-1),propriedadetermica1.getk(TotaldePontos-1-1),TipoDeKinterface);
-	ksobredeltamarginalinterno[1] = kinterface1/malha1.getdelta_w(TotaldePontos-1);
+		vector<vector<double> >A;
+		vector<double>b;
+		double kinterface1;
+		
+		vector<double> ksobredeltaexterno;
+		ksobredeltaexterno=Montaksobredeltaexterno(malha1, propriedadetermica1, LarguraTotal, TotaldePontos);
 
-	CondicoesdeContorno condicoesdecontorno1(Pre1,Pre2,TiposPre,TipoMalha,ksobredeltaexterno,ksobredeltamarginalinterno);
+		vector<double> ksobredeltamarginalinterno;
 
-	A=MontaMatrizA(malha1,propriedadetermica1,condicoesdecontorno1,TotaldePontos,DeltinhaTrueRealFalseMedio,TipoDeKinterface);
-	b=MontaVetorb(condicoesdecontorno1,TotaldePontos);
-	
-	SolverLinear solucionador(A,b,TotaldePontos);
-	this->CampoDeTemperaturas = solucionador.getCampodeTemperaturas();
+		ksobredeltamarginalinterno = Montaksobredeltamarginalinterno(malha1,propriedadetermica1,LarguraTotal,TotaldePontos,DeltinhaTrueRealFalseMedio,TipoDeKinterface);
+
+		CondicoesdeContorno condicoesdecontorno1(Pre1,Pre2,TiposPre,TipoMalha,ksobredeltaexterno,ksobredeltamarginalinterno);
+
+		A=MontaMatrizA(malha1,propriedadetermica1,condicoesdecontorno1,TotaldePontos,DeltinhaTrueRealFalseMedio,TipoDeKinterface);
+		b=MontaVetorb(condicoesdecontorno1,TotaldePontos);
+		
+		SolverLinear solucionador(A,b,TotaldePontos);
+		this->CampoDeTemperaturas = solucionador.getCampodeTemperaturas();
+	}
+	else
+	{
+		cout<<endl<<endl<<"Favor, setar kpolinomial, Temperaturas estimadas, limite de iterações e critério de parada em SetVariaveisPolinomiais."<<endl<<endl;
+
+		this->LarguraTotal = LarguraTotal;
+		this->TotaldePontos = TotaldePontos;
+		this->DeltinhaTrueRealFalseMedio = DeltinhaTrueRealFalseMedio;
+		this->TipoDeKinterface = TipoDeKinterface;
+		this->Pre1 = Pre1;
+		this->Pre2 = Pre2;
+		this->TiposPre = TiposPre;
+		this->TipoMalha = TipoMalha;
+	}
+}
+void GerenteVolumedeControle::SetVariaveisPolinomiais(vector<vector<double> >kpolinomial, vector<double>Tinicial, int iteracoesMax, double CriterioParada)
+{
+	this->CampoDeTemperaturas = Tinicial;
+	this->propriedadetermicaPolinomial.setTemperaturas(Tinicial);
+	this->propriedadetermicaPolinomial.setkPolinomial(kpolinomial);
+	this->iteracoesMax = iteracoesMax;
+	this->CriterioParada = CriterioParada;
+	CalculaT();
+}
+void GerenteVolumedeControle::CalculaT()
+{
+	double ErroMax = this->CriterioParada+1;
+	int NumerodeIteracoes = 0;
+	vector<double> Tanterior = this->CampoDeTemperaturas;
+	while(this->CriterioParada<ErroMax && this->iteracoesMax>NumerodeIteracoes)
+	{
+		cout<<endl<<endl<<"ENTROU NO LOOP DO WHILE!!!"<<NumerodeIteracoes<<"	"<<ErroMax<<"	"<<CriterioParada<<endl<<endl;
+		vector<vector<double> >A;
+		vector<double>b;
+		double kinterface1;
+		
+		vector<double> ksobredeltaexterno;
+		ksobredeltaexterno=Montaksobredeltaexterno(this->malhaPolinomial,this->propriedadetermicaPolinomial,this->LarguraTotal,this->TotaldePontos);
+
+		vector<double> ksobredeltamarginalinterno;
+
+		ksobredeltamarginalinterno = Montaksobredeltamarginalinterno(this->malhaPolinomial,this->propriedadetermicaPolinomial,this->LarguraTotal,this->TotaldePontos,this->DeltinhaTrueRealFalseMedio,this->TipoDeKinterface);
+
+		CondicoesdeContorno condicoesdecontorno1(this->Pre1,this->Pre2,this->TiposPre,this->TipoMalha,ksobredeltaexterno,ksobredeltamarginalinterno);
+
+		A=MontaMatrizA(this->malhaPolinomial,this->propriedadetermicaPolinomial,condicoesdecontorno1,this->TotaldePontos,this->DeltinhaTrueRealFalseMedio,this->TipoDeKinterface);
+		b=MontaVetorb(condicoesdecontorno1,this->TotaldePontos);
+		
+		SolverLinear solucionador(A,b,this->TotaldePontos);
+		this->CampoDeTemperaturas = solucionador.getCampodeTemperaturasTDMA();
+		this->propriedadetermicaPolinomial.setTemperaturas(this->CampoDeTemperaturas);
+
+		ErroMax = fabs(Tanterior[0]-CampoDeTemperaturas[0]);
+		for(int i = 1; i<CampoDeTemperaturas.size(); i++)
+		{
+			if(ErroMax<fabs(Tanterior[i]-CampoDeTemperaturas[i]))
+			{
+				ErroMax = fabs(Tanterior[i]-CampoDeTemperaturas[i]); 
+			}
+		}
+		NumerodeIteracoes++;
+		Tanterior = this->CampoDeTemperaturas;
+
+		for(int i=0; i<this->TotaldePontos; i++)
+		{
+			cout<<endl<<"T["<<i<<"]="<<CampoDeTemperaturas[i]<<endl;
+		}
+	}
+
 }
 void GerenteVolumedeControle::ImprimeMatriz(vector<vector<double> >A,vector<double>b, int TotaldePontos)
 {
@@ -124,6 +192,18 @@ vector<double> GerenteVolumedeControle::Montaksobredeltaexterno(Malha malha1, Pr
 		ksobredeltaexterno[1] = propriedadetermica1.getk(TotaldePontos-1)/(LarguraTotal - malha1.getDistanciadaOrigemPosicional(TotaldePontos-1));
 	}
 	return(ksobredeltaexterno);
+}
+vector<double> GerenteVolumedeControle::Montaksobredeltamarginalinterno(Malha malha1, PropriedadeTermica propriedadetermica1, double LarguraTotal, int TotaldePontos, bool DeltinhaTrueRealFalseMedio, int TipoDeKinterface)
+{
+	double kinterface1;
+	vector<double> ksobredeltamarginalinterno;
+	ksobredeltamarginalinterno.resize(2);
+	kinterface1 = getkInterface(malha1.getdelta_e(0),malha1.getDelta_e_Mais(0,DeltinhaTrueRealFalseMedio),malha1.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(1),propriedadetermica1.getk(0),TipoDeKinterface);
+	ksobredeltamarginalinterno[0] = kinterface1/malha1.getdelta_e(0);
+
+	kinterface1 = getkInterface(malha1.getdelta_e(TotaldePontos-1-1),malha1.getDelta_e_Mais(TotaldePontos-1-1,DeltinhaTrueRealFalseMedio),malha1.getDelta_e_Menos(TotaldePontos-1-1,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(TotaldePontos-1),propriedadetermica1.getk(TotaldePontos-1-1),TipoDeKinterface);
+	ksobredeltamarginalinterno[1] = kinterface1/malha1.getdelta_w(TotaldePontos-1);
+	return (ksobredeltamarginalinterno);
 }
 double GerenteVolumedeControle::getkInterface(double delta, double delta_Mais, double delta_Menos, double kmais, double kmenos, int TipoDeKinterface)
 {
@@ -239,15 +319,19 @@ void GerenteVolumedeControle::MostraTiposdeConfiguracao()
 	cout<<"2-Pela Interpolacao Linear"<<endl<<endl;
 	cout<<"Tipo Função k=k(T):"<<endl;
 	cout<<"1-k=constantes"<<endl;
-	cout<<"2-k=A1+A2T+A3T^2+...+AnT^(n-1) | ATENÇÃO! Neste caso, o vetor k deve ter k=[A1 A2 A3 ... An]."<<endl<<endl;
+	cout<<"2-k=A1+A2T+A3T^2+...+AnT^(n-1) | ATENÇÃO! Neste caso, o vetor ou matriz (quando mais de um material) k deve ter k=[A1 A2 A3 ... An]"<<endl;
+	cout<<"e ser setado pela funcao correspondente."<<endl<<endl;
 	cout<<"Tipos de Prescricao"<<endl;
 	cout<<"1-Temperatura Prescrita"<<endl;
 	cout<<"2-Fluxo de Calor Prescrito"<<endl;
 	cout<<"3-Temperatura do fluido e Coeficiente de Conveccao Prescritos"<<endl<<endl;
-	cout<<"Alinhamento da malha com relação à interface de troca de materiais:"<<endl<<endl;
-	cout<<"true:Alinhada"<<endl<<endl;
-	cout<<"false: Desalinhada"<<endl<<endl;
 	cout<<"Ordens de Prescricao nos vetores Pre:"<<endl;
-	cout<<"[Temperatura/Fluxo,Coeficiente de Conveccao]"<<endl<<endl;
+	cout<<"[Temperatura ou Fluxo,Coeficiente de Conveccao]"<<endl<<endl;
+	cout<<"Alinhamento da malha com relação à interface de troca de materiais:"<<endl<<endl;
+	cout<<"DeltinhaTrueRealFalseMedio=true:Alinhada"<<endl;
+	cout<<"DeltinhaTrueRealFalseMedio=false: Desalinhada"<<endl<<endl;
+	cout<<"Coeficiente de condução k como polinomio:"<<endl;
+	cout<<"kpolinomial=true: Polinomio"<<endl;
+	cout<<"kpolinomial=false: Constante"<<endl<<endl;
 	cout<<"----------------------------------------------------------------------------------------"<<endl<<endl;
 }
