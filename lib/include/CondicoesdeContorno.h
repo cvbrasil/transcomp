@@ -1,3 +1,5 @@
+#ifndef CONDICOES_DE_CONTORNO_H
+#define CONDICOES_DE_CONTORNO_H
 #include <vector>
 #include <iostream>
 
@@ -19,3 +21,5 @@ class CondicoesdeContorno
 		vector<double> TermodeEntrada;
 		vector<double> TermodeSaida;
 };
+
+#endif

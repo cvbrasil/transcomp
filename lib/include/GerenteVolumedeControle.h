@@ -2,6 +2,10 @@
 #include <iostream>
 #include <string>
 
+#include <Malha.h>
+#include <CondicoesdeContorno.h>
+#include <PropriedadeTermica.h>
+
 
 using namespace std;
 
