@@ -1,6 +1,6 @@
 The system is: Linux - 4.4.0-53-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: /home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc 
+Compiler: /home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc 
 Build flags: 
 Id flags:  
 
@@ -10,10 +10,10 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/3.8.2/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/3.10.0/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: /home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx 
+Compiler: /home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx 
 Build flags: -m64;-pedantic;-std=c++14
 Id flags:  
 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/3.8.2/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/3.10.0/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_13c8f/fast"
-/usr/bin/make -f CMakeFiles/cmTC_13c8f.dir/build.make CMakeFiles/cmTC_13c8f.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_85a63/fast"
+/usr/bin/make -f CMakeFiles/cmTC_85a63.dir/build.make CMakeFiles/cmTC_85a63.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_13c8f.dir/testCCompiler.c.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc    -o CMakeFiles/cmTC_13c8f.dir/testCCompiler.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp/testCCompiler.c"
-Linking C executable cmTC_13c8f
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13c8f.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc      CMakeFiles/cmTC_13c8f.dir/testCCompiler.c.o  -o cmTC_13c8f 
+Building C object CMakeFiles/cmTC_85a63.dir/testCCompiler.c.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc    -o CMakeFiles/cmTC_85a63.dir/testCCompiler.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp/testCCompiler.c"
+Linking C executable cmTC_85a63
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_85a63.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc      CMakeFiles/cmTC_85a63.dir/testCCompiler.c.o  -o cmTC_85a63 
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5000b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_5000b.dir/build.make CMakeFiles/cmTC_5000b.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_d8f39/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d8f39.dir/build.make CMakeFiles/cmTC_d8f39.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5000b.dir/CMakeCCompilerABI.c.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc    -o CMakeFiles/cmTC_5000b.dir/CMakeCCompilerABI.c.o   -c /home/cvbrasil/Install/cmake-3.8.2/share/cmake-3.8/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_5000b
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5000b.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc     -v CMakeFiles/cmTC_5000b.dir/CMakeCCompilerABI.c.o  -o cmTC_5000b 
+Building C object CMakeFiles/cmTC_d8f39.dir/CMakeCCompilerABI.c.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc    -o CMakeFiles/cmTC_d8f39.dir/CMakeCCompilerABI.c.o   -c /home/cvbrasil/Libraries/cmake-3.10.0/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_d8f39
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8f39.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc     -v CMakeFiles/cmTC_d8f39.dir/CMakeCCompilerABI.c.o  -o cmTC_d8f39 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/gcc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
@@ -59,23 +59,23 @@ Thread model: posix
 gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5000b' '-I' '/home/cvbrasil/Install/openmpi-2.1.0/include' '-pthread' '-L/home/cvbrasil/Install/openmpi-2.1.0/lib' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cc85iTeB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_5000b /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/home/cvbrasil/Install/openmpi-2.1.0/lib -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_5000b.dir/CMakeCCompilerABI.c.o -rpath /home/cvbrasil/Install/openmpi-2.1.0/lib --enable-new-dtags -lmpi -lgcc --as-needed -lgcc_s --no-as-needed -lpthread -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d8f39' '-I' '/home/cvbrasil/Libraries/openmpi-2.1.0//Static/include' '-pthread' '-L/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccITN3WY.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_d8f39 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_d8f39.dir/CMakeCCompilerABI.c.o -rpath /home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib --enable-new-dtags -lmpi -lopen-rte -lopen-pal -lm -lrt -lutil -lgcc --as-needed -lgcc_s --no-as-needed -lpthread -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_5000b/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_5000b.dir/build.make CMakeFiles/cmTC_5000b.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_d8f39/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_d8f39.dir/build.make CMakeFiles/cmTC_d8f39.dir/build]
   ignore line: [make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_5000b.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc    -o CMakeFiles/cmTC_5000b.dir/CMakeCCompilerABI.c.o   -c /home/cvbrasil/Install/cmake-3.8.2/share/cmake-3.8/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_5000b]
-  ignore line: [/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5000b.dir/link.txt --verbose=1]
-  ignore line: [/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc     -v CMakeFiles/cmTC_5000b.dir/CMakeCCompilerABI.c.o  -o cmTC_5000b ]
+  ignore line: [Building C object CMakeFiles/cmTC_d8f39.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc    -o CMakeFiles/cmTC_d8f39.dir/CMakeCCompilerABI.c.o   -c /home/cvbrasil/Libraries/cmake-3.10.0/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_d8f39]
+  ignore line: [/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8f39.dir/link.txt --verbose=1]
+  ignore line: [/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc     -v CMakeFiles/cmTC_d8f39.dir/CMakeCCompilerABI.c.o  -o cmTC_d8f39 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/gcc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
@@ -85,13 +85,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5000b' '-I' '/home/cvbrasil/Install/openmpi-2.1.0/include' '-pthread' '-L/home/cvbrasil/Install/openmpi-2.1.0/lib' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cc85iTeB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_5000b /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/home/cvbrasil/Install/openmpi-2.1.0/lib -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_5000b.dir/CMakeCCompilerABI.c.o -rpath /home/cvbrasil/Install/openmpi-2.1.0/lib --enable-new-dtags -lmpi -lgcc --as-needed -lgcc_s --no-as-needed -lpthread -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d8f39' '-I' '/home/cvbrasil/Libraries/openmpi-2.1.0//Static/include' '-pthread' '-L/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccITN3WY.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_d8f39 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_d8f39.dir/CMakeCCompilerABI.c.o -rpath /home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib --enable-new-dtags -lmpi -lopen-rte -lopen-pal -lm -lrt -lutil -lgcc --as-needed -lgcc_s --no-as-needed -lpthread -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc85iTeB.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccITN3WY.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
@@ -109,11 +109,11 @@ Parsed C implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_5000b] ==> ignore
+    arg [cmTC_d8f39] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
-    arg [-L/home/cvbrasil/Install/openmpi-2.1.0/lib] ==> dir [/home/cvbrasil/Install/openmpi-2.1.0/lib]
+    arg [-L/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib] ==> dir [/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib]
@@ -122,11 +122,16 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
-    arg [CMakeFiles/cmTC_5000b.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_d8f39.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-rpath] ==> ignore
-    arg [/home/cvbrasil/Install/openmpi-2.1.0/lib] ==> ignore
+    arg [/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib] ==> ignore
     arg [--enable-new-dtags] ==> ignore
     arg [-lmpi] ==> lib [mpi]
+    arg [-lopen-rte] ==> lib [open-rte]
+    arg [-lopen-pal] ==> lib [open-pal]
+    arg [-lm] ==> lib [m]
+    arg [-lrt] ==> lib [rt]
+    arg [-lutil] ==> lib [util]
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -139,11 +144,7 @@ Parsed C implicit link information from above output:
     arg [--no-as-needed] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtend.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o] ==> ignore
-  remove lib [gcc]
-  remove lib [gcc_s]
-  remove lib [gcc]
-  remove lib [gcc_s]
-  collapse library dir [/home/cvbrasil/Install/openmpi-2.1.0/lib] ==> [/home/cvbrasil/Install/openmpi-2.1.0/lib]
+  collapse library dir [/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib] ==> [/home/cvbrasil/Libraries/openmpi-2.1.0/Static/lib]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5] ==> [/usr/lib/gcc/x86_64-linux-gnu/5]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib] ==> [/usr/lib]
@@ -152,8 +153,8 @@ Parsed C implicit link information from above output:
   collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
   collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> [/usr/lib]
-  implicit libs: [mpi;pthread;c]
-  implicit dirs: [/home/cvbrasil/Install/openmpi-2.1.0/lib;/usr/lib/gcc/x86_64-linux-gnu/5;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit libs: [mpi;open-rte;open-pal;m;rt;util;gcc;gcc_s;pthread;c;gcc;gcc_s]
+  implicit dirs: [/home/cvbrasil/Libraries/openmpi-2.1.0/Static/lib;/usr/lib/gcc/x86_64-linux-gnu/5;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
   implicit fwks: []
 
 
@@ -162,14 +163,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_14f49/fast"
-/usr/bin/make -f CMakeFiles/cmTC_14f49.dir/build.make CMakeFiles/cmTC_14f49.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_a73a6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a73a6.dir/build.make CMakeFiles/cmTC_a73a6.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_14f49.dir/feature_tests.c.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc   -std=c11 -o CMakeFiles/cmTC_14f49.dir/feature_tests.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_14f49
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_14f49.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc      CMakeFiles/cmTC_14f49.dir/feature_tests.c.o  -o cmTC_14f49 
+Building C object CMakeFiles/cmTC_a73a6.dir/feature_tests.c.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc   -std=c11 -o CMakeFiles/cmTC_a73a6.dir/feature_tests.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_a73a6
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a73a6.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc      CMakeFiles/cmTC_a73a6.dir/feature_tests.c.o  -o cmTC_a73a6 
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
@@ -182,14 +183,14 @@ make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Te
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_74e8e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_74e8e.dir/build.make CMakeFiles/cmTC_74e8e.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_a9edc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a9edc.dir/build.make CMakeFiles/cmTC_a9edc.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_74e8e.dir/feature_tests.c.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc   -std=c99 -o CMakeFiles/cmTC_74e8e.dir/feature_tests.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_74e8e
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74e8e.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc      CMakeFiles/cmTC_74e8e.dir/feature_tests.c.o  -o cmTC_74e8e 
+Building C object CMakeFiles/cmTC_a9edc.dir/feature_tests.c.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc   -std=c99 -o CMakeFiles/cmTC_a9edc.dir/feature_tests.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_a9edc
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a9edc.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc      CMakeFiles/cmTC_a9edc.dir/feature_tests.c.o  -o cmTC_a9edc 
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
@@ -202,14 +203,14 @@ make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Te
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_57cc3/fast"
-/usr/bin/make -f CMakeFiles/cmTC_57cc3.dir/build.make CMakeFiles/cmTC_57cc3.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_04d2e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_04d2e.dir/build.make CMakeFiles/cmTC_04d2e.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_57cc3.dir/feature_tests.c.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc   -std=c90 -o CMakeFiles/cmTC_57cc3.dir/feature_tests.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_57cc3
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57cc3.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc      CMakeFiles/cmTC_57cc3.dir/feature_tests.c.o  -o cmTC_57cc3 
+Building C object CMakeFiles/cmTC_04d2e.dir/feature_tests.c.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc   -std=c90 -o CMakeFiles/cmTC_04d2e.dir/feature_tests.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_04d2e
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_04d2e.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicc      CMakeFiles/cmTC_04d2e.dir/feature_tests.c.o  -o cmTC_04d2e 
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
@@ -220,28 +221,28 @@ make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Te
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_02c55/fast"
-/usr/bin/make -f CMakeFiles/cmTC_02c55.dir/build.make CMakeFiles/cmTC_02c55.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_596ad/fast"
+/usr/bin/make -f CMakeFiles/cmTC_596ad.dir/build.make CMakeFiles/cmTC_596ad.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_02c55.dir/testCXXCompiler.cxx.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx    -m64 -pedantic -std=c++14    -o CMakeFiles/cmTC_02c55.dir/testCXXCompiler.cxx.o -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx"
-Linking CXX executable cmTC_02c55
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02c55.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx  -m64 -pedantic -std=c++14     CMakeFiles/cmTC_02c55.dir/testCXXCompiler.cxx.o  -o cmTC_02c55 
+Building CXX object CMakeFiles/cmTC_596ad.dir/testCXXCompiler.cxx.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx    -m64 -pedantic -std=c++14    -o CMakeFiles/cmTC_596ad.dir/testCXXCompiler.cxx.o -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx"
+Linking CXX executable cmTC_596ad
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_596ad.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx  -m64 -pedantic -std=c++14     CMakeFiles/cmTC_596ad.dir/testCXXCompiler.cxx.o  -o cmTC_596ad 
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_969a2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_969a2.dir/build.make CMakeFiles/cmTC_969a2.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_7245f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7245f.dir/build.make CMakeFiles/cmTC_7245f.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_969a2.dir/CMakeCXXCompilerABI.cpp.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx    -m64 -pedantic -std=c++14    -o CMakeFiles/cmTC_969a2.dir/CMakeCXXCompilerABI.cpp.o -c /home/cvbrasil/Install/cmake-3.8.2/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_969a2
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_969a2.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx  -m64 -pedantic -std=c++14    -v CMakeFiles/cmTC_969a2.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_969a2 
+Building CXX object CMakeFiles/cmTC_7245f.dir/CMakeCXXCompilerABI.cpp.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx    -m64 -pedantic -std=c++14    -o CMakeFiles/cmTC_7245f.dir/CMakeCXXCompilerABI.cpp.o -c /home/cvbrasil/Libraries/cmake-3.10.0/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_7245f
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7245f.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx  -m64 -pedantic -std=c++14    -v CMakeFiles/cmTC_7245f.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_7245f 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/g++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
@@ -251,23 +252,23 @@ Thread model: posix
 gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-m64' '-Wpedantic' '-std=c++14' '-v' '-o' 'cmTC_969a2' '-I' '/home/cvbrasil/Install/openmpi-2.1.0/include' '-pthread' '-L/home/cvbrasil/Install/openmpi-2.1.0/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpLynYU.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_969a2 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/home/cvbrasil/Install/openmpi-2.1.0/lib -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_969a2.dir/CMakeCXXCompilerABI.cpp.o -rpath /home/cvbrasil/Install/openmpi-2.1.0/lib --enable-new-dtags -lmpi -lstdc++ -lm -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-m64' '-Wpedantic' '-std=c++14' '-v' '-o' 'cmTC_7245f' '-I' '/home/cvbrasil/Libraries/openmpi-2.1.0//Static/include' '-pthread' '-L/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cc8agsZk.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_7245f /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_7245f.dir/CMakeCXXCompilerABI.cpp.o -rpath /home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib --enable-new-dtags -lmpi -lopen-rte -lopen-pal -lrt -lutil -lstdc++ -lm -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_969a2/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_969a2.dir/build.make CMakeFiles/cmTC_969a2.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_7245f/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_7245f.dir/build.make CMakeFiles/cmTC_7245f.dir/build]
   ignore line: [make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_969a2.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx    -m64 -pedantic -std=c++14    -o CMakeFiles/cmTC_969a2.dir/CMakeCXXCompilerABI.cpp.o -c /home/cvbrasil/Install/cmake-3.8.2/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_969a2]
-  ignore line: [/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_969a2.dir/link.txt --verbose=1]
-  ignore line: [/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx  -m64 -pedantic -std=c++14    -v CMakeFiles/cmTC_969a2.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_969a2 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_7245f.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx    -m64 -pedantic -std=c++14    -o CMakeFiles/cmTC_7245f.dir/CMakeCXXCompilerABI.cpp.o -c /home/cvbrasil/Libraries/cmake-3.10.0/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_7245f]
+  ignore line: [/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7245f.dir/link.txt --verbose=1]
+  ignore line: [/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx  -m64 -pedantic -std=c++14    -v CMakeFiles/cmTC_7245f.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_7245f ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/g++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
@@ -277,13 +278,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-m64' '-Wpedantic' '-std=c++14' '-v' '-o' 'cmTC_969a2' '-I' '/home/cvbrasil/Install/openmpi-2.1.0/include' '-pthread' '-L/home/cvbrasil/Install/openmpi-2.1.0/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpLynYU.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_969a2 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/home/cvbrasil/Install/openmpi-2.1.0/lib -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_969a2.dir/CMakeCXXCompilerABI.cpp.o -rpath /home/cvbrasil/Install/openmpi-2.1.0/lib --enable-new-dtags -lmpi -lstdc++ -lm -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-m64' '-Wpedantic' '-std=c++14' '-v' '-o' 'cmTC_7245f' '-I' '/home/cvbrasil/Libraries/openmpi-2.1.0//Static/include' '-pthread' '-L/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cc8agsZk.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_7245f /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_7245f.dir/CMakeCXXCompilerABI.cpp.o -rpath /home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib --enable-new-dtags -lmpi -lopen-rte -lopen-pal -lrt -lutil -lstdc++ -lm -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccpLynYU.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc8agsZk.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
@@ -301,11 +302,11 @@ Parsed CXX implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_969a2] ==> ignore
+    arg [cmTC_7245f] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
-    arg [-L/home/cvbrasil/Install/openmpi-2.1.0/lib] ==> dir [/home/cvbrasil/Install/openmpi-2.1.0/lib]
+    arg [-L/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib] ==> dir [/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib]
@@ -314,11 +315,15 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
-    arg [CMakeFiles/cmTC_969a2.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_7245f.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-rpath] ==> ignore
-    arg [/home/cvbrasil/Install/openmpi-2.1.0/lib] ==> ignore
+    arg [/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib] ==> ignore
     arg [--enable-new-dtags] ==> ignore
     arg [-lmpi] ==> lib [mpi]
+    arg [-lopen-rte] ==> lib [open-rte]
+    arg [-lopen-pal] ==> lib [open-pal]
+    arg [-lrt] ==> lib [rt]
+    arg [-lutil] ==> lib [util]
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -329,11 +334,7 @@ Parsed CXX implicit link information from above output:
     arg [-lgcc] ==> lib [gcc]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtend.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o] ==> ignore
-  remove lib [gcc_s]
-  remove lib [gcc]
-  remove lib [gcc_s]
-  remove lib [gcc]
-  collapse library dir [/home/cvbrasil/Install/openmpi-2.1.0/lib] ==> [/home/cvbrasil/Install/openmpi-2.1.0/lib]
+  collapse library dir [/home/cvbrasil/Libraries/openmpi-2.1.0//Static/lib] ==> [/home/cvbrasil/Libraries/openmpi-2.1.0/Static/lib]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5] ==> [/usr/lib/gcc/x86_64-linux-gnu/5]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib] ==> [/usr/lib]
@@ -342,8 +343,8 @@ Parsed CXX implicit link information from above output:
   collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
   collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> [/usr/lib]
-  implicit libs: [mpi;stdc++;m;pthread;c]
-  implicit dirs: [/home/cvbrasil/Install/openmpi-2.1.0/lib;/usr/lib/gcc/x86_64-linux-gnu/5;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit libs: [mpi;open-rte;open-pal;rt;util;stdc++;m;gcc_s;gcc;pthread;c;gcc_s;gcc]
+  implicit dirs: [/home/cvbrasil/Libraries/openmpi-2.1.0/Static/lib;/usr/lib/gcc/x86_64-linux-gnu/5;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
   implicit fwks: []
 
 
@@ -352,14 +353,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0fc61/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0fc61.dir/build.make CMakeFiles/cmTC_0fc61.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_ba26d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ba26d.dir/build.make CMakeFiles/cmTC_ba26d.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_0fc61.dir/feature_tests.cxx.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx    -m64 -pedantic -std=c++14    -std=c++1z -o CMakeFiles/cmTC_0fc61.dir/feature_tests.cxx.o -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_0fc61
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0fc61.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx  -m64 -pedantic -std=c++14     CMakeFiles/cmTC_0fc61.dir/feature_tests.cxx.o  -o cmTC_0fc61 
+Building CXX object CMakeFiles/cmTC_ba26d.dir/feature_tests.cxx.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx    -m64 -pedantic -std=c++14    -std=c++1z -o CMakeFiles/cmTC_ba26d.dir/feature_tests.cxx.o -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_ba26d
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ba26d.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx  -m64 -pedantic -std=c++14     CMakeFiles/cmTC_ba26d.dir/feature_tests.cxx.o  -o cmTC_ba26d 
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
@@ -425,14 +426,14 @@ make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Te
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_935ad/fast"
-/usr/bin/make -f CMakeFiles/cmTC_935ad.dir/build.make CMakeFiles/cmTC_935ad.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_8762f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8762f.dir/build.make CMakeFiles/cmTC_8762f.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_935ad.dir/feature_tests.cxx.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx    -m64 -pedantic -std=c++14    -std=c++14 -o CMakeFiles/cmTC_935ad.dir/feature_tests.cxx.o -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_935ad
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_935ad.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx  -m64 -pedantic -std=c++14     CMakeFiles/cmTC_935ad.dir/feature_tests.cxx.o  -o cmTC_935ad 
+Building CXX object CMakeFiles/cmTC_8762f.dir/feature_tests.cxx.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx    -m64 -pedantic -std=c++14    -std=c++14 -o CMakeFiles/cmTC_8762f.dir/feature_tests.cxx.o -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_8762f
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8762f.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx  -m64 -pedantic -std=c++14     CMakeFiles/cmTC_8762f.dir/feature_tests.cxx.o  -o cmTC_8762f 
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
@@ -498,14 +499,14 @@ make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Te
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0cfa7/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0cfa7.dir/build.make CMakeFiles/cmTC_0cfa7.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_7f9be/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7f9be.dir/build.make CMakeFiles/cmTC_7f9be.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_0cfa7.dir/feature_tests.cxx.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx    -m64 -pedantic -std=c++14    -std=c++11 -o CMakeFiles/cmTC_0cfa7.dir/feature_tests.cxx.o -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_0cfa7
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0cfa7.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx  -m64 -pedantic -std=c++14     CMakeFiles/cmTC_0cfa7.dir/feature_tests.cxx.o  -o cmTC_0cfa7 
+Building CXX object CMakeFiles/cmTC_7f9be.dir/feature_tests.cxx.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx    -m64 -pedantic -std=c++14    -std=c++11 -o CMakeFiles/cmTC_7f9be.dir/feature_tests.cxx.o -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_7f9be
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f9be.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx  -m64 -pedantic -std=c++14     CMakeFiles/cmTC_7f9be.dir/feature_tests.cxx.o  -o cmTC_7f9be 
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
@@ -571,14 +572,14 @@ make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Te
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e281e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e281e.dir/build.make CMakeFiles/cmTC_e281e.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_57099/fast"
+/usr/bin/make -f CMakeFiles/cmTC_57099.dir/build.make CMakeFiles/cmTC_57099.dir/build
 make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_e281e.dir/feature_tests.cxx.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx    -m64 -pedantic -std=c++14    -std=c++98 -o CMakeFiles/cmTC_e281e.dir/feature_tests.cxx.o -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_e281e
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e281e.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicxx  -m64 -pedantic -std=c++14     CMakeFiles/cmTC_e281e.dir/feature_tests.cxx.o  -o cmTC_e281e 
+Building CXX object CMakeFiles/cmTC_57099.dir/feature_tests.cxx.o
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx    -m64 -pedantic -std=c++14    -std=c++98 -o CMakeFiles/cmTC_57099.dir/feature_tests.cxx.o -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_57099
+/home/cvbrasil/Libraries/cmake-3.10.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57099.dir/link.txt --verbose=1
+/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx  -m64 -pedantic -std=c++14     CMakeFiles/cmTC_57099.dir/feature_tests.cxx.o  -o cmTC_57099 
 make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
 
 
@@ -639,74 +640,3 @@ make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Te
     Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
-Determining if the include file pthread.h exists passed with the following output:
-Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_7a42a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7a42a.dir/build.make CMakeFiles/cmTC_7a42a.dir/build
-make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_7a42a.dir/CheckIncludeFile.c.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc    -o CMakeFiles/cmTC_7a42a.dir/CheckIncludeFile.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c"
-Linking C executable cmTC_7a42a
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7a42a.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc      CMakeFiles/cmTC_7a42a.dir/CheckIncludeFile.c.o  -o cmTC_7a42a 
-make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-
-
-Determining if the pthread_create exist passed with the following output:
-Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_05fdd/fast"
-/usr/bin/make -f CMakeFiles/cmTC_05fdd.dir/build.make CMakeFiles/cmTC_05fdd.dir/build
-make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_05fdd.dir/CheckSymbolExists.c.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc    -o CMakeFiles/cmTC_05fdd.dir/CheckSymbolExists.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c"
-Linking C executable cmTC_05fdd
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05fdd.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc      CMakeFiles/cmTC_05fdd.dir/CheckSymbolExists.c.o  -o cmTC_05fdd 
-make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-
-File /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
-/* */
-#include <pthread.h>
-
-int main(int argc, char** argv)
-{
-  (void)argv;
-#ifndef pthread_create
-  return ((int*)(&pthread_create))[argc];
-#else
-  (void)argc;
-  return 0;
-#endif
-}
-
-Performing C SOURCE FILE Test MULTIPASS_TEST_3_petsc_works_alllibraries succeeded with the following output:
-Change Dir: /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_e5bc2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e5bc2.dir/build.make CMakeFiles/cmTC_e5bc2.dir/build
-make[1]: Entering directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e5bc2.dir/src.c.o
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc  -I/home/cvbrasil/Install/petsc-3.7.6/Release/include  -DMULTIPASS_TEST_3_petsc_works_alllibraries   -o CMakeFiles/cmTC_e5bc2.dir/src.c.o   -c "/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp/src.c"
-Linking C executable cmTC_e5bc2
-/home/cvbrasil/Install/cmake-3.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e5bc2.dir/link.txt --verbose=1
-/home/cvbrasil/Install/openmpi-2.1.0/bin/mpicc  -DMULTIPASS_TEST_3_petsc_works_alllibraries    CMakeFiles/cmTC_e5bc2.dir/src.c.o  -o cmTC_e5bc2 /home/cvbrasil/Install/petsc-3.7.6/Release/lib/libpetsc.a /home/cvbrasil/Install/petsc-3.7.6/Release/lib/libflapack.a /home/cvbrasil/Install/petsc-3.7.6/Release/lib/libfblas.a /home/cvbrasil/Install/openmpi-2.1.0/lib/libmpi_usempif08.so /home/cvbrasil/Install/openmpi-2.1.0/lib/libmpi_usempi_ignore_tkr.so /home/cvbrasil/Install/openmpi-2.1.0/lib/libmpi_mpifh.so /usr/lib/gcc/x86_64-linux-gnu/5/libgfortran.so /usr/lib/gcc/x86_64-linux-gnu/5/libquadmath.so /usr/lib/gcc/x86_64-linux-gnu/5/libstdc++.so -lm /home/cvbrasil/Install/openmpi-2.1.0/lib/libmpi.so /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so -lpthread /usr/lib/x86_64-linux-gnu/libdl.so 
-make[1]: Leaving directory '/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/CMakeFiles/CMakeTmp'
-
-Return value: 1
-Source file was:
-
-static const char help[] = "PETSc test program.";
-#include <petscts.h>
-int main(int argc,char *argv[]) {
-  PetscErrorCode ierr;
-  TS ts;
-  ierr = PetscInitialize(&argc,&argv,0,help);CHKERRQ(ierr);
-  ierr = TSCreate(PETSC_COMM_WORLD,&ts);CHKERRQ(ierr);
-  ierr = TSSetFromOptions(ts);CHKERRQ(ierr);
-  ierr = TSDestroy(&ts);CHKERRQ(ierr);
-  ierr = PetscFinalize();CHKERRQ(ierr);
-  return 0;
-}
-

@@ -2,42 +2,59 @@
 #include <iostream>
 #include <string>
 
-//#include "GerenteVolumedeControle.h"
-//#include "Malha.h"
-//#include "PropriedadeTermica.h"
-//#include "CondicoesdeContorno.h"
-//#include "SolverLinear.h"
+#include "GerenteVolumedeControle.h"
+#include "Malha.h"
+#include "PropriedadeTermica.h"
+#include "CondicoesdeContorno.h"
+#include "SolverLinear.h"
+#include "CriteriodeParada.h"
 
 int main()
 {
-	// string CampodeT = "CampodeT";
-	
-	// vector<int> Nptoscadamat;
-	// Nptoscadamat.push_back(5);
+	vector<double> TemperaturasAtuais1;
+	vector<double> TemperaturasAtuais2;
+	vector<double> TemperaturasAnteriores;
+	double criterio = 1;
 
-	// vector<int> Nmalhas;
-	// Nmalhas.push_back(1);
+	TemperaturasAtuais1.push_back(300);
+	TemperaturasAtuais1.push_back(301);
+	TemperaturasAtuais1.push_back(302);
+	TemperaturasAtuais1.push_back(303);
 
-	// vector<double>LarguraMat;
-	// LarguraMat.push_back(3.5);
+	TemperaturasAtuais2.push_back(304.5);
+	TemperaturasAtuais2.push_back(305.6);
+	TemperaturasAtuais2.push_back(307.2);
+	TemperaturasAtuais2.push_back(307.7);
 
-	// int TipoMalha;
-	// TipoMalha =1;
+	TemperaturasAnteriores.push_back(305);
+	TemperaturasAnteriores.push_back(306);
+	TemperaturasAnteriores.push_back(307);
+	TemperaturasAnteriores.push_back(308);
 
-	// vector<double>k;
-	// k.push_back(80.2);
-
-	// vector<double>Pre1;
-	// Pre1.push_back(300);
-
-	// vector<double>Pre2;
-	// Pre2.push_back(315);
-	// Pre2.push_back(25);
-
-	// vector<int>TiposPre;
-	// TiposPre.push_back(1);
-	// TiposPre.push_back(3);
-
-	// GerenteVolumedeControle volumedecontrole1(CampodeT,Nptoscadamat,Nmalhas,LarguraMat,TipoMalha,k,Pre1,Pre2,TiposPre);
+	for(int i=1; i<=5; i++)
+	{
+		bool FlagCerto;
+		bool FlagErrado;
+		CriteriodeParada criterioTesteCerto(i,criterio,TemperaturasAtuais2, TemperaturasAnteriores);
+		CriteriodeParada criterioTesteErrado(i,criterio,TemperaturasAtuais1, TemperaturasAnteriores);
+		FlagCerto = criterioTesteCerto.getFlagDeCriterioAtingido();
+		if(FlagCerto==true)
+		{
+			cout<<endl<<"FLAG CERTO DEU CERTO"<<endl<<endl;
+		}
+		else
+		{
+			cout<<endl<<"FLAG CERTO DEU ERRADO"<<endl<<endl;
+		}
+		FlagErrado = criterioTesteErrado.getFlagDeCriterioAtingido();
+		if(FlagErrado==false)
+		{
+			cout<<endl<<"FLAG ERRADO DEU CERTO"<<endl<<endl;
+		}
+		else
+		{
+			cout<<endl<<"FLAG ERRADO DEU ERRADO"<<endl<<endl;
+		}
+	}
 	return 0;
 }

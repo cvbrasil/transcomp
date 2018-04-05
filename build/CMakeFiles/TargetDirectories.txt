@@ -3,9 +3,6 @@
 /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/lib/CMakeFiles/edit_cache.dir
 /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/lib/CMakeFiles/rebuild_cache.dir
 /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/lib/CMakeFiles/lib.dir
-/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/libTest/CMakeFiles/rebuild_cache.dir
-/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/libTest/CMakeFiles/edit_cache.dir
-/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/libTest/CMakeFiles/libTest.dir
 /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/app/CMakeFiles/rebuild_cache.dir
 /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/app/CMakeFiles/edit_cache.dir
 /home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/app/CMakeFiles/app.dir

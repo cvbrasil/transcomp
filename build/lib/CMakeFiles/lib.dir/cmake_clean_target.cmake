@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "../static_libs/Release/liblib.a"
+  "../static_libs/Debug/liblib.a"
 )

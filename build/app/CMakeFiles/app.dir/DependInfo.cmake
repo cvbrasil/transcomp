@@ -10,8 +10,6 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/cvbrasil/Install/boost-1.63.0/Release/include/boost-1_63"
-  "/home/cvbrasil/Install/petsc-3.7.6/Release/include"
   "../lib/include"
   )
 

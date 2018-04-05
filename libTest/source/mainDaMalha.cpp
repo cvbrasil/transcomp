@@ -11,6 +11,7 @@
 #include "CondicoesdeContorno.h"
 #include "SolverLinear.h"
 #include "GerenteVolumedeControle.h"
+#include "CriteriodeParada.h"
 
 #define BOOST_TEST_MODULE TestModule
 
@@ -1422,6 +1423,40 @@ TestCase( SolverTDMA )
 // 	checkClose(CampodeT[2],322,1e-5);
 // 	checkClose(CampodeT[3],332,1e-5);
 // }
+// TestCase( CriteriosDeParada )
+// {
+// 	vector<double> TemperaturasAtuais1;
+// 	vector<double> TemperaturasAtuais2;
+// 	vector<double> TemperaturasAnteriores;
+// 	double criterio = 1;
+
+// 	TemperaturasAtuais1.push_back(300);
+// 	TemperaturasAtuais1.push_back(301);
+// 	TemperaturasAtuais1.push_back(302);
+// 	TemperaturasAtuais1.push_back(303);
+
+// 	TemperaturasAtuais2.push_back(304.5);
+// 	TemperaturasAtuais2.push_back(305.6);
+// 	TemperaturasAtuais2.push_back(307.2);
+// 	TemperaturasAtuais2.push_back(307.7);
+
+// 	TemperaturasAnteriores.push_back(305);
+// 	TemperaturasAnteriores.push_back(306);
+// 	TemperaturasAnteriores.push_back(307);
+// 	TemperaturasAnteriores.push_back(308);
+
+// 	for(int i=1; i<=5; i++)
+// 	{
+// 		bool FlagCerto;
+// 		bool FlagErrado;
+// 		CriteriodeParada criterioTesteCerto(i,criterio,TemperaturasAtuais2, TemperaturasAnteriores);
+// 		CriteriodeParada criterioTesteErrado(i,criterio,TemperaturasAtuais1, TemperaturasAnteriores);
+// 		FlagCerto = criterioTesteCerto.getFlagDeCriterioAtingido();
+// 		checkEqual(FlagCerto, true);
+// 		FlagErrado = criterioTesteErrado.getFlagDeCriterioAtingido();
+// 		checkEqual(FlagErrado, false);
+// 	}
+// }
 TestCase( Trab2 )
 {
 	vector<vector<double> > kpol;
@@ -1430,6 +1465,8 @@ TestCase( Trab2 )
 	vector<double> Pre1;
 	vector<double> Pre2;
 	vector<int> TiposPre;
+	vector<double> kporponto;
+	vector<double> kinterfaces;
 
 	TiposPre.push_back(1);
 	TiposPre.push_back(1);
@@ -1442,44 +1479,60 @@ TestCase( Trab2 )
 	vector<double>LarguraMat;
 	LarguraMat.push_back(0.1);
 	int TipoMalha=1;
-	int TipoDeKinterface = 2;
 
 	//GERA VETOR NUM DE PTOS
-	NumerodePontos.push_back(50);
+	NumerodePontos.push_back(4);
 
 	//GERA MATRIZ kpol
+	vector<double> aux;
+	aux.push_back(1.6);
+	aux.push_back(-0.01);
+
+	kpol.push_back(aux);
+	for(int TipoDeKinterface = 1; TipoDeKinterface<=2; TipoDeKinterface++)
 	{
-		vector<double> aux;
-		aux.push_back(1.6);
-		aux.push_back(-0.01);
+		cout<<endl<<endl<<endl<<"+++++++++++++++++++++++++++COMECA NOVO TIPO DE kInterface ="<<TipoDeKinterface<<" +++++++++++++++++++++++++++++"<<endl;
+		cout<<"---------------------------------------------------------------------------"<<endl<<endl;
+		for(int j=0; j<4; j++)
+		{
+			cout<<endl<<endl<<endl<<"+++++++++++++++++++++++++++COMECA NOVA MALHA+++++++++++++++++++++++++++++"<<endl;
+			//GERA VETOR To
+			vector<double> To;
+			for(int i=0; i<NumerodePontos[0]; i++)
+			{
+				To.push_back(50);
+			}
+			
+			GerenteVolumedeControle GerentePolinomial(NumerodePontos,Nmalhas,LarguraMat,TipoMalha,k,TipoDeKinterface,Pre1,Pre2,TiposPre,DeltinhaTrueRealFalseMedio,Polinomial);
+			GerentePolinomial.SetVariaveisPolinomiais(kpol,To,200,1e-10);
 
-		kpol.push_back(aux);
+			vector<double> CampodeT;
+			CampodeT = GerentePolinomial.getCampoDeTemperaturas();
+			kporponto=GerentePolinomial.getkEmTodosPontos();
+			kinterfaces=GerentePolinomial.getkinterface_TodosPontos();
+
+			//CRIA MALHA AUXILIAR
+			Malha Malhaaux(NumerodePontos,LarguraMat,Nmalhas,TipoMalha);
+
+			//TESTA VALORES
+			vector<double> Tanalitica;
+			for(int i=0; i<NumerodePontos[0]; i++)
+			{
+				Tanalitica.push_back(160-pow(3600+160000*Malhaaux.getDistanciadaOrigemPosicional(i),0.5));
+				checkClose(CampodeT[i],Tanalitica[i],1);
+				cout<<endl<<"T["<<i<<"] = "<<setprecision(17)<<CampodeT[i]<<setprecision(17)<<"	k["<<i<<"]="<<kporponto[i];
+				if(i<NumerodePontos[0]-1)
+				{
+					cout<<"	kinterf["<<i<<"] = "<<kinterfaces[i]<<setprecision(17)<<endl;
+				}
+			}
+
+			//Retira Numero de iteracoes
+			int NumeroDeIteracoes;
+			NumeroDeIteracoes = GerentePolinomial.getNumerodeIteracoes();
+			cout<<endl<<endl<<"NumeroDeIteracoes="<<NumeroDeIteracoes<<"	NumeroDeVolumes="<<NumerodePontos[0]<<endl<<endl;
+			NumerodePontos[0]=NumerodePontos[0]*2;
+		}
+		NumerodePontos[0]=4;
 	}
-
-	//GERA VETOR To
-	vector<double> To;
-	for(int i=0; i<NumerodePontos[0]; i++)
-	{
-		To.push_back(50);
-	}
-	
-	GerenteVolumedeControle GerentePolinomial(NumerodePontos,Nmalhas,LarguraMat,TipoMalha,k,TipoDeKinterface,Pre1,Pre2,TiposPre,DeltinhaTrueRealFalseMedio,Polinomial);
-	GerentePolinomial.SetVariaveisPolinomiais(kpol,To,200,1e-10);
-
-	vector<double> CampodeT;
-	CampodeT = GerentePolinomial.getCampoDeTemperaturas();
-
-	cout<<endl<<endl<<"Tamanho do Campo de Temperaturas e "<<CampodeT.size()<<endl<<endl;
-
-	//CRIA MALHA AUXILIAR
-	Malha Malhaaux(NumerodePontos,LarguraMat,Nmalhas,TipoMalha);
-
-	//TESTA VALORES
-	vector<double> Tanalitica;
-	for(int i=0; i<NumerodePontos[0]; i++)
-	{
-		Tanalitica.push_back(160-pow(3600+160000*Malhaaux.getDistanciadaOrigemPosicional(i),0.5));
-		checkClose(CampodeT[i],Tanalitica[i],1e-5);
-	}
-	GerentePolinomial.MostraTiposdeConfiguracao();
 }

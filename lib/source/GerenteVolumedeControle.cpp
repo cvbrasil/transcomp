@@ -11,6 +11,7 @@
 #include "CondicoesdeContorno.h"
 #include "SolverLinear.h"
 #include "GerenteVolumedeControle.h"
+#include "CriteriodeParada.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ malhaPolinomial(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha),  propriedadetermicaP
 	if( kpolinomial == false)
 	{
 		PropriedadeTermica propriedadetermica1(k,Nptoscadamat);
+		SalvaTodok(propriedadetermica1, TotaldePontos);
 
 		vector<vector<double> >A;
 		vector<double>b;
@@ -62,6 +64,26 @@ malhaPolinomial(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha),  propriedadetermicaP
 		this->TipoMalha = TipoMalha;
 	}
 }
+int GerenteVolumedeControle::getNumerodeIteracoes()
+{
+	return(this->NumerodeIteracoes);
+}
+vector<double> GerenteVolumedeControle::getkEmTodosPontos()
+{
+	return(this->k_TodosPontos);
+}
+vector<double> GerenteVolumedeControle::getkinterface_TodosPontos()
+{
+	return(this->kinterface_TodosPontos);
+}
+void GerenteVolumedeControle::SalvaTodok(PropriedadeTermica propriedadetermica,int TotaldePontos)
+{
+	this->k_TodosPontos.resize(TotaldePontos);
+	for(int i=0; i<TotaldePontos; i++)
+	{
+		this->k_TodosPontos[i]=propriedadetermica.getk(i);
+	}
+}
 void GerenteVolumedeControle::SetVariaveisPolinomiais(vector<vector<double> >kpolinomial, vector<double>Tinicial, int iteracoesMax, double CriterioParada)
 {
 	this->CampoDeTemperaturas = Tinicial;
@@ -70,6 +92,7 @@ void GerenteVolumedeControle::SetVariaveisPolinomiais(vector<vector<double> >kpo
 	this->iteracoesMax = iteracoesMax;
 	this->CriterioParada = CriterioParada;
 	CalculaT();
+	SalvaTodok(propriedadetermicaPolinomial,this->TotaldePontos);
 }
 void GerenteVolumedeControle::CalculaT()
 {
@@ -78,7 +101,6 @@ void GerenteVolumedeControle::CalculaT()
 	vector<double> Tanterior = this->CampoDeTemperaturas;
 	while(this->CriterioParada<ErroMax && this->iteracoesMax>NumerodeIteracoes)
 	{
-		cout<<endl<<endl<<"ENTROU NO LOOP DO WHILE!!!"<<NumerodeIteracoes<<"	"<<ErroMax<<"	"<<CriterioParada<<endl<<endl;
 		vector<vector<double> >A;
 		vector<double>b;
 		double kinterface1;
@@ -110,12 +132,12 @@ void GerenteVolumedeControle::CalculaT()
 		NumerodeIteracoes++;
 		Tanterior = this->CampoDeTemperaturas;
 
-		for(int i=0; i<this->TotaldePontos; i++)
-		{
-			cout<<endl<<"T["<<i<<"]="<<CampoDeTemperaturas[i]<<endl;
-		}
+		// for(int i=0; i<this->TotaldePontos; i++)
+		// {
+		// 	cout<<endl<<"T["<<i<<"]="<<CampoDeTemperaturas[i]<<endl;
+		// }
 	}
-
+	this->NumerodeIteracoes = NumerodeIteracoes;
 }
 void GerenteVolumedeControle::ImprimeMatriz(vector<vector<double> >A,vector<double>b, int TotaldePontos)
 {
@@ -151,6 +173,8 @@ vector<vector<double> > GerenteVolumedeControle::MontaMatrizA(Malha malha1,Propr
 		{
 			kinterface2 = getkInterface(malha1.getdelta_e(i),malha1.getDelta_e_Mais(i,DeltinhaTrueRealFalseMedio),malha1.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(i+1),propriedadetermica1.getk(i),TipoDeKinterface);
 			kinterface1 = getkInterface(malha1.getdelta_w(i),malha1.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio),malha1.getDelta_w_Menos(i,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(i),propriedadetermica1.getk(i-1),TipoDeKinterface);
+			this->kinterface_TodosPontos.resize(TotaldePontos-1);
+			this->kinterface_TodosPontos[i-1] = kinterface1;
 			A[i][i-1] = -kinterface1/malha1.getdelta_w(i);
 			A[i][i] = (kinterface1/malha1.getdelta_w(i)+kinterface2/malha1.getdelta_e(i));
 			A[i][i+1] = -kinterface2/malha1.getdelta_e(i);
