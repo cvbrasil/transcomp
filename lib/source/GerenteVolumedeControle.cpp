@@ -257,10 +257,8 @@ vector<double> GerenteVolumedeControle::getDistanciaDaOrigem()
 }
 void GerenteVolumedeControle::SalvaCampoDeTemperaturascsv(string NomedoArquivo)
 {
-	char NomedoArquivoChar[NomedoArquivo.length()+1];
-	strcpy(NomedoArquivoChar,NomedoArquivo.c_str());
 	ofstream myfile;
-	myfile.open (NomedoArquivoChar);
+	myfile.open (NomedoArquivo.c_str());
 	for(int i=0; i<this->CampoDeTemperaturas.size(); i++)
 	{
 			myfile<<this->CampoDeTemperaturas[i]<<setprecision(17)<<","<<this->DistanciaDaOrigem[i]<<setprecision(17)<<"\n";
@@ -271,10 +269,8 @@ void GerenteVolumedeControle::SalvaDoisVetorescsv(string NomedoArquivo, vector<d
 {
 	if(V1.size()==V2.size())
 	{
-		char NomedoArquivoChar[NomedoArquivo.length()+1];
-		strcpy(NomedoArquivoChar,NomedoArquivo.c_str());
 		ofstream myfile;
-		myfile.open (NomedoArquivoChar);
+		myfile.open (NomedoArquivo.c_str());
 		for(int i=0; i<V1.size(); i++)
 		{
 				myfile<<V1[i]<<setprecision(17)<<","<<V2[i]<<setprecision(17)<<"\n";

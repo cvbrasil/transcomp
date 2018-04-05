@@ -1,3 +1,6 @@
+#ifndef MALHA_H
+#define MALHA_H
+
 #include <vector>
 #include <iostream>
 
@@ -40,3 +43,5 @@ class Malha
 
 		int TipodeMalha;
 };
+
+#endif

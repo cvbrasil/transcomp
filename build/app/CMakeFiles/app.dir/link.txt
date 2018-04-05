@@ -1,1 +1,0 @@
-/home/cvbrasil/Libraries/openmpi-2.1.0/Static/bin/mpicxx  -m64 -pedantic -std=c++14 -g   CMakeFiles/app.dir/source/main.cpp.o  -o ../bin/Debug/app ../static_libs/Debug/liblib.a 

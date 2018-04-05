@@ -1,3 +1,6 @@
+#ifndef PROPRIEDADE_TEMICA_H
+#define PROPRIEDADE_TEMICA_H
+
 #include <vector>
 #include <iostream>
 
@@ -26,3 +29,5 @@ class PropriedadeTermica
 		bool TemperaturasPorPontoSalvo=0;
 		bool kpolinomialSalvo=0;
 };
+
+#endif

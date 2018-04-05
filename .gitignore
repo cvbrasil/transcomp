@@ -1,0 +1,16 @@
+build*
+tests*
+.vscode*
+
+*.exe
+*.asv
+*.dat
+*.stackdump
+*.pyc
+*.log
+*.kase
+*.aux
+*.log
+*.toc
+*.swp
+*.swo
