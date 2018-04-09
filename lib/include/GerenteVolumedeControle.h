@@ -12,16 +12,20 @@ using namespace std;
 class GerenteVolumedeControle
 {
 	public:
-		GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre,bool DeltinhaTrueRealFalseMedio,bool kpolinomial);
+		GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre,bool DeltinhaTrueRealFalseMedio,bool kpolinomial,int TipoDeCriterio);
 		vector<double> getCampoDeTemperaturas();
 		vector<double> getDistanciaDaOrigem();
 		void SalvaCampoDeTemperaturascsv(string NomedoArquivo);
 		void SalvaDoisVetorescsv(string NomedoArquivo, vector<double> V1, vector<double> V2);
+		void SalvaDoisVetoresDeintcsv(string NomedoArquivo, vector<int> V1, vector<int> V2);
 		void MostraTiposdeConfiguracao();
 		void SetVariaveisPolinomiais(vector<vector<double> >kpolinomial, vector<double>Tinicial, int iteracoesMax, double CriterioParada);
 		int getNumerodeIteracoes();
 		vector<double> getkEmTodosPontos();
 		vector<double> getkinterface_TodosPontos();
+		vector<double> getFluxoTermico();
+		string TransformaEmString(int Number);
+		double getErroIterativo();
 	private:
 		vector<vector<double> > MontaMatrizA(Malha,PropriedadeTermica, CondicoesdeContorno, int TotaldePontos,bool DeltinhaTrueRealFalseMedio,int TipoDeKinterface);
 		vector<double> MontaVetorb(CondicoesdeContorno,int TotaldePontos);
@@ -53,4 +57,6 @@ class GerenteVolumedeControle
 		vector<int> TiposPre;
 		int TipoMalha;
 		int NumerodeIteracoes = 0;
+		int TipoDeCriterio;
+		double ErroDeParada;
 };

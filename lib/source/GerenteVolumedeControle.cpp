@@ -15,7 +15,7 @@
 
 using namespace std;
 
-GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre,bool DeltinhaTrueRealFalseMedio,bool kpolinomial):
+GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre,bool DeltinhaTrueRealFalseMedio,bool kpolinomial,int TipoDeCriterio):
 malhaPolinomial(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha),  propriedadetermicaPolinomial(k,Nptoscadamat)
 {
 	Malha malha1(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha);
@@ -62,7 +62,24 @@ malhaPolinomial(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha),  propriedadetermicaP
 		this->Pre2 = Pre2;
 		this->TiposPre = TiposPre;
 		this->TipoMalha = TipoMalha;
+		this->TipoDeCriterio = TipoDeCriterio;
 	}
+}
+vector<double> GerenteVolumedeControle::getFluxoTermico()
+{
+	vector<double> FluxoTermico;
+	FluxoTermico.resize(TotaldePontos-1);
+	for(int i=0;i<this->TotaldePontos-1;i++)
+	{
+		FluxoTermico[i]=-kinterface_TodosPontos[i]*(CampoDeTemperaturas[i+1]-CampoDeTemperaturas[i])/(malhaPolinomial.getdelta_e(i));
+	}
+	this->kinterface_TodosPontos;
+	this->CampoDeTemperaturas;
+	return(FluxoTermico);
+}
+double GerenteVolumedeControle::getErroIterativo()
+{
+	return(this->ErroDeParada);
 }
 int GerenteVolumedeControle::getNumerodeIteracoes()
 {
@@ -96,10 +113,10 @@ void GerenteVolumedeControle::SetVariaveisPolinomiais(vector<vector<double> >kpo
 }
 void GerenteVolumedeControle::CalculaT()
 {
-	double ErroMax = this->CriterioParada+1;
 	int NumerodeIteracoes = 0;
 	vector<double> Tanterior = this->CampoDeTemperaturas;
-	while(this->CriterioParada<ErroMax && this->iteracoesMax>NumerodeIteracoes)
+	bool FlagDeCriterioAtingido = 0;
+	while(FlagDeCriterioAtingido==0 && this->iteracoesMax>NumerodeIteracoes)
 	{
 		vector<vector<double> >A;
 		vector<double>b;
@@ -121,14 +138,10 @@ void GerenteVolumedeControle::CalculaT()
 		this->CampoDeTemperaturas = solucionador.getCampodeTemperaturasTDMA();
 		this->propriedadetermicaPolinomial.setTemperaturas(this->CampoDeTemperaturas);
 
-		ErroMax = fabs(Tanterior[0]-CampoDeTemperaturas[0]);
-		for(int i = 1; i<CampoDeTemperaturas.size(); i++)
-		{
-			if(ErroMax<fabs(Tanterior[i]-CampoDeTemperaturas[i]))
-			{
-				ErroMax = fabs(Tanterior[i]-CampoDeTemperaturas[i]); 
-			}
-		}
+		CriteriodeParada criteriodeparada(this->TipoDeCriterio,this->CriterioParada,this->CampoDeTemperaturas,Tanterior);
+		FlagDeCriterioAtingido=criteriodeparada.getFlagDeCriterioAtingido();
+		this->ErroDeParada = criteriodeparada.getErro();
+
 		NumerodeIteracoes++;
 		Tanterior = this->CampoDeTemperaturas;
 
@@ -151,6 +164,14 @@ void GerenteVolumedeControle::ImprimeMatriz(vector<vector<double> >A,vector<doub
 		cout<<"	|"<<b[i]<<endl;
 	}
 }
+string GerenteVolumedeControle::TransformaEmString(int Number)
+{
+	string Result;
+	stringstream convert;
+	convert << Number;
+	Result = convert.str();
+	return(Result);
+}
 vector<vector<double> > GerenteVolumedeControle::MontaMatrizA(Malha malha1,PropriedadeTermica propriedadetermica1, CondicoesdeContorno condicoesdecontorno1, int TotaldePontos,bool DeltinhaTrueRealFalseMedio,int TipoDeKinterface)
 {
 	vector<vector<double> >A;
@@ -169,12 +190,14 @@ vector<vector<double> > GerenteVolumedeControle::MontaMatrizA(Malha malha1,Propr
 
 	if(TotaldePontos>2)
 	{
+		this->kinterface_TodosPontos.resize(TotaldePontos-1);
+		kinterface2 = getkInterface(malha1.getdelta_e(0),malha1.getDelta_e_Mais(0,DeltinhaTrueRealFalseMedio),malha1.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(1),propriedadetermica1.getk(0),TipoDeKinterface);
+		this->kinterface_TodosPontos[0]=kinterface2;
 		for(int i=1; i<TotaldePontos-1;i++)
 		{
 			kinterface2 = getkInterface(malha1.getdelta_e(i),malha1.getDelta_e_Mais(i,DeltinhaTrueRealFalseMedio),malha1.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(i+1),propriedadetermica1.getk(i),TipoDeKinterface);
 			kinterface1 = getkInterface(malha1.getdelta_w(i),malha1.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio),malha1.getDelta_w_Menos(i,DeltinhaTrueRealFalseMedio),propriedadetermica1.getk(i),propriedadetermica1.getk(i-1),TipoDeKinterface);
-			this->kinterface_TodosPontos.resize(TotaldePontos-1);
-			this->kinterface_TodosPontos[i-1] = kinterface1;
+			this->kinterface_TodosPontos[i] = kinterface2;
 			A[i][i-1] = -kinterface1/malha1.getdelta_w(i);
 			A[i][i] = (kinterface1/malha1.getdelta_w(i)+kinterface2/malha1.getdelta_e(i));
 			A[i][i+1] = -kinterface2/malha1.getdelta_e(i);
@@ -274,6 +297,23 @@ void GerenteVolumedeControle::SalvaDoisVetorescsv(string NomedoArquivo, vector<d
 		for(int i=0; i<V1.size(); i++)
 		{
 				myfile<<V1[i]<<setprecision(17)<<","<<V2[i]<<setprecision(17)<<"\n";
+		}
+		myfile.close();
+	}
+	else
+	{
+		cout<<endl<<endl<<"PROBLEMA! Vetores a serem salvos nao possuem mesma dimensao!"<<endl<<endl;
+	}
+}
+void GerenteVolumedeControle::SalvaDoisVetoresDeintcsv(string NomedoArquivo, vector<int> V1, vector<int> V2)
+{
+	if(V1.size()==V2.size())
+	{
+		ofstream myfile;
+		myfile.open (NomedoArquivo.c_str());
+		for(int i=0; i<V1.size(); i++)
+		{
+				myfile<<V1[i]<<","<<V2[i]<<"\n";
 		}
 		myfile.close();
 	}

@@ -4,12 +4,128 @@
 		"selected_items":
 		[
 			[
-				"TemperaturasA",
-				"TemperaturasAtuais"
+				"Numer",
+				"NumerodePontos"
+			],
+			[
+				"sal",
+				"SalvaDoisVetorescsv"
+			],
+			[
+				"Con",
+				"ContaInterfaces"
+			],
+			[
+				"Nu",
+				"NumerodePontos"
+			],
+			[
+				"nome",
+				"nomeArquivo"
+			],
+			[
+				"Flx",
+				"FluxoTermico"
+			],
+			[
+				"Salv",
+				"SalvaDoisVetorescsv"
+			],
+			[
+				"N",
+				"NumerodePontos"
+			],
+			[
+				"Num",
+				"NumerodeVC"
+			],
+			[
+				"Sal",
+				"SalvaDoisVetorescsv"
+			],
+			[
+				"vec",
+				"VecNumeroDeIteracoes"
+			],
+			[
+				"Ger",
+				"GerentePolinomial"
+			],
+			[
+				"Cri",
+				"CriteriodeParada"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"Tip",
+				"TipoDeKinterface"
+			],
+			[
+				"kin",
+				"kinterface2"
+			],
+			[
+				"get",
+				"getdelta_e"
+			],
+			[
+				"mal",
+				"malhaPolinomial"
+			],
+			[
+				"ki",
+				"kinterface_TodosPontos"
+			],
+			[
+				"Fl",
+				"FluxoTermico"
+			],
+			[
+				"Fluxo",
+				"FluxoTermico"
+			],
+			[
+				"Fla",
+				"FlagDeCriterioAtingido"
 			],
 			[
 				"F",
-				"FlagErrado"
+				"FlagDeCriterioAtingido"
+			],
+			[
+				"Tipo",
+				"TipoDeCriterio"
+			],
+			[
+				"kinterf",
+				"kinterface_TodosPontos"
+			],
+			[
+				"set",
+				"setprecision"
+			],
+			[
+				"pro",
+				"propriedadetermica1"
+			],
+			[
+				"kpo",
+				"kporponto"
+			],
+			[
+				"Numero",
+				"NumeroDeVolumes"
+			],
+			[
+				"true",
+				"true"
+			],
+			[
+				"TemperaturasA",
+				"TemperaturasAtuais"
 			],
 			[
 				"Flag",
@@ -56,32 +172,12 @@
 				"CriteriodeParada"
 			],
 			[
-				"get",
-				"getk"
-			],
-			[
-				"pro",
-				"propriedadetermicaPolinomial"
-			],
-			[
-				"Numer",
-				"NumerodeIteracoes"
-			],
-			[
 				"Ti",
 				"Tinicial"
 			],
 			[
 				"Pro",
 				"propriedadetermica1"
-			],
-			[
-				"mal",
-				"malha1"
-			],
-			[
-				"Num",
-				"NumerodeIteracoes"
 			],
 			[
 				"setT",
@@ -94,10 +190,6 @@
 			[
 				"malha",
 				"malhaPolinomial"
-			],
-			[
-				"Tipo",
-				"TipoMalha"
 			],
 			[
 				"Pre",
@@ -132,10 +224,6 @@
 				"kinterface2"
 			],
 			[
-				"Con",
-				"CondicoesdeContorno"
-			],
-			[
 				"Ge",
 				"GerentePolinomial"
 			],
@@ -146,10 +234,6 @@
 			[
 				"Pre1",
 				"Pre1"
-			],
-			[
-				"kpo",
-				"kpolinomial"
 			],
 			[
 				"Cam",
@@ -174,10 +258,6 @@
 			[
 				"Npt",
 				"NptoscadamatMAIOR"
-			],
-			[
-				"Salv",
-				"SalvaCampoDeTemperaturascsv"
 			],
 			[
 				"DoisMatQpre",
@@ -248,20 +328,12 @@
 				"DistanciadaOrigem"
 			],
 			[
-				"Nu",
-				"NumerodeMalhas-1"
-			],
-			[
 				"Delt",
 				"DeltaBase"
 			],
 			[
 				"myfile",
 				"myfile2"
-			],
-			[
-				"nome",
-				"NomedoArquivoChar2"
 			],
 			[
 				"m",
@@ -274,10 +346,6 @@
 			[
 				"Nome",
 				"NomedoArquivo2"
-			],
-			[
-				"str",
-				"strcpy"
 			],
 			[
 				"Nom",
@@ -306,10 +374,6 @@
 			[
 				"d",
 				"double"
-			],
-			[
-				"N",
-				"NptoscadamatVariavel"
 			],
 			[
 				"ge",
@@ -450,70 +514,6 @@
 			[
 				"Nptos",
 				"Nptoscadamat"
-			],
-			[
-				"getdelta",
-				"getdelta_e"
-			],
-			[
-				"Def",
-				"DefineDeltaBaseInicial"
-			],
-			[
-				"Numero",
-				"NumerodePontos"
-			],
-			[
-				"numero",
-				"NumerodeMalhas"
-			],
-			[
-				"numer",
-				"NumerodeMalhas"
-			],
-			[
-				"inc",
-				"include"
-			],
-			[
-				"De",
-				"DeltaBase"
-			],
-			[
-				"Del",
-				"DeltaBaseInicial"
-			],
-			[
-				"vet",
-				"vetorzin"
-			],
-			[
-				"ve",
-				"vetorzin"
-			],
-			[
-				"larg",
-				"LarguraporMaterial"
-			],
-			[
-				"Lmat",
-				"LarguraporMaterial"
-			],
-			[
-				"G",
-				"GerenciaDados"
-			],
-			[
-				"t",
-				"TipodeMalha"
-			],
-			[
-				"No",
-				"NomedoArquivoChar"
-			],
-			[
-				"L",
-				"Lcadamaterial"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "lib/source/GerenteVolumedeControle.cpp",
 			"settings":
 			{
-				"buffer_size": 13569,
+				"buffer_size": 15475,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -532,16 +532,7 @@
 			"file": "lib/include/GerenteVolumedeControle.h",
 			"settings":
 			{
-				"buffer_size": 2149,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/source/CriteriodeParada.cpp",
-			"settings":
-			{
-				"buffer_size": 5108,
+				"buffer_size": 2765,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -550,25 +541,25 @@
 			"file": "lib/include/CriteriodeParada.h",
 			"settings":
 			{
-				"buffer_size": 1106,
+				"buffer_size": 1148,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "lib/source/PropriedadeTermica.cpp",
+			"file": "lib/source/CriteriodeParada.cpp",
 			"settings":
 			{
-				"buffer_size": 2435,
+				"buffer_size": 5309,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "lib/include/PropriedadeTermica.h",
+			"file": "app/source/main.cpp",
 			"settings":
 			{
-				"buffer_size": 644,
+				"buffer_size": 5466,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -577,7 +568,7 @@
 			"file": "libTest/source/mainDaMalha.cpp",
 			"settings":
 			{
-				"buffer_size": 42149,
+				"buffer_size": 43311,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -716,6 +707,8 @@
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/CMakeModules",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/app",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/doc",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include",
@@ -725,26 +718,29 @@
 	],
 	"file_history":
 	[
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/Malha.h",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/SolverLinear.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/SolverLinear.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/libTest/source/mainDaMalha.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/PropriedadeTermica.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/GerenteVolumedeControle.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/CriteriodeParada.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/CondicoesdeContorno.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/CondicoesdeContorno.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/GerenteVolumedeControle.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/CMakeLists.txt",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/Malha.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/PropriedadeTermica.cpp",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/CondicoesdeContorno.cpp",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/Malha.h",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/GerenteVolumedeControle.h",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/CriteriodeParada.cpp",
 		"/home/cvbrasil/Documentos/Latex/Teste/resolvederivadas.tex",
 		"/home/cvbrasil/SINMEC/SinmecApps/EbFVMTutorial/source/main.cpp",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/GerenteVolumedeControle.cpp",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/libTest/source/mainDaMalha.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho3/resolvederivadasdata.csv",
 		"/home/cvbrasil/transcomp/libTest/source/mainDaMalha.cpp",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/CondicoesdeContorno.h",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/SolucaoAnalitica.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/SolucaoAnalitica.h",
 		"/home/cvbrasil/Documentos/C++/Teste/CSV/untitled.cpp",
 		"/home/cvbrasil/Documentos/C++/Teste/CSV/arquivoteste2.csv",
 		"/home/cvbrasil/Documentos/C++/Teste/Variados/testetextout.cpp",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/PropriedadeTermica.h",
 		"/home/cvbrasil/Downloads/xtgx/app/source/main.cpp",
 		"/home/cvbrasil/.config/sublime-text-3/Packages/SublimeGDB/SublimeGDB.sublime-settings",
 		"/home/cvbrasil/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
@@ -865,7 +861,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -874,15 +870,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13569,
+						"buffer_size": 15475,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2957,
-								2957
+								12501,
+								12501
 							]
 						],
 						"settings":
@@ -891,10 +887,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1015.0,
+						"translation.y": 4162.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -903,15 +899,73 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2149,
+						"buffer_size": 2765,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								321,
-								347
+								709,
+								709
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lib/include/CriteriodeParada.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								275,
+								275
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/source/CriteriodeParada.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2175,
+								2175
 							]
 						],
 						"settings":
@@ -927,20 +981,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "lib/source/CriteriodeParada.cpp",
+					"buffer": 4,
+					"file": "app/source/main.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5108,
+						"buffer_size": 5466,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1646,
-								1646
+								5137,
+								5137
 							]
 						],
 						"settings":
@@ -949,48 +1003,19 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 315.0,
+						"translation.y": 1360.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "lib/include/CriteriodeParada.h",
+					"buffer": 5,
+					"file": "libTest/source/mainDaMalha.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1106,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1103,
-								1103
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "lib/source/PropriedadeTermica.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2435,
+						"buffer_size": 43311,
 						"regions":
 						{
 						},
@@ -1007,67 +1032,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "lib/include/PropriedadeTermica.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 644,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								644,
-								644
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "libTest/source/mainDaMalha.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 42149,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								40250,
-								40250
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 21250.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1077,7 +1045,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1100,11 +1068,11 @@
 						"translation.y": 1140.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 7,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1127,11 +1095,11 @@
 						"translation.y": 23565.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1154,7 +1122,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 12,
 					"type": "text"
 				}
 			]
@@ -1164,7 +1132,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1187,11 +1155,11 @@
 						"translation.y": 354.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 10,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1215,7 +1183,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1225,7 +1193,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 12,
+					"buffer": 11,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1248,11 +1216,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 12,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1276,7 +1244,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]

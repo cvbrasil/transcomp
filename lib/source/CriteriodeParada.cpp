@@ -76,6 +76,7 @@ void CriteriodeParada::maxDiferencaSimples(double CriterioDeParada,vector<double
 	if(CriterioDeParada>ErroMax)
 	{
 		this->FlagDeCriterioAtingido=true;
+		this->ErroDeParada = ErroMax;
 	}
 }
 void CriteriodeParada::maxDiferencaRelativa(double CriterioDeParada,vector<double>TemperaturasAtuais, vector<double>TemperaturasAnteriores)
@@ -96,6 +97,7 @@ void CriteriodeParada::maxDiferencaRelativa(double CriterioDeParada,vector<doubl
 	if(CriterioDeParada>ErroMax)
 	{
 		this->FlagDeCriterioAtingido=true;
+		this->ErroDeParada = ErroMax;
 	}
 }
 void CriteriodeParada::DiferencasQuadradasSobreNVC(double CriterioDeParada,vector<double>TemperaturasAtuais, vector<double>TemperaturasAnteriores)
@@ -111,6 +113,7 @@ void CriteriodeParada::DiferencasQuadradasSobreNVC(double CriterioDeParada,vecto
 	if(CriterioDeParada>Erro)
 	{
 		this->FlagDeCriterioAtingido=true;
+		this->ErroDeParada = Erro;
 	}
 }
 void CriteriodeParada::ModulodasDiferencasSobreNVC(double CriterioDeParada,vector<double>TemperaturasAtuais, vector<double>TemperaturasAnteriores)
@@ -126,6 +129,7 @@ void CriteriodeParada::ModulodasDiferencasSobreNVC(double CriterioDeParada,vecto
 	if(CriterioDeParada>Erro)
 	{
 		this->FlagDeCriterioAtingido=true;
+		this->ErroDeParada = Erro;
 	}
 }
 void CriteriodeParada::ModulodasDiferencasRelativas(double CriterioDeParada,vector<double>TemperaturasAtuais, vector<double>TemperaturasAnteriores)
@@ -145,6 +149,7 @@ void CriteriodeParada::ModulodasDiferencasRelativas(double CriterioDeParada,vect
 	if(CriterioDeParada>Erro)
 	{
 		this->FlagDeCriterioAtingido=true;
+		this->ErroDeParada = Erro;
 	}
 }
 void CriteriodeParada::ResiduosQuadrados()
@@ -174,4 +179,8 @@ double CriteriodeParada::ProcuraTmin(vector<double> TemperaturasAtuais)
 		}
 	}
 	return(Tmin);
+}
+double CriteriodeParada::getErro()
+{
+	return(this->ErroDeParada);
 }

@@ -9,6 +9,7 @@ class CriteriodeParada
 		CriteriodeParada(int TipodeCriterio,double CriterioDeParada,vector<double>TemperaturasAtuais,vector<double>TemperaturasAnteriores);
 
 		bool getFlagDeCriterioAtingido();
+		double getErro();
 	private:
 		void maxDiferencaSimples(double CriterioDeParada,vector<double>TemperaturasAtuais, vector<double>TemperaturasAnteriores);
 		void maxDiferencaRelativa(double CriterioDeParada,vector<double>TemperaturasAtuais, vector<double>TemperaturasAnteriores);
@@ -21,5 +22,5 @@ class CriteriodeParada
 		double ProcuraTmin(vector<double> TemperaturasAtuais);
 
 		bool FlagDeCriterioAtingido=false;
-
+		double ErroDeParada;
 };
