@@ -195,12 +195,18 @@ void GerenteVolumedeControle::CalculaUmPassoNoTempoExplicito()
 		aw = kinterface1/this->malhaPolinomial.getdelta_w(i);
 		ae = kinterface2/this->malhaPolinomial.getdelta_e(i);
 		apo = (this->malhaPolinomial.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
-		this->CampoDeTemperaturas[i] = this->Tinicial[i]*(-ae-aw+apo)+this->Tinicial[i+1]*(ae)+this->Tinicial[i-1]*(aw);
+		this->CampoDeTemperaturas[i] = (this->Tinicial[i]*(-ae-aw+apo)+this->Tinicial[i+1]*(ae)+this->Tinicial[i-1]*(aw))/apo;
 	}
 	kinterface1 = getkInterface(this->malhaPolinomial.getdelta_w(this->TotaldePontos-1),this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,DeltinhaTrueRealFalseMedio),this->malhaPolinomial.getDelta_w_Menos(this->TotaldePontos-1,DeltinhaTrueRealFalseMedio),this->propriedadetermicaPolinomial.getk(this->TotaldePontos-1),this->propriedadetermicaPolinomial.getk(this->TotaldePontos-2),TipoDeKinterface);
 	aw = kinterface1/this->malhaPolinomial.getdelta_w(this->TotaldePontos-1);
 	apo=(this->malhaPolinomial.getDelta_w_Mais(TotaldePontos-1,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 	this->CampoDeTemperaturas[TotaldePontos-1]=(CondicaoDeContornoSaidaExplicito(aw, apo)+aw*this->Tinicial[this->TotaldePontos-2])/apo;
+	
+	// cout<<endl<<endl<<"MATRIZ"<<endl;
+	// for(int i=0; i<this->TotaldePontos; i++)
+	// {
+	// 	cout<<endl<<this->CampoDeTemperaturas[i]<<endl;
+	// }
 }
 double GerenteVolumedeControle::CondicaoDeContornoEntradaExplicito(double ae, double apo)
 {
