@@ -15,7 +15,7 @@
 
 using namespace std;
 
-GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre,bool DeltinhaTrueRealFalseMedio,bool kpolinomial,int TipoDeCriterio):
+GerenteVolumedeControle::GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre,bool DeltinhaTrueRealFalseMedio,int caso,int TipoDeCriterio):
 malhaPolinomial(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha),  propriedadetermicaPolinomial(k,Nptoscadamat)
 {
 	Malha malha1(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha);
@@ -26,7 +26,7 @@ malhaPolinomial(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha),  propriedadetermicaP
 	LarguraTotal = ContaLarguraTotal(LarguraMat);
 	TotaldePontos = ContaTotaldePontos(Nptoscadamat, Nmalhas);
 
-	if( kpolinomial == false)
+	if( caso == 0)
 	{
 		PropriedadeTermica propriedadetermica1(k,Nptoscadamat);
 		SalvaTodok(propriedadetermica1, TotaldePontos);
@@ -52,17 +52,37 @@ malhaPolinomial(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha),  propriedadetermicaP
 	}
 	else
 	{
-		cout<<endl<<endl<<"Favor, setar kpolinomial, Temperaturas estimadas, limite de iterações e critério de parada em SetVariaveisPolinomiais."<<endl<<endl;
+		if(caso == 1)
+		{
+			cout<<endl<<endl<<"Favor, setar kpolinomial, Temperaturas estimadas, limite de iterações e critério de parada em SetVariaveisPolinomiais."<<endl<<endl;
 
-		this->LarguraTotal = LarguraTotal;
-		this->TotaldePontos = TotaldePontos;
-		this->DeltinhaTrueRealFalseMedio = DeltinhaTrueRealFalseMedio;
-		this->TipoDeKinterface = TipoDeKinterface;
-		this->Pre1 = Pre1;
-		this->Pre2 = Pre2;
-		this->TiposPre = TiposPre;
-		this->TipoMalha = TipoMalha;
-		this->TipoDeCriterio = TipoDeCriterio;
+			this->LarguraTotal = LarguraTotal;
+			this->TotaldePontos = TotaldePontos;
+			this->DeltinhaTrueRealFalseMedio = DeltinhaTrueRealFalseMedio;
+			this->TipoDeKinterface = TipoDeKinterface;
+			this->Pre1 = Pre1;
+			this->Pre2 = Pre2;
+			this->TiposPre = TiposPre;
+			this->TipoMalha = TipoMalha;
+			this->TipoDeCriterio = TipoDeCriterio;
+		}
+		else
+		{
+			if(caso == 2)
+			{
+				cout<<endl<<endl<<"Favor, setar ro, Cp, Temperaturas iniciais, limite de iteracoes e critério de parada em SetVariaveisTransiente."<<endl<<endl;
+
+				this->LarguraTotal = LarguraTotal;
+				this->TotaldePontos = TotaldePontos;
+				this->DeltinhaTrueRealFalseMedio = DeltinhaTrueRealFalseMedio;
+				this->TipoDeKinterface = TipoDeKinterface;
+				this->Pre1 = Pre1;
+				this->Pre2 = Pre2;
+				this->TiposPre = TiposPre;
+				this->TipoMalha = TipoMalha;
+				this->TipoDeCriterio = TipoDeCriterio;
+			}
+		}
 	}
 }
 vector<double> GerenteVolumedeControle::getFluxoTermico()
@@ -93,6 +113,10 @@ vector<double> GerenteVolumedeControle::getkinterface_TodosPontos()
 {
 	return(this->kinterface_TodosPontos);
 }
+vector<vector<double> > GerenteVolumedeControle::getTemperaturasTransiente()
+{
+	return(this->CampoDeTemperaturasTransiente);
+}
 void GerenteVolumedeControle::SalvaTodok(PropriedadeTermica propriedadetermica,int TotaldePontos)
 {
 	this->k_TodosPontos.resize(TotaldePontos);
@@ -108,10 +132,127 @@ void GerenteVolumedeControle::SetVariaveisPolinomiais(vector<vector<double> >kpo
 	this->propriedadetermicaPolinomial.setkPolinomial(kpolinomial);
 	this->iteracoesMax = iteracoesMax;
 	this->CriterioParada = CriterioParada;
-	CalculaT();
+	CalculaTpolinomial();
 	SalvaTodok(propriedadetermicaPolinomial,this->TotaldePontos);
 }
-void GerenteVolumedeControle::CalculaT()
+void GerenteVolumedeControle::SetVariaveisTransiente(double ro, double Cp, vector<double>Tinicial, int iteracoesMax, double CriteriodeParada, double PassoDeTempo, double f)
+{
+	this->Tinicial = Tinicial;
+	this->iteracoesMax = iteracoesMax;
+	this->CriterioParada = CriterioParada;
+	this->ro = ro;
+	this->Cp = Cp;
+	this->PassoDeTempo = PassoDeTempo;
+	if(f==0)
+	{
+		CalculaTtransienteExplicito();
+	}
+
+}
+void GerenteVolumedeControle::CalculaTtransienteExplicito()
+{
+	TestaConvergenciaTransienteExplicito();
+
+	vector<vector<double> >A;
+	
+	vector<double> ksobredeltaexterno;
+	ksobredeltaexterno=Montaksobredeltaexterno(this->malhaPolinomial,this->propriedadetermicaPolinomial,this->LarguraTotal,this->TotaldePontos);
+
+	vector<double> ksobredeltamarginalinterno;
+
+	ksobredeltamarginalinterno = Montaksobredeltamarginalinterno(this->malhaPolinomial,this->propriedadetermicaPolinomial,this->LarguraTotal,this->TotaldePontos,this->DeltinhaTrueRealFalseMedio,this->TipoDeKinterface);
+
+	this->CampoDeTemperaturas.resize(this->TotaldePontos);
+
+	int cont = 0;
+	bool FlagDeCriterioAtingido=false;
+	while(this->iteracoesMax>cont && FlagDeCriterioAtingido==false)
+	{
+		CalculaUmPassoNoTempoExplicito();
+		CriteriodeParada criteriodeparada(this->TipoDeCriterio,this->CriterioParada,this->CampoDeTemperaturas,this->Tinicial);
+		FlagDeCriterioAtingido = criteriodeparada.getFlagDeCriterioAtingido();
+		cont++;
+		this->Tinicial=this->CampoDeTemperaturas;
+		A.push_back(this->CampoDeTemperaturas);
+	}
+	this->CampoDeTemperaturasTransiente = A;
+}
+void GerenteVolumedeControle::CalculaUmPassoNoTempoExplicito()
+{
+	double ae;
+	double aw;
+	double apo;
+	double kinterface1;
+	double kinterface2;
+	kinterface2 = getkInterface(this->malhaPolinomial.getdelta_e(0),this->malhaPolinomial.getDelta_e_Mais(0,DeltinhaTrueRealFalseMedio),this->malhaPolinomial.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio),this->propriedadetermicaPolinomial.getk(1),this->propriedadetermicaPolinomial.getk(0),TipoDeKinterface);
+	ae = kinterface2/this->malhaPolinomial.getdelta_e(0);
+	apo = (this->malhaPolinomial.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+	this->CampoDeTemperaturas[0] = (CondicaoDeContornoEntradaExplicito(ae,apo)+this->Tinicial[1]*ae)/apo;
+	for(int i=1; i<TotaldePontos-1;i++)
+	{
+		kinterface2 = getkInterface(this->malhaPolinomial.getdelta_e(i),this->malhaPolinomial.getDelta_e_Mais(i,DeltinhaTrueRealFalseMedio),this->malhaPolinomial.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio),this->propriedadetermicaPolinomial.getk(i+1),this->propriedadetermicaPolinomial.getk(i),TipoDeKinterface);
+		kinterface1 = getkInterface(this->malhaPolinomial.getdelta_w(i),this->malhaPolinomial.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio),this->malhaPolinomial.getDelta_w_Menos(i,DeltinhaTrueRealFalseMedio),this->propriedadetermicaPolinomial.getk(i),this->propriedadetermicaPolinomial.getk(i-1),TipoDeKinterface);
+		aw = kinterface1/this->malhaPolinomial.getdelta_w(i);
+		ae = kinterface2/this->malhaPolinomial.getdelta_e(i);
+		apo = (this->malhaPolinomial.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+		this->CampoDeTemperaturas[i] = this->Tinicial[i]*(-ae-aw+apo)+this->Tinicial[i+1]*(ae)+this->Tinicial[i-1]*(aw);
+	}
+	kinterface1 = getkInterface(this->malhaPolinomial.getdelta_w(this->TotaldePontos-1),this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,DeltinhaTrueRealFalseMedio),this->malhaPolinomial.getDelta_w_Menos(this->TotaldePontos-1,DeltinhaTrueRealFalseMedio),this->propriedadetermicaPolinomial.getk(this->TotaldePontos-1),this->propriedadetermicaPolinomial.getk(this->TotaldePontos-2),TipoDeKinterface);
+	aw = kinterface1/this->malhaPolinomial.getdelta_w(this->TotaldePontos-1);
+	apo=(this->malhaPolinomial.getDelta_w_Mais(TotaldePontos-1,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+	this->CampoDeTemperaturas[TotaldePontos-1]=(CondicaoDeContornoSaidaExplicito(aw, apo)+aw*this->Tinicial[this->TotaldePontos-2])/apo;
+}
+double GerenteVolumedeControle::CondicaoDeContornoEntradaExplicito(double ae, double apo)
+{
+	vector<double> CondicoesDeEntrada;
+	if(this->TiposPre[0]==1)
+	{
+		return(this->Pre1[0]);
+	}
+	if(this->TiposPre[0]==2)
+	{
+		return(this->Pre1[0]-this->Tinicial[0]*(-apo+ae));
+	}
+	if(this->TiposPre[0]==3)
+	{
+		return(this->Pre1[0]*this->Pre1[1]+this->Tinicial[0]*(apo-this->Pre1[1]-ae));
+	}
+}
+double GerenteVolumedeControle::CondicaoDeContornoSaidaExplicito(double aw, double apo)
+{
+	if(this->TiposPre[1]==1)
+	{
+		return(this->Pre2[0]);
+	}
+	if(this->TiposPre[1]==2)
+	{
+		return(-this->Pre2[0]+this->Tinicial[this->TotaldePontos-1]*(apo-aw));
+	}
+	if(this->TiposPre[1]==3)
+	{
+		return(this->Pre2[0]*this->Pre2[1]+this->Tinicial[this->TotaldePontos-1]*(apo-this->Pre2[1]-aw));
+	}
+}
+void GerenteVolumedeControle::TestaConvergenciaTransienteExplicito()
+{
+	vector<double> alpha;
+	bool naoconverge=false;
+	double teste;
+	for(int i=0; i<this->TotaldePontos; i++)
+	{
+		alpha.push_back(this->propriedadetermicaPolinomial.getk(i)/(ro*Cp));
+		teste = alpha[i]*this->PassoDeTempo/(pow(this->malhaPolinomial.getDelta_w_Mais(i,this->DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_e_Menos(i,this->DeltinhaTrueRealFalseMedio),2));
+		if(teste>2)
+		{
+			naoconverge = true;
+		}
+	}
+	if(naoconverge==true)
+	{
+		cout<<endl<<endl<<"Atencao! Transiente Explicito pode nao convergir!"<<endl<<endl;
+	}
+}
+void GerenteVolumedeControle::CalculaTpolinomial()
 {
 	int NumerodeIteracoes = 0;
 	vector<double> Tanterior = this->CampoDeTemperaturas;
@@ -120,7 +261,6 @@ void GerenteVolumedeControle::CalculaT()
 	{
 		vector<vector<double> >A;
 		vector<double>b;
-		double kinterface1;
 		
 		vector<double> ksobredeltaexterno;
 		ksobredeltaexterno=Montaksobredeltaexterno(this->malhaPolinomial,this->propriedadetermicaPolinomial,this->LarguraTotal,this->TotaldePontos);

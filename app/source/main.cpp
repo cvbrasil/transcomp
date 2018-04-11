@@ -13,139 +13,123 @@
 #include "SolverLinear.h"
 #include "CriteriodeParada.h"
 
+double getcsi(double Bi, double xo, double crit)
+{
+	double x;
+	int cont = 0;
+	int iteracaomaxima=100;
+	double erro = 1;
+	while(crit<erro && iteracaomaxima>cont)
+	{
+		cont++;
+		x = xo-(Bi-xo*tan(xo))/(-(tan(xo)+xo*pow(1/cos(xo),2)));
+		erro = fabs(x - xo);
+		xo = x;
+	}
+	return (x);
+}
+double getCn(double csi)
+{
+	double Cn=(4*sin(csi)/(2*csi+sin(2*csi)));
+	return(Cn);
+}
+double getSolucaoAnalitica(double Bi, double Fo, double xc, double crit)
+{
+	double pi = 3.14159265359;
+	double theta = 0;
+	int cont = 0;
+	int iteracaomaxima=100;
+	double soma = crit+1;
+	double xo=1;
+	double Cn;
+	double csi;
+	while((crit<soma || soma<-crit) && iteracaomaxima>cont)
+	{
+		csi = getcsi(Bi, xo, crit);
+		Cn = getCn(csi);
+		soma = Cn*exp(-(pow(csi,2)*Fo))*cos(csi*xc);
+		//cout<<endl<<endl<<"	"<<soma<<"	"<<cont<<endl<<endl;
+		theta = theta + soma;
+		cont ++;
+		xo = cont*pi;
+	}
+	return (theta);
+}
 int main()
 {
-	vector<vector<double> > kpol;
-	vector<double> k;
-	vector<int> NumerodePontos;
-	vector<double> Pre1;
-	vector<double> Pre2;
-	vector<int> TiposPre;
-	vector<double> kporponto;
-	vector<double> kinterfaces;
-
-	TiposPre.push_back(1);
-	TiposPre.push_back(1);
-
-	bool Polinomial = true;
-	bool DeltinhaTrueRealFalseMedio=true;
-	Pre1.push_back(100);
-	Pre2.push_back(20);
-	int Nmalhas = 1;
-	vector<double>LarguraMat;
-	LarguraMat.push_back(0.1);
-	int TipoMalha=1;
-
-	//GERA VETOR NUM DE PTOS
+	vector<double> csi;
+	vector<double> Cn;
+	vector<double> kvec;
+	double Bi = 1.15;
+	double crit = 1e-13;
+	int numerodetermos = 10;
+	double k = 0.7;
+	double cp = 700;
+	double L = 0.4;
+	double ro = 2000;
+	double To = 20;
+	double Tinf = 100;
+	double h = Bi*k/L;
+	double DELTAt=6000;
+	double alpha;
+	vector<int>NumerodePontos;
 	NumerodePontos.push_back(4);
-	vector<int>NumeroDeVC;
-	NumeroDeVC.resize(4);
-	//GERA MATRIZ kpol
-	vector<double> aux;
-	aux.push_back(1.6);
-	aux.push_back(-0.01);
+	vector<double>LarguraporMaterial;
+	LarguraporMaterial.push_back(0.4);
+	int NumerodeMalhas = 1;
+	int TipodeMalha = 1;
+	kvec.push_back(k);
+	vector<double> Tinicial;
 
-	kpol.push_back(aux);
-	string nomeArquivo;
-	string TDC;
-	string TDk;
-	string NVC;
+	//Solucao Analitica
+	vector<double>thetas;
+	thetas.resize(NumerodePontos[0]);
+	vector<double> Tanalit;
+	Tanalit.resize(NumerodePontos[0]);
+	vector<double>DistanciaX;
+	Malha malhaaux(NumerodePontos,LarguraporMaterial,NumerodeMalhas,TipodeMalha);
+	DistanciaX =  malhaaux.getDistanciadaOrigem();
+	alpha = k/(ro*cp);
+	double Fo = alpha*DELTAt/pow(LarguraporMaterial[0],2);
 
-	vector<int>VecNumeroDeIteracoes;
-	VecNumeroDeIteracoes.resize(4);
-	for(int TipoDeCriterio=1; TipoDeCriterio<=2; TipoDeCriterio++)
+	for(int i=0; i<NumerodePontos[0]; i++)
 	{
-		cout<<"----------------------------------------------------------------------------------------"<<endl<<endl;
-		cout<<endl<<endl<<endl<<"+++++++++++++++++++++++++++COMECA NOVO TIPO DE CRITERIODEPARADA ="<<TipoDeCriterio<<" +++++++++++++++++++++++++++++"<<endl;
-		cout<<"----------------------------------------------------------------------------------------"<<endl<<endl;
-		for(int TipoDeKinterface = 1; TipoDeKinterface<=2; TipoDeKinterface++)
+		Tinicial.push_back(To);
+		thetas[i] = getSolucaoAnalitica(Bi, Fo, DistanciaX[i]/LarguraporMaterial[0], crit);
+		Tanalit[i] = thetas[i]*(To-Tinf)+Tinf;
+		cout<<endl<<"theta["<<i<<"]="<<thetas[i]<<"	Tanalit["<<i<<"]="<<Tanalit[i]<<endl;
+	}
+
+	//Solucao Simulada
+	int TipoDeKinterface = 1;
+	vector<double> Pre1;
+	Pre1.push_back(0);
+	vector<double> Pre2;
+	Pre2.push_back(100);
+	Pre2.push_back(h);
+	vector<int> TiposPre;
+	TiposPre.push_back(2);
+	TiposPre.push_back(3);
+	int Caso = 2;
+	int TipoDeCriterio = 1;
+	int iteracoesMax = 100;
+	double CriteriodeParada = 1e-5;
+	double f = 0;
+	double PassodeTempo = 60;
+	vector<double> CampodeT;
+	GerenteVolumedeControle gerente(NumerodePontos,NumerodeMalhas,LarguraporMaterial,TipodeMalha,kvec,TipoDeKinterface,Pre1,Pre2,TiposPre,true,Caso,TipoDeCriterio);
+	gerente.SetVariaveisTransiente(ro,cp,Tinicial,iteracoesMax,CriteriodeParada,PassodeTempo,f);
+	CampodeT=gerente.getCampoDeTemperaturas(); //PEGA A ULTIMA TEMPERATURA
+	//Teste
+	for(int i=0; i<NumerodePontos[0]; i++)
+	{
+		if(fabs(Tanalit[i]-CampodeT[i])/Tanalit[i]>1e-4)
 		{
-			cout<<endl<<endl<<endl<<"+++++++++++++++++++++++++++COMECA NOVO TIPO DE kInterface ="<<TipoDeKinterface<<" +++++++++++++++++++++++++++++"<<endl;
-			cout<<"---------------------------------------------------------------------------"<<endl<<endl;
-			for(int j=0; j<4; j++)
-			{
-				cout<<endl<<endl<<endl<<"+++++++++++++++++++++++++++COMECA NOVA MALHA+++++++++++++++++++++++++++++"<<endl;
-				//CRIA MALHA AUXILIAR
-				Malha Malhaaux(NumerodePontos,LarguraMat,Nmalhas,TipoMalha);
-				//GERA VETOR To
-				vector<double> To;
-				for(int i=0; i<NumerodePontos[0]; i++)
-				{
-					To.push_back(-800*Malhaaux.getDistanciadaOrigemPosicional(i)+100);
-				}
-				
-				GerenteVolumedeControle GerentePolinomial(NumerodePontos,Nmalhas,LarguraMat,TipoMalha,k,TipoDeKinterface,Pre1,Pre2,TiposPre,DeltinhaTrueRealFalseMedio,Polinomial,TipoDeCriterio);
-				GerentePolinomial.SetVariaveisPolinomiais(kpol,To,200,1e-10);
-
-				vector<double> CampodeT;
-				CampodeT = GerentePolinomial.getCampoDeTemperaturas();
-				kporponto=GerentePolinomial.getkEmTodosPontos();
-				kinterfaces=GerentePolinomial.getkinterface_TodosPontos();
-
-				vector<double> FluxoTermico;
-				FluxoTermico=GerentePolinomial.getFluxoTermico();
-
-				//TESTA VALORES
-				vector<double>erro;
-				erro.resize(NumerodePontos[0]);
-				vector<double> Tanalitica;
-				for(int i=0; i<NumerodePontos[0]; i++)
-				{
-					Tanalitica.push_back(160-pow(3600+160000*Malhaaux.getDistanciadaOrigemPosicional(i),0.5));
-					cout<<endl<<"T["<<i<<"] = "<<setprecision(17)<<CampodeT[i]<<setprecision(17)<<"	k["<<i<<"]="<<kporponto[i];
-					if(i<NumerodePontos[0]-1)
-					{
-						cout<<"	kinterf["<<i<<"] = "<<kinterfaces[i]<<setprecision(17)<<"	q="<<FluxoTermico[i]<<endl;
-					}
-				}
-				//Salva Vetores de Simulacao
-				TDC = GerentePolinomial.TransformaEmString(TipoDeCriterio);
-				TDk = GerentePolinomial.TransformaEmString(TipoDeKinterface);
-				NVC = GerentePolinomial.TransformaEmString(NumerodePontos[0]);
-				nomeArquivo = "Trabalho2Criterio"+TDC+"kinterf"+TDk+"NVC"+NVC+".csv";
-				GerentePolinomial.SalvaCampoDeTemperaturascsv(nomeArquivo);
-				//Salva Erro
-				if(NumerodePontos[0]==32||NumerodePontos[0]==4)
-				{
-					for(int i=0; i<NumerodePontos[0]; i++)
-					{
-						erro[i]=fabs(CampodeT[i]-Tanalitica[i])/Tanalitica[i];
-					}
-					nomeArquivo = "Trabalho2ERRORELATIVOCriterio"+TDC+"kinterf"+TDk+"NVC"+NVC+".csv";
-					GerentePolinomial.SalvaDoisVetorescsv(nomeArquivo,erro,Malhaaux.getDistanciadaOrigem());
-				}
-				//Salva Tanalitica
-				if(NumerodePontos[0]==4||NumerodePontos[0]==32)
-				{
-					string nomeArquivoAnalit = "Trabalho2TanalitNVC"+NVC+".csv";				
-					GerentePolinomial.SalvaDoisVetorescsv(nomeArquivoAnalit, Tanalitica, Malhaaux.getDistanciadaOrigem());
-					//Salva Fluxos TermicosxNVC
-					nomeArquivo = "Trabalho2FLUXOTERMICOCriterio"+TDC+"kinterf"+TDk+"NVC"+NVC+".csv";
-					vector<double> ContaInterfaces;
-					ContaInterfaces.resize(NumerodePontos[0]-1);
-					for(int f=0;f<NumerodePontos[0]-1;f++)
-					{
-						ContaInterfaces[f]=f;
-					}
-					GerentePolinomial.SalvaDoisVetorescsv(nomeArquivo,FluxoTermico,ContaInterfaces);
-				}
-
-				//Retira Numero de iteracoes
-				int NumeroDeIteracoes;
-				NumeroDeIteracoes = GerentePolinomial.getNumerodeIteracoes();
-				cout<<endl<<endl<<"NumeroDeIteracoes="<<NumeroDeIteracoes<<"	NumeroDeVolumes="<<NumerodePontos[0]<<endl<<endl;
-				//Salva Numero de Iteracoes x Numero de VC
-				VecNumeroDeIteracoes[j]=NumeroDeIteracoes;
-				NumeroDeVC[j] = NumerodePontos[0];
-				if(j==3)
-				{
-					string nomeArquivoNVCiteracoes;
-					nomeArquivoNVCiteracoes="Trabalho2NVCxITERACOESCriterio"+TDC+"kinterf"+TDk+".csv";
-					GerentePolinomial.SalvaDoisVetoresDeintcsv(nomeArquivoNVCiteracoes,NumeroDeVC,VecNumeroDeIteracoes);
-				}
-				NumerodePontos[0]=NumerodePontos[0]*2;
-			}
-			NumerodePontos[0]=4;
+			cout<<endl<<endl<<"Teste Errado pois Tanalit["<<i<<"]="<<Tanalit[i]<<" e Tsimul="<<CampodeT[i]<<endl<<endl;
+		}
+		else
+		{
+			cout<<endl<<endl<<"Teste Certo pois Tanalit["<<i<<"]="<<Tanalit[i]<<" e Tsimul="<<CampodeT[i]<<endl<<endl;
 		}
 	}
 	return 0;
