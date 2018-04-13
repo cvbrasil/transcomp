@@ -70,7 +70,7 @@ void CriteriodeParada::maxDiferencaSimples(double CriterioDeParada,vector<double
 	{
 		if(ErroMax<fabs(TemperaturasAtuais[i]-TemperaturasAnteriores[i]))
 		{
-			ErroMax = fabs(TemperaturasAtuais[i]-TemperaturasAnteriores[i]); 
+			ErroMax = fabs(TemperaturasAtuais[i]-TemperaturasAnteriores[i]);
 		}
 	}
 	if(CriterioDeParada>ErroMax)

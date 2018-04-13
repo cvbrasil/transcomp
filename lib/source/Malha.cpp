@@ -1,5 +1,7 @@
 #include <vector>
 #include <iostream>
+#include <iomanip>
+#include <math.h>
 #include "Malha.h"
 
 using namespace std;
@@ -143,7 +145,8 @@ double Malha::getDelta_w_Mais(int position,bool Flag)
 			int DefineMatPtoW=0;
 			for(int i=0;i<(this->DistanciadaOrigemMaterial.size());i++)
 			{
-				if(this->DistanciadaOrigem[position]>this->DistanciadaOrigemMaterial[i])
+				//cout<<endl<<endl<<"DistanciadaOrigemMat["<<i<<"]="<<setprecision(17)<<this->DistanciadaOrigemMaterial[i]<<setprecision(17)<<"DistanciadaOrigem="<<this->DistanciadaOrigem[position]<<endl<<endl;
+				if(this->DistanciadaOrigem[position]-1e-15>this->DistanciadaOrigemMaterial[i])
 				{
 					DefineMatPtoP = i+1;
 				}
@@ -155,10 +158,12 @@ double Malha::getDelta_w_Mais(int position,bool Flag)
 			if(DefineMatPtoP==DefineMatPtoW)
 			{
 				delta_w_Mais = (this->DistanciadaOrigem[position]-this->DistanciadaOrigem[position-1])/2;
+				//cout<<endl<<endl<<"== Dw+="<<delta_w_Mais<<"	x["<<position<<"]="<<this->DistanciadaOrigem[position]<<"	x["<<position-1<<"]="<<this->DistanciadaOrigem[position-1]<<endl<<endl;
 			}
 			else
 			{
 				delta_w_Mais = this->DistanciadaOrigem[position] - this->DistanciadaOrigemMaterial[DefineMatPtoP-1];
+				//cout<<endl<<endl<<"!= Dw+="<<delta_w_Mais<<"	x["<<position<<"]="<<this->DistanciadaOrigem[position]<<"	x["<<position-1<<"]="<<this->DistanciadaOrigem[position-1]<<endl<<endl;
 			}
 		}
 		else

@@ -135,7 +135,7 @@ void GerenteVolumedeControle::SetVariaveisPolinomiais(vector<vector<double> >kpo
 	CalculaTpolinomial();
 	SalvaTodok(propriedadetermicaPolinomial,this->TotaldePontos);
 }
-void GerenteVolumedeControle::SetVariaveisTransiente(double ro, double Cp, vector<double>Tinicial, int iteracoesMax, double CriteriodeParada, double PassoDeTempo, double f)
+void GerenteVolumedeControle::SetVariaveisTransiente(double ro, double Cp, vector<double>Tinicial, int iteracoesMax, double CriterioParada, double PassoDeTempo, double f)
 {
 	this->Tinicial = Tinicial;
 	this->iteracoesMax = iteracoesMax;
@@ -175,10 +175,11 @@ void GerenteVolumedeControle::CalculaTtransienteExplicito()
 		this->Tinicial=this->CampoDeTemperaturas;
 		A.push_back(this->CampoDeTemperaturas);
 	}
+	this->NumerodeIteracoes=cont;
 	this->CampoDeTemperaturasTransiente = A;
 }
 void GerenteVolumedeControle::CalculaUmPassoNoTempoExplicito()
-{
+{	
 	double ae;
 	double aw;
 	double apo;
@@ -188,6 +189,8 @@ void GerenteVolumedeControle::CalculaUmPassoNoTempoExplicito()
 	ae = kinterface2/this->malhaPolinomial.getdelta_e(0);
 	apo = (this->malhaPolinomial.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 	this->CampoDeTemperaturas[0] = (CondicaoDeContornoEntradaExplicito(ae,apo)+this->Tinicial[1]*ae)/apo;
+	// cout<<endl<<endl<<"aw="<<aw<<"	ae="<<ae<<"	apo="<<apo<<endl<<endl;
+	
 	for(int i=1; i<TotaldePontos-1;i++)
 	{
 		kinterface2 = getkInterface(this->malhaPolinomial.getdelta_e(i),this->malhaPolinomial.getDelta_e_Mais(i,DeltinhaTrueRealFalseMedio),this->malhaPolinomial.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio),this->propriedadetermicaPolinomial.getk(i+1),this->propriedadetermicaPolinomial.getk(i),TipoDeKinterface);
@@ -196,11 +199,15 @@ void GerenteVolumedeControle::CalculaUmPassoNoTempoExplicito()
 		ae = kinterface2/this->malhaPolinomial.getdelta_e(i);
 		apo = (this->malhaPolinomial.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 		this->CampoDeTemperaturas[i] = (this->Tinicial[i]*(-ae-aw+apo)+this->Tinicial[i+1]*(ae)+this->Tinicial[i-1]*(aw))/apo;
+		// cout<<endl<<endl<<"aw="<<aw<<"	ae="<<ae<<"	apo="<<apo<<endl<<endl;
+	
 	}
 	kinterface1 = getkInterface(this->malhaPolinomial.getdelta_w(this->TotaldePontos-1),this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,DeltinhaTrueRealFalseMedio),this->malhaPolinomial.getDelta_w_Menos(this->TotaldePontos-1,DeltinhaTrueRealFalseMedio),this->propriedadetermicaPolinomial.getk(this->TotaldePontos-1),this->propriedadetermicaPolinomial.getk(this->TotaldePontos-2),TipoDeKinterface);
 	aw = kinterface1/this->malhaPolinomial.getdelta_w(this->TotaldePontos-1);
 	apo=(this->malhaPolinomial.getDelta_w_Mais(TotaldePontos-1,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 	this->CampoDeTemperaturas[TotaldePontos-1]=(CondicaoDeContornoSaidaExplicito(aw, apo)+aw*this->Tinicial[this->TotaldePontos-2])/apo;
+	// cout<<endl<<endl<<"aw="<<aw<<"	ae="<<ae<<"	apo="<<apo<<endl<<endl;
+	
 	
 	// cout<<endl<<endl<<"MATRIZ"<<endl;
 	// for(int i=0; i<this->TotaldePontos; i++)
@@ -241,14 +248,16 @@ double GerenteVolumedeControle::CondicaoDeContornoSaidaExplicito(double aw, doub
 }
 void GerenteVolumedeControle::TestaConvergenciaTransienteExplicito()
 {
-	vector<double> alpha;
+	double alpha;
 	bool naoconverge=false;
 	double teste;
 	for(int i=0; i<this->TotaldePontos; i++)
 	{
-		alpha.push_back(this->propriedadetermicaPolinomial.getk(i)/(ro*Cp));
-		teste = alpha[i]*this->PassoDeTempo/(pow(this->malhaPolinomial.getDelta_w_Mais(i,this->DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_e_Menos(i,this->DeltinhaTrueRealFalseMedio),2));
-		if(teste>2)
+		alpha=(this->propriedadetermicaPolinomial.getk(i)/(ro*Cp));
+		teste = alpha*this->PassoDeTempo/(pow(this->malhaPolinomial.getDelta_w_Mais(i,this->DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_e_Menos(i,this->DeltinhaTrueRealFalseMedio),2));
+		//cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+		//cout<<endl<<endl<<"alpha="<<alpha<<"	Dt="<<this->PassoDeTempo<<"	Dx="<<this->malhaPolinomial.getDelta_w_Mais(i,this->DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_e_Menos(i,this->DeltinhaTrueRealFalseMedio)<<"	Dxw+="<<this->malhaPolinomial.getDelta_w_Mais(i,this->DeltinhaTrueRealFalseMedio)<<"	Dxe-="<<this->malhaPolinomial.getDelta_e_Menos(i,this->DeltinhaTrueRealFalseMedio)<<"	valor de teste ="<<teste<<endl<<endl;
+		if(teste>0.5)
 		{
 			naoconverge = true;
 		}
