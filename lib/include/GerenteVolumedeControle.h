@@ -18,6 +18,7 @@ class GerenteVolumedeControle
 		void SalvaCampoDeTemperaturascsv(string NomedoArquivo);
 		void SalvaDoisVetorescsv(string NomedoArquivo, vector<double> V1, vector<double> V2);
 		void SalvaDoisVetoresDeintcsv(string NomedoArquivo, vector<int> V1, vector<int> V2);
+		void SalvaMatrizcsv(string NomedoArquivo,vector<vector<double> >M1);
 		void MostraTiposdeConfiguracao();
 		void SetVariaveisPolinomiais(vector<vector<double> >kpolinomial, vector<double>Tinicial, int iteracoesMax, double CriterioParada);
 		void SetVariaveisTransiente(double ro, double Cp, vector<double>Tinicial, int iteracoesMax, double CriteriodeParada, double PassoDeTempo, double f);

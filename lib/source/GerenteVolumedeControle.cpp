@@ -477,6 +477,20 @@ void GerenteVolumedeControle::SalvaDoisVetoresDeintcsv(string NomedoArquivo, vec
 		cout<<endl<<endl<<"PROBLEMA! Vetores a serem salvos nao possuem mesma dimensao!"<<endl<<endl;
 	}
 }
+void GerenteVolumedeControle::SalvaMatrizcsv(string NomedoArquivo,vector<vector<double> >M1)
+{
+	ofstream myfile;
+	myfile.open (NomedoArquivo.c_str());
+	for(int i=0; i<M1.size(); i++)
+	{
+		for(int j=0; j<M1[i].size(); j++)
+		{
+			myfile<<M1[i][j]<<",";
+		}
+		myfile<<"\n";
+	}
+	myfile.close();
+}
 int GerenteVolumedeControle::ContaTotaldePontos(vector<int> Nptoscadamat, int Nmalhas)
 {
 	int TotaldePontos=0;
