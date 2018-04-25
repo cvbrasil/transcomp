@@ -4,8 +4,80 @@
 		"selected_items":
 		[
 			[
+				"Tota",
+				"TotaldePontos-1"
+			],
+			[
+				"Tot",
+				"TotaldePontos-1"
+			],
+			[
+				"get",
+				"getdelta_e"
+			],
+			[
+				"Pre",
+				"Pre1"
+			],
+			[
+				"To",
+				"TotaldePontos-1"
+			],
+			[
+				"tipos",
+				"TiposPre"
+			],
+			[
+				"Desl",
+				"DeslocaX"
+			],
+			[
+				"Ca",
+				"CampodeTtransiente"
+			],
+			[
+				"Tipo",
+				"TipoDeKinterface"
+			],
+			[
+				"Des",
+				"DeslocaX1"
+			],
+			[
+				"fre",
+				"Frequencia1"
+			],
+			[
+				"DeslocaY",
+				"DeslocaY1"
+			],
+			[
+				"Am",
+				"Amplitude1"
+			],
+			[
+				"Flag",
+				"FlagCoefCosSetado"
+			],
+			[
 				"Cam",
-				"CampodeT"
+				"CampoDeTemperaturasTransiente"
+			],
+			[
+				"Som",
+				"SomaCoeficientesTransienteNoVetor"
+			],
+			[
+				"getF",
+				"getFlagDeCriterioAtingido"
+			],
+			[
+				"Fl",
+				"FlagDeCriterioAtingido"
+			],
+			[
+				"Calcu",
+				"CalculaTtransienteImplicito"
 			],
 			[
 				"Camp",
@@ -56,24 +128,12 @@
 				"DistanciadaOrigemMaterial"
 			],
 			[
-				"Tot",
-				"TotaldePontos"
-			],
-			[
 				"mal",
 				"malhaaux"
 			],
 			[
 				"del",
 				"delta_w_Mais"
-			],
-			[
-				"Tota",
-				"TotaldePontos"
-			],
-			[
-				"To",
-				"TotaldePontos"
 			],
 			[
 				"kin",
@@ -84,16 +144,8 @@
 				"Tinicial"
 			],
 			[
-				"Ca",
-				"CampodeT"
-			],
-			[
 				"ge",
 				"gerente"
-			],
-			[
-				"Pre",
-				"Pre2"
 			],
 			[
 				"Tipode",
@@ -138,10 +190,6 @@
 			[
 				"getdelta",
 				"getDelta_w_Menos"
-			],
-			[
-				"get",
-				"getdelta_w"
 			],
 			[
 				"getD",
@@ -224,10 +272,6 @@
 				"kinterface_TodosPontos"
 			],
 			[
-				"Fl",
-				"FluxoTermico"
-			],
-			[
 				"Fluxo",
 				"FluxoTermico"
 			],
@@ -238,10 +282,6 @@
 			[
 				"F",
 				"FlagDeCriterioAtingido"
-			],
-			[
-				"Tipo",
-				"TipoDeCriterio"
 			],
 			[
 				"kinterf",
@@ -262,10 +302,6 @@
 			[
 				"TemperaturasA",
 				"TemperaturasAtuais"
-			],
-			[
-				"Flag",
-				"FlagCerto"
 			],
 			[
 				"crit",
@@ -478,61 +514,43 @@
 			[
 				"Ma",
 				"Malhaaux"
-			],
-			[
-				"ks",
-				"ksobredeltaexterno"
-			],
-			[
-				"Conta",
-				"ContaLarguraTotal"
-			],
-			[
-				"Largur",
-				"LarguraTotal"
-			],
-			[
-				"g",
-				"getDistanciadaOrigemPosicional"
-			],
-			[
-				"1e",
-				"1e-10"
-			],
-			[
-				"DoisMatT",
-				"DoisMatTpreConvResistAlinhado"
-			],
-			[
-				"l",
-				"LarguraMat"
-			],
-			[
-				"delta",
-				"delta_e"
-			],
-			[
-				"Malha",
-				"Malhaaux"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "lib/source/GerenteVolumedeControle.cpp",
+			"file": "lib/include/GerenteVolumedeControle.h",
 			"settings":
 			{
-				"buffer_size": 22846,
+				"buffer_size": 4122,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "lib/include/GerenteVolumedeControle.h",
+			"file": "lib/source/GerenteVolumedeControle.cpp",
 			"settings":
 			{
-				"buffer_size": 3433,
+				"buffer_size": 31790,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/source/SolverLinear.cpp",
+			"settings":
+			{
+				"buffer_size": 6469,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/source/CondicoesdeContorno.cpp",
+			"settings":
+			{
+				"buffer_size": 5677,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -567,7 +585,7 @@
 			"file": "app/source/main.cpp",
 			"settings":
 			{
-				"buffer_size": 7442,
+				"buffer_size": 2184,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -716,6 +734,7 @@
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/CMakeModules",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/app",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/app/source",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/lib",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/doc",
@@ -727,6 +746,9 @@
 	],
 	"file_history":
 	[
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/GerenteVolumedeControle.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/app/source/main.cpp",
+		"/home/cvbrasil/Documentos/C++/Trabalhos/Transcomp3/Código/Trab3Transcal/app/source/main.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/Trab3_5it_4VC_teste.csv",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/build/Trab3_800it_8VC.csv",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/CondicoesdeContorno.cpp",
@@ -741,7 +763,6 @@
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/SolverLinear.h",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/PropriedadeTermica.h",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/include/GerenteVolumedeControle.h",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/lib/source/GerenteVolumedeControle.cpp",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/CMakeLists.txt",
 		"/home/cvbrasil/Documentos/Latex/Teste/resolvederivadas.tex",
 		"/home/cvbrasil/SINMEC/SinmecApps/EbFVMTutorial/source/main.cpp",
@@ -756,7 +777,6 @@
 		"/home/cvbrasil/.config/sublime-text-3/Packages/SublimeGDB/SublimeGDB.sublime-settings",
 		"/home/cvbrasil/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
 		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/libTest/source/testeDoTeste.cpp",
-		"/home/cvbrasil/Documentos/C++/Trabalhos/Trabalho4/Template oficial/cmake_template-master/app/source/main.cpp",
 		"/home/cvbrasil/Downloads/cmake_template-master/lib/source/functions.cpp",
 		"/home/cvbrasil/Downloads/cmake_template-master/libTest/source/TestGridLib.cpp",
 		"/home/cvbrasil/Documentos/C++/Teste/Classe/relogio.cpp",
@@ -876,53 +896,24 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lib/source/GerenteVolumedeControle.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 22846,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								19811,
-								19811
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 6614.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "lib/include/GerenteVolumedeControle.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3433,
+						"buffer_size": 4122,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								613,
-								613
+								4088,
+								4088
 							]
 						],
 						"settings":
@@ -931,14 +922,102 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
+					"buffer": 1,
+					"file": "lib/source/GerenteVolumedeControle.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 31790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9976,
+								9976
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4305.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
 					"buffer": 2,
+					"file": "lib/source/SolverLinear.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6469,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5479,
+								5479
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/source/CondicoesdeContorno.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4155,
+								4155
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2002.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "lib/source/CriteriodeParada.cpp",
 					"semi_transient": false,
 					"settings":
@@ -967,7 +1046,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "lib/source/Malha.cpp",
 					"semi_transient": false,
 					"settings":
@@ -996,7 +1075,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "lib/include/Malha.h",
 					"semi_transient": false,
 					"settings":
@@ -1021,24 +1100,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 7,
 					"file": "app/source/main.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7442,
+						"buffer_size": 2184,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4822,
-								4822
+								1720,
+								1720
 							]
 						],
 						"settings":
@@ -1047,14 +1126,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2205.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 8,
 					"file": "/home/cvbrasil/Documentos/C++/Trabalhos/Transcomp3/transcedentalNR.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1078,7 +1157,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1088,7 +1167,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 7,
+					"buffer": 9,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1111,11 +1190,11 @@
 						"translation.y": 1140.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 10,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1138,11 +1217,11 @@
 						"translation.y": 23565.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 11,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1165,7 +1244,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 15,
 					"type": "text"
 				}
 			]
@@ -1175,7 +1254,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 10,
+					"buffer": 12,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1198,11 +1277,11 @@
 						"translation.y": 354.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 13,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1226,7 +1305,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -1236,7 +1315,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 12,
+					"buffer": 14,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1259,11 +1338,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 15,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1287,7 +1366,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				}
 			]

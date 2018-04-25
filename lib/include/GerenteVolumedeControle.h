@@ -22,6 +22,8 @@ class GerenteVolumedeControle
 		void MostraTiposdeConfiguracao();
 		void SetVariaveisPolinomiais(vector<vector<double> >kpolinomial, vector<double>Tinicial, int iteracoesMax, double CriterioParada);
 		void SetVariaveisTransiente(double ro, double Cp, vector<double>Tinicial, int iteracoesMax, double CriteriodeParada, double PassoDeTempo, double f);
+		void setCoeficientesCosTpreTransiente(double DeslocaY, double Amplitude, double Frequencia, double DeslocaX, int QualExtremo);
+		void setVariaveisCilindricas(double RaioInterno);
 		int getNumerodeIteracoes();
 		vector<double> getkEmTodosPontos();
 		vector<double> getkinterface_TodosPontos();
@@ -44,6 +46,10 @@ class GerenteVolumedeControle
 		void CalculaTtransienteExplicito();
 		void CalculaUmPassoNoTempoExplicito();
 		void TestaConvergenciaTransienteExplicito();
+		void CalculaTtransienteImplicito();
+		void AjustaTpreSeVariavel(double tAcumulado);
+		vector<vector<double> > SomaCoeficientesTransienteNaMatriz(vector<vector<double> >A);
+		vector<double> SomaCoeficientesTransienteNoVetor(vector<double>b);
 		void SalvaTodok(PropriedadeTermica,int TotaldePontos);
 		double CondicaoDeContornoEntradaExplicito(double ae, double apo);
 		double CondicaoDeContornoSaidaExplicito(double aw, double apo);
@@ -70,4 +76,7 @@ class GerenteVolumedeControle
 		int TipoDeCriterio;
 		double ErroDeParada;
 		double ro; double Cp; double PassoDeTempo;
+		double DeslocaY1; double Amplitude1; double Frequencia1; double DeslocaX1; bool FlagCoefCosSetado1;
+		double DeslocaY2; double Amplitude2; double Frequencia2; double DeslocaX2; bool FlagCoefCosSetado2;
+		double RaioInterno=1; bool IndicaCoordenadaCilindrica = 0;
 };
