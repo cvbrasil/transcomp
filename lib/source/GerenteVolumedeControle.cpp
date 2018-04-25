@@ -179,14 +179,20 @@ void GerenteVolumedeControle::CalculaTtransienteImplicito()
 
 	ksobredeltamarginalinterno = Montaksobredeltamarginalinterno(this->malhaPolinomial,this->propriedadetermicaPolinomial,this->LarguraTotal,this->TotaldePontos,this->DeltinhaTrueRealFalseMedio,this->TipoDeKinterface);
 	bool FlagDeCriterioAtingido=false;
+	bool FlagDeCriterioOscilanteAtingido = false;
 	int cont=0;
 	double tAcumulado = 0;
-	while(FlagDeCriterioAtingido==false && this->iteracoesMax>cont)
+	double CritComparacao = (DeslocaY1+Pre2[0])/2;
+	vector<double>T1;
+	vector<double>T2;
+	T1.push_back(-99999);
+	T2.push_back(-99999);
+	while(FlagDeCriterioAtingido==false && this->iteracoesMax>cont && FlagDeCriterioOscilanteAtingido==false)
 	{
 		tAcumulado = tAcumulado + this->PassoDeTempo;
 		AjustaTpreSeVariavel(tAcumulado);
 
-		CondicoesdeContorno condicoesdecontorno1(Pre1,Pre2,TiposPre,TipoMalha,ksobredeltaexterno,ksobredeltamarginalinterno);
+		CondicoesdeContorno condicoesdecontorno1(this->Pre1,this->Pre2,this->TiposPre,this->TipoMalha,ksobredeltaexterno,ksobredeltamarginalinterno);
 
 		A=MontaMatrizA(this->malhaPolinomial,this->propriedadetermicaPolinomial,condicoesdecontorno1,this->TotaldePontos,this->DeltinhaTrueRealFalseMedio,this->TipoDeKinterface);
 		A=SomaCoeficientesTransienteNaMatriz(A);
@@ -194,13 +200,58 @@ void GerenteVolumedeControle::CalculaTtransienteImplicito()
 		b=MontaVetorb(condicoesdecontorno1,this->TotaldePontos);
 		b=SomaCoeficientesTransienteNoVetor(b);
 
+		cout<<endl<<endl;
+		for(int i=0; i<this->TotaldePontos; i++)
+		{
+			for(int j=0; j<this->TotaldePontos; j++)
+			{
+				cout<<A[i][j]<<"\t";
+			}
+			cout<<"|"<<b[i]<<endl<<endl;
+		}
+
 		SolverLinear solver(A,b,this->TotaldePontos);
-		this->Tinicial = this->CampoDeTemperaturas;
 		this->CampoDeTemperaturas = solver.getCampodeTemperaturasTDMA();
 		this->CampoDeTemperaturasTransiente.push_back(this->CampoDeTemperaturas);
 
 		CriteriodeParada criteriodeparada(this->TipoDeCriterio,this->CriterioParada,this->CampoDeTemperaturas,this->Tinicial);
 		FlagDeCriterioAtingido=criteriodeparada.getFlagDeCriterioAtingido();
+		this->Tinicial = this->CampoDeTemperaturas;
+		if(this->FlagCoefCosSetado1==true||this->FlagCoefCosSetado2==true)
+		{
+			double TmedAtual=0;
+			for(int i=0; i<this->TotaldePontos; i++)
+			{
+				TmedAtual = TmedAtual+CampoDeTemperaturasTransiente[cont][i];
+			}
+			TmedAtual = TmedAtual/this->TotaldePontos;
+			if((cont+1)*this->Frequencia1*this->PassoDeTempo % 2==0||(cont+1)*this->Frequencia2*this->PassoDeTempo % 2==0)
+			{
+				T1[0]=TmedAtual;
+				CriteriodeParada criteriooscilante(1,this->CriteriodeParada,T1,T2);
+				FlagDeCriterioOscilanteAtingido=criteriooscilante.getFlagDeCriterioAtingido();
+				T2[0]=T1[0];
+			}
+		}
+		// if(cont>3)
+		// {
+		// 	double TmedAtual=0;
+		// 	double TmedAnterior1=0;
+		// 	double TmedAnterior2=0;
+		// 	for(int i=0; i<this->TotaldePontos; i++)
+		// 	{
+		// 		TmedAtual = TmedAtual+CampoDeTemperaturasTransiente[cont][i];
+		// 		TmedAnterior1 = TmedAnterior1+CampoDeTemperaturasTransiente[cont-1][i];
+		// 		TmedAnterior2 = TmedAnterior2+CampoDeTemperaturasTransiente[cont-2][i];
+		// 	}
+		// 	TmedAtual = TmedAtual/this->TotaldePontos;
+		// 	TmedAnterior1 = TmedAnterior1/this->TotaldePontos;
+		// 	TmedAnterior2 = TmedAnterior2/this->TotaldePontos;
+		// 	if(TmedAtual>=150 & TmedAnterior1>150 & TmedAnterior2>150)
+		// 	{
+		// 		FlagDeCriterioOscilanteAtingido=true;
+		// 	}
+		// }
 		cont ++;
 	}
 }
@@ -211,14 +262,14 @@ void GerenteVolumedeControle::AjustaTpreSeVariavel(double tAcumulado)
 	{
 		if(FlagCoefCosSetado1==true)
 		{
-			this->Pre1[0]=this->DeslocaY1+this->Amplitude1*cos(this->Frequencia1*Pi+DeslocaX1);
+			this->Pre1[0]=this->DeslocaY1+this->Amplitude1*cos(this->Frequencia1*Pi*tAcumulado+DeslocaX1);
 		}
 	}
 	if(TiposPre[1]==1)
 	{
 		if(FlagCoefCosSetado2==true)
 		{
-			this->Pre2[0]=this->DeslocaY2+this->Amplitude2*cos(this->Frequencia2*Pi+DeslocaX2);
+			this->Pre2[0]=this->DeslocaY2+this->Amplitude2*cos(this->Frequencia2*Pi*tAcumulado+DeslocaX2);
 		}
 	}
 }
@@ -233,39 +284,39 @@ vector<vector<double> > GerenteVolumedeControle::SomaCoeficientesTransienteNaMat
 	{
 		if(this->TiposPre[0]==2)
 		{
-			apo = (this->malhaPolinomial.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio))*(this->RaioInterno)*this->ro*this->Cp*2*Pi/this->PassoDeTempo;
-			A[0][1]=A[0][1]*(this->RaioInterno+malhaPolinomial.getdelta_e(0))*2*Pi;
+			apo = (this->malhaPolinomial.getDelta_e_Menos(0,this->DeltinhaTrueRealFalseMedio))*(this->RaioInterno)*this->ro*this->Cp*2*Pi/this->PassoDeTempo;
+			A[0][1]=A[0][1]*(this->RaioInterno+this->malhaPolinomial.getDelta_e_Menos(0,this->DeltinhaTrueRealFalseMedio))*2*Pi;
 			A[0][0]=-A[0][1]+apo;
 		}
 		if(this->TiposPre[0]==3)
 		{
-			apo = (this->malhaPolinomial.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio))*(this->RaioInterno)*this->ro*this->Cp*2*Pi/this->PassoDeTempo;
-			A[0][1]=A[0][1]*(this->RaioInterno+malhaPolinomial.getdelta_e(0))*2*Pi;
+			apo = (this->malhaPolinomial.getDelta_e_Menos(0,this->DeltinhaTrueRealFalseMedio))*(this->RaioInterno)*this->ro*this->Cp*2*Pi/this->PassoDeTempo;
+			A[0][1]=A[0][1]*(this->RaioInterno+this->malhaPolinomial.getdelta_e(0))*2*Pi;
 			A[0][0]=-A[0][1]+apo-this->Pre1[1]*2*Pi*(this->RaioInterno);
 		}
-		for(int i=1; i<TotaldePontos-2; i++)
+		for(int i=1; i<this->TotaldePontos-1; i++)
 		{
-			rw = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(i-1);
+			rw = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(i)-this->malhaPolinomial.getDelta_w_Mais(i,this->DeltinhaTrueRealFalseMedio);
 			rp = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(i);
-			re = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(i+1);
-			apo = (this->malhaPolinomial.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
-			A[i][i-1]=A[i][i-1]*(this->RaioInterno+malhaPolinomial.getdelta_w(i))*2*Pi;
-			A[i][i+1]=A[i][i+1]*(this->RaioInterno+malhaPolinomial.getdelta_e(i))*2*Pi;
+			re = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(i)+this->malhaPolinomial.getDelta_e_Menos(i,this->DeltinhaTrueRealFalseMedio);
+			apo = (this->malhaPolinomial.getDelta_e_Menos(i,this->DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,this->DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
+			A[i][i-1]=A[i][i-1]*(rw)*2*Pi;
+			A[i][i+1]=A[i][i+1]*(re)*2*Pi;
 			A[i][i]=-A[i][i+1]-A[i][i-1]+apo;
 		}
 		if(this->TiposPre[1]==2)
 		{
-			rw = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(TotaldePontos-2);
-			rp = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(TotaldePontos-1);
-			apo = (this->malhaPolinomial.getDelta_w_Mais(TotaldePontos-1,DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
+			rw = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(this->TotaldePontos-1)-this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,this->DeltinhaTrueRealFalseMedio);
+			rp = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(this->TotaldePontos-1);
+			apo = (this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,this->DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
 			A[this->TotaldePontos-1][this->TotaldePontos-2]= A[this->TotaldePontos-1][this->TotaldePontos-2]*(rw)*2*Pi;
-			A[this->TotaldePontos-1][this->TotaldePontos-1]=-A[i][i-1]+apo;
+			A[this->TotaldePontos-1][this->TotaldePontos-1]=-A[this->TotaldePontos-1][this->TotaldePontos-2]+apo;
 		}
 		if(this->TiposPre[1]==3)
 		{
-			rw = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(this->TotaldePontos-2);
+			rw = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(this->TotaldePontos-1)-this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,this->DeltinhaTrueRealFalseMedio);
 			rp = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(this->TotaldePontos-1);
-			apo = (this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
+			apo = (this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,this->DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
 			A[this->TotaldePontos-1][this->TotaldePontos-2]= A[this->TotaldePontos-1][this->TotaldePontos-2]*(rw)*2*Pi;
 			A[this->TotaldePontos-1][this->TotaldePontos-1] =-A[this->TotaldePontos-1][this->TotaldePontos-2]+apo+this->Pre2[1]*(rp)*2*Pi;
 		}
@@ -275,27 +326,27 @@ vector<vector<double> > GerenteVolumedeControle::SomaCoeficientesTransienteNaMat
 	{
 		if(this->TiposPre[0]==2)
 		{
-			apo = (this->malhaPolinomial.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+			apo = (this->malhaPolinomial.getDelta_e_Menos(0,this->DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 			A[0][0]=-A[0][1]+apo;
 		}
 		if(this->TiposPre[0]==3)
 		{
-			apo = (this->malhaPolinomial.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+			apo = (this->malhaPolinomial.getDelta_e_Menos(0,this->DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 			A[0][0]=-A[0][1]+apo+this->Pre1[1];
 		}
-		for(int i=1; i<TotaldePontos-2; i++)
+		for(int i=1; i<this->TotaldePontos-1; i++)
 		{
-			apo = (this->malhaPolinomial.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+			apo = (this->malhaPolinomial.getDelta_e_Menos(i,this->DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,this->DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 			A[i][i] =-A[i][i+1]-A[i][i-1]+apo;
 		}
 		if(this->TiposPre[1]==2)
 		{
-			apo = (this->malhaPolinomial.getDelta_w_Mais(TotaldePontos-1,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+			apo = (this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,this->DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 			A[this->TotaldePontos-1][this->TotaldePontos-1] = -A[this->TotaldePontos-1][this->TotaldePontos-2]+apo;
 		}
 		if(this->TiposPre[1]==3)
 		{
-			apo = (this->malhaPolinomial.getDelta_w_Mais(TotaldePontos-1,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+			apo = (this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,this->DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 			A[this->TotaldePontos-1][this->TotaldePontos-1] = -A[this->TotaldePontos-1][this->TotaldePontos-2]+apo+this->Pre2[1];
 		}
 		return(A);
@@ -304,34 +355,38 @@ vector<vector<double> > GerenteVolumedeControle::SomaCoeficientesTransienteNaMat
 vector<double> GerenteVolumedeControle::SomaCoeficientesTransienteNoVetor(vector<double>b)
 {
 	double Pi = 3.14159265359;
+	double apo;
+	double rp;
+	double rw;
+	double re;
 	if(this->IndicaCoordenadaCilindrica==1)
 	{
 		if(this->TiposPre[0]==2)
 		{
-			apo = (this->malhaPolinomial.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio))*(this->RaioInterno)*this->ro*this->Cp*2*Pi/this->PassoDeTempo;
+			apo = (this->malhaPolinomial.getDelta_e_Menos(0,this->DeltinhaTrueRealFalseMedio))*(this->RaioInterno)*this->ro*this->Cp*2*Pi/this->PassoDeTempo;
 			b[0]=b[0]+apo*this->Tinicial[0];
 		}
 		if(this->TiposPre[0]==3)
 		{
-			apo = (this->malhaPolinomial.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio))*(this->RaioInterno)*this->ro*this->Cp*2*Pi/this->PassoDeTempo;
-			b[0]=this->Pre[0]*this->Pre[1]*2*Pi*this->RaioInterno+apo*this->Tinicial[0];
+			apo = (this->malhaPolinomial.getDelta_e_Menos(0,this->DeltinhaTrueRealFalseMedio))*(this->RaioInterno)*this->ro*this->Cp*2*Pi/this->PassoDeTempo;
+			b[0]=this->Pre1[0]*this->Pre1[1]*2*Pi*this->RaioInterno+apo*this->Tinicial[0];
 		}
-		for(int i=1; i<TotaldePontos-2; i++)
+		for(int i=1; i<this->TotaldePontos-1; i++)
 		{
 			rp = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(i);
-			apo = (this->malhaPolinomial.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
+			apo = (this->malhaPolinomial.getDelta_e_Menos(i,this->DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,this->DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
 			b[i] = apo*this->Tinicial[i];
 		}
 		if(this->TiposPre[1]==2)
 		{
-			rp = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(TotaldePontos-1);
-			apo = (this->malhaPolinomial.getDelta_w_Mais(TotaldePontos-1,DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
-			b[this->TotaldePontos-1]=b[this=>TotaldePontos-1]+apo*this->Tinicial[this->TotaldePontos-1];
+			rp = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(this->TotaldePontos-1);
+			apo = (this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,this->DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
+			b[this->TotaldePontos-1]=b[this->TotaldePontos-1]+apo*this->Tinicial[this->TotaldePontos-1];
 		}
 		if(this->TiposPre[1]==3)
 		{
-			rp = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(TotaldePontos-1);
-			apo = (this->malhaPolinomial.getDelta_w_Mais(TotaldePontos-1,DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
+			rp = this->RaioInterno+this->malhaPolinomial.getDistanciadaOrigemPosicional(this->TotaldePontos-1);
+			apo = (this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,this->DeltinhaTrueRealFalseMedio))*(rp)*this->ro*this->Cp/this->PassoDeTempo*2*Pi;
 			b[this->TotaldePontos-1]=this->Pre2[0]*this->Pre2[1]*2*Pi*rp+apo*this->Tinicial[this->TotaldePontos-1];
 		}
 		return(b);
@@ -340,20 +395,21 @@ vector<double> GerenteVolumedeControle::SomaCoeficientesTransienteNoVetor(vector
 	{
 		if(this->TiposPre[0]==2||this->TiposPre[0]==3)
 		{
-			apo = (this->malhaPolinomial.getDelta_e_Menos(0,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+			apo = (this->malhaPolinomial.getDelta_e_Menos(0,this->DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 			b[0]=b[0]+apo*this->Tinicial[0];
 		}
-		for(int i=1; i<TotaldePontos-2; i++)
+		for(int i=1; i<this->TotaldePontos-1; i++)
 		{
-			apo = (this->malhaPolinomial.getDelta_e_Menos(i,DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+			apo = (this->malhaPolinomial.getDelta_e_Menos(i,this->DeltinhaTrueRealFalseMedio)+this->malhaPolinomial.getDelta_w_Mais(i,this->DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 			b[i] = apo*this->Tinicial[i];
 		}
 		if(this->TiposPre[1]==2||this->TiposPre[1]==3)
 		{
-			apo = (this->malhaPolinomial.getDelta_w_Mais(TotaldePontos-1,DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
+			apo = (this->malhaPolinomial.getDelta_w_Mais(this->TotaldePontos-1,this->DeltinhaTrueRealFalseMedio))*this->ro*this->Cp/this->PassoDeTempo;
 			b[this->TotaldePontos-1] = b[this->TotaldePontos-1]+apo;
 		}
 		return(b);
+	}
 }
 void GerenteVolumedeControle::CalculaTtransienteExplicito()
 {

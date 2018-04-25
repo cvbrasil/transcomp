@@ -76,7 +76,7 @@ class GerenteVolumedeControle
 		int TipoDeCriterio;
 		double ErroDeParada;
 		double ro; double Cp; double PassoDeTempo;
-		double DeslocaY1; double Amplitude1; double Frequencia1; double DeslocaX1; bool FlagCoefCosSetado1;
-		double DeslocaY2; double Amplitude2; double Frequencia2; double DeslocaX2; bool FlagCoefCosSetado2;
-		double RaioInterno=1; bool IndicaCoordenadaCilindrica = 0;
+		double DeslocaY1; double Amplitude1; double Frequencia1=-1; double DeslocaX1; bool FlagCoefCosSetado1;
+		double DeslocaY2; double Amplitude2; double Frequencia2=-1; double DeslocaX2; bool FlagCoefCosSetado2;
+		double RaioInterno; bool IndicaCoordenadaCilindrica = 0;
 };

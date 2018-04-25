@@ -156,6 +156,25 @@ void CriteriodeParada::ResiduosQuadrados()
 {
 
 }
+bool CriteriodeParada::getFlagDeCriterioAtingidoOscilante(double TemperaturasAtuais, double TemperaturasAnteriores1, double TemperaturasAnteriores2)
+{
+	bool Flag=0;
+	Flag = CriterioAtingidoOscilante(TemperaturasAtuais,TemperaturasAnteriores1,TemperaturasAnteriores2);
+	return(Flag);
+}
+bool CriteriodeParada::CriterioAtingidoOscilante(double TemperaturasAtuais,double TemperaturasAnteriores1,double TemperaturasAnteriores2)
+{
+	bool Flag = 0;
+	if(TemperaturasAtuais-TemperaturasAnteriores1>0 && TemperaturasAnteriores1-TemperaturasAnteriores2<0)
+	{
+		Flag = 1;
+	}
+	if(TemperaturasAtuais-TemperaturasAnteriores1<0 && TemperaturasAnteriores1-TemperaturasAnteriores2>0)
+	{
+		Flag = 1;
+	}
+	return(Flag);
+}
 double CriteriodeParada::ProcuraTmax(vector<double> TemperaturasAtuais)
 {
 	double Tmax = TemperaturasAtuais[0];
