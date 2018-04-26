@@ -185,8 +185,11 @@ void GerenteVolumedeControle::CalculaTtransienteImplicito()
 	double CritComparacao = (DeslocaY1+Pre2[0])/2;
 	vector<double>T1;
 	vector<double>T2;
-	T1.push_back(-99999);
-	T2.push_back(-99999);
+	for(int i=0; i<this->TotaldePontos; i++)
+	{
+		T1.push_back(-99999);
+		T2.push_back(-99999);
+	}
 	while(FlagDeCriterioAtingido==false && this->iteracoesMax>cont && FlagDeCriterioOscilanteAtingido==false)
 	{
 		tAcumulado = tAcumulado + this->PassoDeTempo;
@@ -200,15 +203,15 @@ void GerenteVolumedeControle::CalculaTtransienteImplicito()
 		b=MontaVetorb(condicoesdecontorno1,this->TotaldePontos);
 		b=SomaCoeficientesTransienteNoVetor(b);
 
-		cout<<endl<<endl;
-		for(int i=0; i<this->TotaldePontos; i++)
-		{
-			for(int j=0; j<this->TotaldePontos; j++)
-			{
-				cout<<A[i][j]<<"\t";
-			}
-			cout<<"|"<<b[i]<<endl<<endl;
-		}
+		// cout<<endl<<endl;
+		// for(int i=0; i<this->TotaldePontos; i++)
+		// {
+		// 	for(int j=0; j<this->TotaldePontos; j++)
+		// 	{
+		// 		cout<<A[i][j]<<"\t";
+		// 	}
+		// 	cout<<"|"<<b[i]<<endl<<endl;
+		// }
 
 		SolverLinear solver(A,b,this->TotaldePontos);
 		this->CampoDeTemperaturas = solver.getCampodeTemperaturasTDMA();
@@ -219,18 +222,18 @@ void GerenteVolumedeControle::CalculaTtransienteImplicito()
 		this->Tinicial = this->CampoDeTemperaturas;
 		if(this->FlagCoefCosSetado1==true||this->FlagCoefCosSetado2==true)
 		{
-			double TmedAtual=0;
-			for(int i=0; i<this->TotaldePontos; i++)
+			double IteracoesPorPeriodo1 = 2/this->Frequencia1/this->PassoDeTempo;
+			double IteracoesPorPeriodo2 = 2/this->Frequencia2/this->PassoDeTempo;
+			int FatorDeCiclo1 = cont/IteracoesPorPeriodo1;
+			int FatorDeCiclo2 = cont/IteracoesPorPeriodo2;
+			cout<<endl<<endl<<"IteracoesPorPeriodo "<<IteracoesPorPeriodo1<<"\t"<<IteracoesPorPeriodo2<<endl<<endl;
+			if(IteracoesPorPeriodo1*FatorDeCiclo1+1e-12>cont&&IteracoesPorPeriodo1*FatorDeCiclo1-1e-12<cont||IteracoesPorPeriodo2*FatorDeCiclo2+1e-12>cont&&IteracoesPorPeriodo2*FatorDeCiclo2-1e-12<cont)
 			{
-				TmedAtual = TmedAtual+CampoDeTemperaturasTransiente[cont][i];
-			}
-			TmedAtual = TmedAtual/this->TotaldePontos;
-			if((cont+1)*this->Frequencia1*this->PassoDeTempo % 2==0||(cont+1)*this->Frequencia2*this->PassoDeTempo % 2==0)
-			{
-				T1[0]=TmedAtual;
-				CriteriodeParada criteriooscilante(1,this->CriteriodeParada,T1,T2);
+				cout<<endl<<endl<<endl<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ENTROUAQUI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<cont<<endl<<endl<<endl;
+				T1=CampoDeTemperaturasTransiente[cont];
+				CriteriodeParada criteriooscilante(1,this->CriterioParada,T1,T2);
 				FlagDeCriterioOscilanteAtingido=criteriooscilante.getFlagDeCriterioAtingido();
-				T2[0]=T1[0];
+				T2=T1;
 			}
 		}
 		// if(cont>3)

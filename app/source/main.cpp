@@ -16,7 +16,6 @@
 int main()
 {
 	vector<double> kvec;
-	double crit = 1e-13;
 	double k = 230;
 	double cp = 900;
 	double L = 0.005;
@@ -37,7 +36,7 @@ int main()
 	int NumerodeMalhas = 1;
 	int TipodeMalha = 1;
 	kvec.push_back(k);
-	int iteracoesMax = 1000;
+	int iteracoesMax = 100000;
 	int TipoDeKinterface = 1;
 	vector<double> Pre1;
 	Pre1.push_back(0);
@@ -49,7 +48,7 @@ int main()
 	TiposPre.push_back(3);
 	int Caso = 2;
 	int TipoDeCriterio = 1;
-	double CriteriodeParada = 1e-5;
+	double CriteriodeParada = 1e-1;
 	double f = 1;
 	double PassodeTempo = 0.001;
 	vector<double>Tinicial;
@@ -88,5 +87,27 @@ int main()
 	cout<<"Iteracoes="<<cont<<endl<<endl;
 	// gerenteTrab4Teste.SalvaDoisVetorescsv("TmedPorTempo.csv", Tmed, tempo);
 	// gerenteTrab4Teste.SalvaDoisVetorescsv("TprePorTempo.csv", Tpre, tempo);
+	//gerenteTrab4Teste.SalvaMatrizcsv("TxTransiente1e5.csv",CampodeTtransiente);
+
+	//----------------------------------SALVA VARIACAO MAX POR TEMPO---------------------------------
+	vector<double>ErroMax;
+	vector<double>TempoPorErroMax;
+	double cont1=0;
+	for(int i=40; i<CampodeTtransiente.size(); i=i+40)
+	{
+		ErroMax.push_back(fabs(CampodeTtransiente[i][1]-CampodeTtransiente[i-40][1]));
+		TempoPorErroMax.push_back(PassodeTempo*i);
+		for(int j=2; j<NumerodePontos[0]; j++)
+		{
+			if(fabs(CampodeTtransiente[i][j]-CampodeTtransiente[i-40][j])>ErroMax[cont1])
+			{
+				ErroMax[cont1]=fabs(CampodeTtransiente[i][j]-CampodeTtransiente[i-40][j]);
+			}
+		}
+		cout<<endl<<endl<<setprecision(17)<<ErroMax[cont1]<<" tempo="<<TempoPorErroMax[cont1]<<endl<<endl;
+		cont1++;
+	}
+	gerenteTrab4Teste.SalvaDoisVetorescsv("ErroMaxPorTempo.csv",ErroMax,TempoPorErroMax);
+
 	return 0;
 }
