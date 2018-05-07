@@ -71,6 +71,13 @@ malhaPolinomial(Nptoscadamat,LarguraMat,Nmalhas,TipoMalha),  propriedadetermicaP
 			{
 				cout<<endl<<endl<<"Favor, setar ro, Cp, Temperaturas iniciais, limite de iteracoes e critério de parada em SetVariaveisTransiente."<<endl<<endl;
 			}
+			else
+			{
+				if(caso == 3)
+				{
+					cout<<endl<<endl<<"Favor, setar objetos Malha em SetVariaveisBidimensionais."<<endl<<endl;
+				}
+			}
 		}
 	}
 }
@@ -114,6 +121,14 @@ void GerenteVolumedeControle::SalvaTodok(PropriedadeTermica propriedadetermica,i
 		this->k_TodosPontos[i]=propriedadetermica.getk(i);
 	}
 }
+void GerenteVolumedeControle::SetVariaveisBidimensionais(Malha malhaVertical,PropriedadeTermica propriedadetermicaV,vector<double> Pre1V,vector<double> Pre2V,vector<int> TiposPreV,double LarguraTotalV,double TotaldePontosV)
+{
+	this->Pre1V = Pre1V;
+	this->Pre2V = Pre2V;
+	this->TiposPreV = TiposPreV;
+	this->LarguraTotalV = LarguraTotalV;
+	CalculaTBidimensional(Malha malhaVertical,PropriedadeTermica propriedadetermicaV);
+}
 void GerenteVolumedeControle::SetVariaveisPolinomiais(vector<vector<double> >kpolinomial, vector<double>Tinicial, int iteracoesMax, double CriterioParada)
 {
 	this->CampoDeTemperaturas = Tinicial;
@@ -140,7 +155,6 @@ void GerenteVolumedeControle::SetVariaveisTransiente(double ro, double Cp, vecto
 	{
 		CalculaTtransienteImplicito();
 	}
-
 }
 void GerenteVolumedeControle::setCoeficientesCosTpreTransiente(double DeslocaY, double Amplitude, double Frequencia, double DeslocaX, int QualExtremo)
 {
@@ -165,6 +179,102 @@ void GerenteVolumedeControle::setVariaveisCilindricas(double RaioInterno)
 {
 	this->RaioInterno = RaioInterno;
 	this->IndicaCoordenadaCilindrica = 1;
+}
+void GerenteVolumedeControle::CalculaTBidimensional(Malha malhaVertical,PropriedadeTermica propriedadetermicaV)
+{	
+	vector<vector<double> >AH;
+	vector<double>bH;
+	vector<vector<double> >AV;
+	vector<double>bV;
+	double kinterface1;
+	//HORIZONTAL
+	vector<double> ksobredeltaexterno;
+	ksobredeltaexterno=Montaksobredeltaexterno(this->malhaPolinomial,this->propriedadetermicaPolinomial,this->LarguraTotal,this->TotaldePontos);
+	vector<double> ksobredeltamarginalinterno;
+	ksobredeltamarginalinterno = Montaksobredeltamarginalinterno(this->malhaPolinomial,this->propriedadetermicaPolinomial,this->LarguraTotal,this->TotaldePontos,this->DeltinhaTrueRealFalseMedio,this->TipoDeKinterface);
+	CondicoesdeContorno condicoesdecontornoH(this->Pre1,this->Pre2,this->TiposPre,this->TipoMalha,ksobredeltaexterno,ksobredeltamarginalinterno);
+	//VERTICAL
+	ksobredeltaexterno=Montaksobredeltaexterno(malhaVertical,propriedadetermicaV,this->LarguraTotalV,this->TotaldePontosV);
+	ksobredeltamarginalinterno = Montaksobredeltamarginalinterno(malhaVertical,propriedadetermicaV,this->LarguraTotalV,this->TotaldePontosV,this->DeltinhaTrueRealFalseMedio,this->TipoDeKinterface);
+	CondicoesdeContorno condicoesdecontornoV(this->Pre1V,this->Pre2V,this->TiposPreV,this->TipoMalhaV,ksobredeltaexterno,ksobredeltamarginalinterno);
+
+	AH=MontaMatrizA(this->malhaPolinomial,this->propriedadetermicaPolinomial,condicoesdecontornoH,this->TotaldePontos,this->DeltinhaTrueRealFalseMedio,this->TipoDeKinterface);
+	bH=MontaVetorb(condicoesdecontornoH,this->TotaldePontos);
+
+	AV=MontaMatrizA(malhaVertical,propriedadetermicaV,condicoesdecontornoV,this->TotaldePontosV,this->DeltinhaTrueRealFalseMedio,this->TipoDeKinterface);
+	bV=MontaVetorb(condicoesdecontornoV,this->TotaldePontosV);
+
+	A=MontaMatrizBidimensional(AH,AV);
+	b=MontaVetorBidimensional(bH,bV);
+
+
+}
+vector<vector<double> > GerenteVolumedeControle::MontaMatrizBidimensional(vector<vector<double> > AH,vector<vector<double> > AV)
+{
+	double DELTAX;
+	double DELTAY;
+	vector<vector<double> >AHW;
+	vector<vector<double> >AHP;
+	vector<vector<double> >AHE;
+	vector<vector<double> >AVS;
+	vector<vector<double> >AVP;
+	vector<vector<double> >AVN;
+	for(int i=0; i<this->TotaldePontosV; i++)
+	{
+		DELTAY = malhaVertical.getDELTAVC(i,this->DeltinhaTrueRealFalseMedio);
+		vector<double>AHWaux;
+		vector<double>AHPaux;
+		vector<double>AHEaux;
+		for(int j=0; j<this->TotaldePontos; j++)
+		{
+			AHWaux.push_back(AH[j][j-1]*DELTAY);
+			AHPaux.push_back(AH[j][j]*DELTAY);
+			AHEaux.push_back(AH[j][j+1]*DELTAY);
+		}
+		AHW.push_back(AHWaux);
+		AHP.push_back(AHPaux);
+		AHE.push_back(AHEaux);
+	}
+	for(int i=0; i<this->TotaldePontos; i++)
+	{
+		DELTAX = malhaPolinomial.getDELTAVC(i,this->DeltinhaTrueRealFalseMedio);
+		vector<double>AVSaux;
+		vector<double>AVPaux;
+		vector<double>AVNaux;
+		for(int j=0; j<this->TotaldePontosV; j++)
+		{
+			AVSaux.push_back(AV[j][j-1]*DELTAX);
+			AVPaux.push_back(AV[j][j]*DELTAX);
+			AVNaux.push_back(AV[j][j+1]*DELTAX);
+		}
+		AVS.push_back(AVSaux);
+		AVP.push_back(AVPaux);
+		AVN.push_back(AVNaux);
+	}
+
+	vector<vector<double> >A;
+	return(A);
+}
+vector<vector<double> > GerenteVolumedeControle::MontaVetorBidimensionalTermoATermo(vector<vector<double> >AHW,vector<vector<double> >AHP,vector<vector<double> >AHE,vector<vector<double> >AVS,vector<vector<double> >AVP,vector<vector<double> >AVN);
+{
+	
+}
+vector<double> GerenteVolumedeControle::MontaVetorBidimensional(vector<double>bH,vector<double>bV)
+{
+	double DELTAX;
+	double DELTAY;
+	for(int i=0; i<this->TotaldePontos; i++)
+	{
+		DELTAY = malhaVertical.getDELTAVC(i,this->DeltinhaTrueRealFalseMedio);
+		bH[i]
+	}
+	for(int i=0; i<this->TotaldePontosV; i++)
+	{
+		DELTAX = malhaPolinomial.getDELTAVC(i,this->DeltinhaTrueRealFalseMedio);
+		AV[i][i-1]=AV[i][i-1]*DELTAX;
+		AV[i][i]=AV[i][i]*DELTAX;
+		AV[i][i+1]=AV[i][i+1]*DELTAX;
+	}
 }
 void GerenteVolumedeControle::CalculaTtransienteImplicito()
 {

@@ -25,6 +25,8 @@ class Malha
 
 		double getLarguraTotal();
 
+		double getDELTAVC(int position,bool DeltinhaTrueRealFalseMedio);
+
 		int getTipodeMalha();
 
 		vector<double> getDistanciadaOrigem();

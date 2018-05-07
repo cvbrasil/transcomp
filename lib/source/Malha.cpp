@@ -214,6 +214,12 @@ double Malha::getDelta_w_Menos(int position,bool Flag)
 		return (delta_w_Menos);
 	}
 }
+double Malha::getDELTAVC(int position, bool DeltinhaTrueRealFalseMedio)
+{
+	double DELTAVC;
+	DELTAVC = getDelta_e_Menos(position, DeltinhaTrueRealFalseMedio)+getDelta_w_Mais(position, DeltinhaTrueRealFalseMedio);
+	return(DELTAVC);
+}
 int Malha::getTipodeMalha()
 {
 	return(this->TipodeMalha);

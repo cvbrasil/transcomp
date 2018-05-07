@@ -24,6 +24,7 @@ class GerenteVolumedeControle
 		void SetVariaveisTransiente(double ro, double Cp, vector<double>Tinicial, int iteracoesMax, double CriteriodeParada, double PassoDeTempo, double f);
 		void setCoeficientesCosTpreTransiente(double DeslocaY, double Amplitude, double Frequencia, double DeslocaX, int QualExtremo);
 		void setVariaveisCilindricas(double RaioInterno);
+		void SetVariaveisBidimensionais(Malha malhaVertical,PropriedadeTermica propriedadetermicaV,vector<double> Pre1,vector<double> Pre2,vector<int> TiposPreV,double LarguraTotalV,double TotaldePontosV);
 		int getNumerodeIteracoes();
 		vector<double> getkEmTodosPontos();
 		vector<double> getkinterface_TodosPontos();
@@ -47,12 +48,16 @@ class GerenteVolumedeControle
 		void CalculaUmPassoNoTempoExplicito();
 		void TestaConvergenciaTransienteExplicito();
 		void CalculaTtransienteImplicito();
+		void CalculaTBidimensional(Malha,PropriedadeTermica);
 		void AjustaTpreSeVariavel(double tAcumulado);
 		vector<vector<double> > SomaCoeficientesTransienteNaMatriz(vector<vector<double> >A);
 		vector<double> SomaCoeficientesTransienteNoVetor(vector<double>b);
 		void SalvaTodok(PropriedadeTermica,int TotaldePontos);
 		double CondicaoDeContornoEntradaExplicito(double ae, double apo);
 		double CondicaoDeContornoSaidaExplicito(double aw, double apo);
+		vector<vector<double> > MontaMatrizBidimensional(vector<vector<double> > AH,vector<vector<double> > AV);
+		vector<double> MontaVetorBidimensional(vector<double>bH,vector<double>bV);
+		vector<vector<double> > MontaVetorBidimensionalTermoATermo(vector<vector<double> >AHW,vector<vector<double> >AHP,vector<vector<double> >AHE,vector<vector<double> >AVS,vector<vector<double> >AVP,vector<vector<double> >AVN);
 
 		Malha malhaPolinomial;
 		PropriedadeTermica propriedadetermicaPolinomial;
@@ -63,14 +68,19 @@ class GerenteVolumedeControle
 		vector<double> kinterface_TodosPontos;
 		vector<double> Tinicial;
 		double LarguraTotal;
+		double LarguraTotalV;
 		int TotaldePontos;
+		int TotaldePontosV
 		bool DeltinhaTrueRealFalseMedio;
 		int TipoDeKinterface;
 		int iteracoesMax;
 		double CriterioParada;
 		vector<double> Pre1;
 		vector<double> Pre2;
+		vector<double> Pre1V;
+		vector<double> Pre2V;
 		vector<int> TiposPre;
+		vector<int> TiposPreV;
 		int TipoMalha;
 		int NumerodeIteracoes = 0;
 		int TipoDeCriterio;
