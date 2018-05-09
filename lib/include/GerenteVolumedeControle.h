@@ -24,7 +24,7 @@ class GerenteVolumedeControle
 		void SetVariaveisTransiente(double ro, double Cp, vector<double>Tinicial, int iteracoesMax, double CriteriodeParada, double PassoDeTempo, double f);
 		void setCoeficientesCosTpreTransiente(double DeslocaY, double Amplitude, double Frequencia, double DeslocaX, int QualExtremo);
 		void setVariaveisCilindricas(double RaioInterno);
-		void SetVariaveisBidimensionais(Malha malhaVertical,PropriedadeTermica propriedadetermicaV,vector<double> Pre1,vector<double> Pre2,vector<int> TiposPreV,double LarguraTotalV,double TotaldePontosV);
+		void SetVariaveisBidimensionais(Malha malhaVertical,PropriedadeTermica propriedadetermicaV,vector<double> Pre1V,vector<double> Pre2V,vector<int> TiposPreV,double LarguraTotalV,double TotaldePontosV,int TipoMalhaV);
 		int getNumerodeIteracoes();
 		vector<double> getkEmTodosPontos();
 		vector<double> getkinterface_TodosPontos();
@@ -55,14 +55,16 @@ class GerenteVolumedeControle
 		void SalvaTodok(PropriedadeTermica,int TotaldePontos);
 		double CondicaoDeContornoEntradaExplicito(double ae, double apo);
 		double CondicaoDeContornoSaidaExplicito(double aw, double apo);
-		vector<vector<double> > MontaMatrizBidimensional(vector<vector<double> > AH,vector<vector<double> > AV);
-		vector<double> MontaVetorBidimensional(vector<double>bH,vector<double>bV);
-		vector<vector<double> > MontaVetorBidimensionalTermoATermo(vector<vector<double> >AHW,vector<vector<double> >AHP,vector<vector<double> >AHE,vector<vector<double> >AVS,vector<vector<double> >AVP,vector<vector<double> >AVN);
+		vector<vector<double> > MontaMatrizBidimensional(vector<vector<double> > AH,vector<vector<double> > AV,Malha malhaVertical);
+		vector<double> MontaVetorBidimensional(vector<double>bH,vector<double>bV,Malha malhaVertical);
+		vector<vector<double> > MontaMatrizBidimensionalTermoATermo(vector<vector<double> >AHW,vector<vector<double> >AHP,vector<vector<double> >AHE,vector<vector<double> >AVS,vector<vector<double> >AVP,vector<vector<double> >AVN);
+		vector<double> MontaVetorBidimensionalTermoATermo(vector<double>bHW,vector<double>bHE,vector<double>bVS,vector<double>bVN);
 
 		Malha malhaPolinomial;
 		PropriedadeTermica propriedadetermicaPolinomial;
 		vector<double> CampoDeTemperaturas;
 		vector<vector<double> > CampoDeTemperaturasTransiente;
+		vector<vector<double> > CampoDeTemperaturasBidimensional;
 		vector<double> DistanciaDaOrigem;
 		vector<double> k_TodosPontos;
 		vector<double> kinterface_TodosPontos;
@@ -70,7 +72,7 @@ class GerenteVolumedeControle
 		double LarguraTotal;
 		double LarguraTotalV;
 		int TotaldePontos;
-		int TotaldePontosV
+		int TotaldePontosV;
 		bool DeltinhaTrueRealFalseMedio;
 		int TipoDeKinterface;
 		int iteracoesMax;
@@ -82,6 +84,7 @@ class GerenteVolumedeControle
 		vector<int> TiposPre;
 		vector<int> TiposPreV;
 		int TipoMalha;
+		int TipoMalhaV;
 		int NumerodeIteracoes = 0;
 		int TipoDeCriterio;
 		double ErroDeParada;

@@ -55,6 +55,6 @@ int main()
 	double CriteriodeParada = 1e-5;
 	Malha malhaVertical(NumerodePontosV,LarguraporMaterialV,NumerodeMalhas,TipodeMalhaV);
 	GerenteVolumedeControle gerenteTrab5(NumerodePontosH,NumerodeMalhasH,LarguraporMaterialH,TipodeMalhaH,kvec,TipoDeKinterface,Pre1,Pre2,TiposPreH,true,Caso,TipoDeCriterio);
-	gerenteTrab5.SetVariaveisBidimensionais(malhaVertical,Pre3,Pre4,TiposPreV);
+	gerenteTrab5.SetVariaveisBidimensionais(malhaVertical,Pre3,Pre4,TiposPreV,NumerodePontosV,TipodeMalhaV);
 	return 0;
 }
