@@ -113,6 +113,14 @@ vector<vector<double> > GerenteVolumedeControle::getTemperaturasTransiente()
 {
 	return(this->CampoDeTemperaturasTransiente);
 }
+vector<vector<double> > GerenteVolumedeControle::getMatrizA()
+{
+	return(this->MatrizA);
+}
+vector<double> GerenteVolumedeControle::getVetorb()
+{
+	return(this->Vetorb);
+}
 void GerenteVolumedeControle::SalvaTodok(PropriedadeTermica propriedadetermica,int TotaldePontos)
 {
 	this->k_TodosPontos.resize(TotaldePontos);
@@ -232,16 +240,19 @@ void GerenteVolumedeControle::CalculaTBidimensional(Malha malhaVertical,Propried
 
 	int TotaldePontosBidimensionais = this->TotaldePontos*this->TotaldePontosV;
 
-	cout<<endl<<endl<<endl<<"++++++++++++++++++++++++++++++MATRIZ+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl<<endl;
-	for(int i=0; i<TotaldePontosBidimensionais; i++)
-	{
-		for(int j=0; j<TotaldePontosBidimensionais; j++)
-		{
-			cout<<A[i][j]<<setw(9);
-		}
-		cout<<"|"<<b[i]<<endl;
-	}
-
+	// cout<<endl<<endl<<endl<<"++++++++++++++++++++++++++++++MATRIZ+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl<<endl;
+	// for(int i=0; i<TotaldePontosBidimensionais; i++)
+	// {
+	// 	for(int j=0; j<TotaldePontosBidimensionais; j++)
+	// 	{
+	// 		cout<<A[i][j]<<setw(9);
+	// 	}
+	// 	cout<<"|"<<b[i]<<endl;
+	// }
+	// cout<<endl<<endl<<A.size()<<"	"<<A[0].size()<<A[A.size()-1].size()<<endl<<endl;
+	this->MatrizA=A;
+	this->Vetorb=b;
+	//cout<<endl<<endl<<this->MatrizA.size()<<"	"<<this->MatrizA[0].size()<<this->MatrizA[A.size()-1].size()<<endl<<endl;
 	//SolverLinear SolverBidimensional(A,b,TotaldePontosBidimensionais);
 	//CampoDeTemperaturasBidimensional=SolverBidimensional.getCampodeTemperaturas();
 }
@@ -335,30 +346,39 @@ vector<vector<double> > GerenteVolumedeControle::MontaMatrizBidimensional(vector
 	AVS=TransposicionaMatriz(AVS);
 	AVP=TransposicionaMatriz(AVP);
 	AVN=TransposicionaMatriz(AVN);
-	// 	cout<<endl<<endl<<endl<<"++++++++++++++++++++++++++++++MATRIZAVS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl<<endl;
-	// for(int i=0; i<this->TotaldePontos; i++)
+	// cout<<endl<<endl<<endl<<"++++++++++++++++++++++++++++++MATRIZAVS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl<<endl;
+	// for(int i=0; i<this->TotaldePontosV; i++)
 	// {
-	// 	for(int j=0; j<this->TotaldePontosV; j++)
+	// 	for(int j=0; j<this->TotaldePontos; j++)
 	// 	{
 	// 		cout<<AVS[i][j]<<setw(9);
 	// 	}
 	// 	cout<<endl;
 	// }
 	// cout<<endl<<endl<<endl<<"++++++++++++++++++++++++++++++MATRIZAVP+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl<<endl;
-	// for(int i=0; i<this->TotaldePontos; i++)
+	// for(int i=0; i<this->TotaldePontosV; i++)
 	// {
-	// 	for(int j=0; j<this->TotaldePontosV; j++)
+	// 	for(int j=0; j<this->TotaldePontos; j++)
 	// 	{
 	// 		cout<<AVP[i][j]<<setw(9);
 	// 	}
 	// 	cout<<endl;
 	// }
 	// 	cout<<endl<<endl<<endl<<"++++++++++++++++++++++++++++++MATRIZAVN+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl<<endl;
-	// for(int i=0; i<this->TotaldePontos; i++)
+	// for(int i=0; i<this->TotaldePontosV; i++)
 	// {
-	// 	for(int j=0; j<this->TotaldePontosV; j++)
+	// 	for(int j=0; j<this->TotaldePontos; j++)
 	// 	{
 	// 		cout<<AVN[i][j]<<setw(9);
+	// 	}
+	// 	cout<<endl;
+	// }
+	// cout<<endl<<endl<<endl<<"++++++++++++++++++++++++++++++MATRIZAHP+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl<<endl;
+	// for(int i=0; i<this->TotaldePontosV; i++)
+	// {
+	// 	for(int j=0; j<this->TotaldePontos; j++)
+	// 	{
+	// 		cout<<AHP[i][j]<<setw(9);
 	// 	}
 	// 	cout<<endl;
 	// }
@@ -372,9 +392,9 @@ vector<vector<double> > GerenteVolumedeControle::MontaMatrizBidimensionalTermoAT
 	int TotaldePontosBidimensionais = this->TotaldePontos*this->TotaldePontosV;
 	A = CriaMatrizQuadradadeNulos(TotaldePontosBidimensionais);
 	int cont = 0;
-	for(int i=0; i<this->TotaldePontos; i++)
+	for(int i=0; i<this->TotaldePontosV; i++)
 	{
-		for(int j=0; j<this->TotaldePontosV; j++)
+		for(int j=0; j<this->TotaldePontos; j++)
 		{
 			if(cont>0)
 			{
@@ -389,7 +409,7 @@ vector<vector<double> > GerenteVolumedeControle::MontaMatrizBidimensionalTermoAT
 			{
 				A[cont][cont-this->TotaldePontos]=AVS[i][j];
 			}
-			if(cont<TotaldePontosBidimensionais-this->TotaldePontosV)
+			if(cont<TotaldePontosBidimensionais-this->TotaldePontos)
 			{
 				A[cont][cont+this->TotaldePontos]=AVN[i][j];
 			}
@@ -1041,6 +1061,23 @@ void GerenteVolumedeControle::SalvaMatrizcsv(string NomedoArquivo,vector<vector<
 	}
 	myfile.close();
 }
+void GerenteVolumedeControle::SalvaVetorcsv(string NomedoArquivo,vector<double>M1)
+{
+	ofstream myfile;
+	myfile.open (NomedoArquivo.c_str());
+	for(int i=0; i<M1.size(); i++)
+	{
+		if(i<M1.size()-1)
+		{
+			myfile<<M1[i]<<",";
+		}
+		else
+		{
+			myfile<<M1[i];
+		}
+	}
+	myfile.close();
+}
 int GerenteVolumedeControle::ContaTotaldePontos(vector<int> Nptoscadamat, int Nmalhas)
 {
 	int TotaldePontos=0;
@@ -1087,12 +1124,15 @@ vector<vector<double> > GerenteVolumedeControle::TransposicionaMatriz(vector<vec
 {
 	vector<vector<double> >M2;
 	M2.resize(M[0].size());
-	for(int i=0; i<M.size(); i++)
+	for(int i=0; i<M2.size(); i++)
 	{
 		M2[i].resize(M.size());
+	}
+	for(int i=0; i<M.size(); i++)
+	{
 		for(int j=0; j<M[i].size(); j++)
 		{
-			M2[i][j] = M[j][i];
+			M2[j][i] = M[i][j];
 		}
 	}
 	return(M2);

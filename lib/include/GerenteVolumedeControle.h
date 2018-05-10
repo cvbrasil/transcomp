@@ -15,10 +15,13 @@ class GerenteVolumedeControle
 		GerenteVolumedeControle(vector<int>Nptoscadamat,int Nmalhas,vector<double>LarguraMat,int TipoMalha,vector<double>k,int TipoDeKinterface,vector<double>Pre1,vector<double>Pre2,vector<int>TiposPre,bool DeltinhaTrueRealFalseMedio,int caso,int TipoDeCriterio);
 		vector<double> getCampoDeTemperaturas();
 		vector<double> getDistanciaDaOrigem();
+		vector<vector<double> > getMatrizA();
+		vector<double> getVetorb();
 		void SalvaCampoDeTemperaturascsv(string NomedoArquivo);
 		void SalvaDoisVetorescsv(string NomedoArquivo, vector<double> V1, vector<double> V2);
 		void SalvaDoisVetoresDeintcsv(string NomedoArquivo, vector<int> V1, vector<int> V2);
 		void SalvaMatrizcsv(string NomedoArquivo,vector<vector<double> >M1);
+		void SalvaVetorcsv(string NomedoArquivo,vector<double>V1);
 		void MostraTiposdeConfiguracao();
 		void SetVariaveisPolinomiais(vector<vector<double> >kpolinomial, vector<double>Tinicial, int iteracoesMax, double CriterioParada);
 		void SetVariaveisTransiente(double ro, double Cp, vector<double>Tinicial, int iteracoesMax, double CriteriodeParada, double PassoDeTempo, double f);
@@ -66,6 +69,8 @@ class GerenteVolumedeControle
 		vector<double> CampoDeTemperaturas;
 		vector<vector<double> > CampoDeTemperaturasTransiente;
 		vector<vector<double> > CampoDeTemperaturasBidimensional;
+		vector<vector<double> > MatrizA;
+		vector<double> Vetorb;
 		vector<double> DistanciaDaOrigem;
 		vector<double> k_TodosPontos;
 		vector<double> kinterface_TodosPontos;
