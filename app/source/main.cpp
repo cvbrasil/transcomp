@@ -12,6 +12,7 @@
 #include "CondicoesdeContorno.h"
 #include "SolverLinear.h"
 #include "CriteriodeParada.h"
+std::stringstream sstm;
 double NewtonRaphsonParaTerL(double m,double eta,double crit, int itmax)
 {
 	double Lo=2;
@@ -43,14 +44,14 @@ int main()
 	LH=NewtonRaphsonParaTerL(m,eta,crit,itmax);
 	cout<<endl<<endl<<"LH="<<LH<<"	m="<<m<<endl<<endl;
 	vector<int>NumerodePontosH;
-	NumerodePontosH.push_back(10);
+	NumerodePontosH.push_back(5);
 	vector<double>LarguraporMaterialH;
 	LarguraporMaterialH.push_back(LH);
 	int NumerodeMalhasH = 1;
 	int NumerodeMalhasV = 1;
 	int TipodeMalhaH = 4;
 	vector<int>NumerodePontosV;
-	NumerodePontosV.push_back(8);
+	NumerodePontosV.push_back(2);
 	vector<double>LarguraporMaterialV;
 	LarguraporMaterialV.push_back(LV);
 	int TipodeMalhaV = 1;
@@ -73,27 +74,38 @@ int main()
 	TiposPreV.push_back(3);
 	int Caso = 3;
 	int TipoDeCriterio=1;
-	Malha malhaVertical(NumerodePontosV,LarguraporMaterialV,NumerodeMalhasV,TipodeMalhaV);
-	Malha malhaHorizontal(NumerodePontosH,LarguraporMaterialH,NumerodeMalhasH,TipodeMalhaH);
 
-
-
-	PropriedadeTermica propriedadetermicaV(kvec,NumerodePontosV);
-	GerenteVolumedeControle gerenteTrab5(NumerodePontosH,NumerodeMalhasH,LarguraporMaterialH,TipodeMalhaH,kvec,TipoDeKinterface,Pre1,Pre2,TiposPreH,true,Caso,TipoDeCriterio);
-	gerenteTrab5.SetVariaveisBidimensionais(malhaVertical,propriedadetermicaV,Pre3,Pre4,TiposPreV,LV,NumerodePontosV[0],TipodeMalhaV);
-	vector<vector<double> >A;
-	A=gerenteTrab5.getMatrizA();
-	vector<double> b;
-	b=gerenteTrab5.getVetorb();
-	gerenteTrab5.SalvaMatrizcsv("MatrizA.csv",A);
-	gerenteTrab5.SalvaVetorcsv("Vetorb.csv",b);
-	//Salva pontos de malha
-	vector<double> VETORMALHAHORIZONTAL;
-	vector<double> VETORMALHAVERTICAL;
-	VETORMALHAHORIZONTAL=malhaHorizontal.getDistanciadaOrigem();
-	VETORMALHAVERTICAL=malhaVertical.getDistanciadaOrigem();
-	gerenteTrab5.SalvaDoisVetorescsv("VetorMalhaHorizontal.csv", VETORMALHAHORIZONTAL,VETORMALHAHORIZONTAL);
-	gerenteTrab5.SalvaDoisVetorescsv("VetorMalhaVertical.csv", VETORMALHAVERTICAL,VETORMALHAVERTICAL);
-
+	//REFINA MALHA
+	for(int i=0; i<3; i++)
+	{
+		Malha malhaVertical(NumerodePontosV,LarguraporMaterialV,NumerodeMalhasV,TipodeMalhaV);
+		Malha malhaHorizontal(NumerodePontosH,LarguraporMaterialH,NumerodeMalhasH,TipodeMalhaH);
+		PropriedadeTermica propriedadetermicaV(kvec,NumerodePontosV);
+		GerenteVolumedeControle gerenteTrab5(NumerodePontosH,NumerodeMalhasH,LarguraporMaterialH,TipodeMalhaH,kvec,TipoDeKinterface,Pre1,Pre2,TiposPreH,true,Caso,TipoDeCriterio);
+		gerenteTrab5.SetVariaveisBidimensionais(malhaVertical,propriedadetermicaV,Pre3,Pre4,TiposPreV,LV,NumerodePontosV[0],TipodeMalhaV);
+		vector<vector<double> >A;
+		A=gerenteTrab5.getMatrizA();
+		vector<double> b;
+		b=gerenteTrab5.getVetorb();
+		string NomeMatriz;
+		string NomeVetor;
+		int NH=NumerodePontosH[0];
+		int NV=NumerodePontosV[0];
+		NomeMatriz="MatrizAHOR"+std::to_string(NH)+"VERT"+std::to_string(NV)+".csv";
+		NomeVetor="VetorbHOR"+std::to_string(NH)+"VERT"+std::to_string(NV)+".csv";
+		gerenteTrab5.SalvaMatrizcsv(NomeMatriz,A);
+		gerenteTrab5.SalvaVetorcsv(NomeVetor,b);
+		//Salva pontos de malha
+		vector<double> VETORMALHAHORIZONTAL;
+		vector<double> VETORMALHAVERTICAL;
+		VETORMALHAHORIZONTAL=malhaHorizontal.getDistanciadaOrigem();
+		VETORMALHAVERTICAL=malhaVertical.getDistanciadaOrigem();
+ 		string NomeVetorHorizontal="VetorMalhaHorizontal"+std::to_string(NumerodePontosH[0])+".csv";
+ 		string NomeVetorVertical="VetorMalhaVertical"+std::to_string(NumerodePontosV[0])+".csv";
+		gerenteTrab5.SalvaDoisVetorescsv(NomeVetorHorizontal, VETORMALHAHORIZONTAL,VETORMALHAHORIZONTAL);
+		gerenteTrab5.SalvaDoisVetorescsv(NomeVetorVertical, VETORMALHAVERTICAL,VETORMALHAVERTICAL);
+		NumerodePontosH[0]=NumerodePontosH[0]*2;
+		NumerodePontosV[0]=NumerodePontosV[0]*2;
+	}
 	return 0;
 }
