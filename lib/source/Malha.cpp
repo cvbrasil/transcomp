@@ -217,7 +217,24 @@ double Malha::getDelta_w_Menos(int position,bool Flag)
 double Malha::getDELTAVC(int position, bool DeltinhaTrueRealFalseMedio)
 {
 	double DELTAVC;
-	DELTAVC = getDelta_e_Menos(position, DeltinhaTrueRealFalseMedio)+getDelta_w_Mais(position, DeltinhaTrueRealFalseMedio);
+	if(position>0&&position<this->DistanciadaOrigem.size())
+	{
+		DELTAVC = getDelta_e_Menos(position, DeltinhaTrueRealFalseMedio)+getDelta_w_Mais(position, DeltinhaTrueRealFalseMedio);
+	}
+	else
+	{
+		if(position==0)
+		{
+			DELTAVC = getDelta_e_Menos(position, DeltinhaTrueRealFalseMedio)+this->DistanciadaOrigem[0];
+		}
+		else
+		{
+			if(position==this->DistanciadaOrigem.size())
+			{
+				DELTAVC = getDelta_w_Mais(position, DeltinhaTrueRealFalseMedio)+this->DistanciadaOrigemMaterial[this->DistanciadaOrigemMaterial.size()];
+			}
+		}
+	}
 	return(DELTAVC);
 }
 int Malha::getTipodeMalha()

@@ -59,6 +59,7 @@ class GerenteVolumedeControle
 		vector<double> MontaVetorBidimensional(vector<double>bH,vector<double>bV,Malha malhaVertical);
 		vector<vector<double> > MontaMatrizBidimensionalTermoATermo(vector<vector<double> >AHW,vector<vector<double> >AHP,vector<vector<double> >AHE,vector<vector<double> >AVS,vector<vector<double> >AVP,vector<vector<double> >AVN);
 		vector<double> MontaVetorBidimensionalTermoATermo(vector<double>bHW,vector<double>bHE,vector<double>bVS,vector<double>bVN);
+		vector<vector<double> > TransposicionaMatriz(vector<vector<double> >M);
 
 		Malha malhaPolinomial;
 		PropriedadeTermica propriedadetermicaPolinomial;
