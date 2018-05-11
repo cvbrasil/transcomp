@@ -36,12 +36,13 @@ int main()
 	double Tb = 100;
 	double h = 200;
 	double LH=1;
-	double LV=0.012;
+	double t=0.012;
 	double eta=0.6;
 	double crit=1e-10;
 	double itmax=200;
-	double m = pow(h*(2*LV+2)/(k*LV),0.5);
+	double m = pow(h*(2*t+2)/(k*t),0.5);
 	LH=NewtonRaphsonParaTerL(m,eta,crit,itmax);
+	double LV=t/2;
 	cout<<endl<<endl<<"LH="<<LH<<"	m="<<m<<endl<<endl;
 	vector<int>NumerodePontosH;
 	NumerodePontosH.push_back(5);
@@ -104,8 +105,8 @@ int main()
  		string NomeVetorVertical="VetorMalhaVertical"+std::to_string(NumerodePontosV[0])+".csv";
 		gerenteTrab5.SalvaDoisVetorescsv(NomeVetorHorizontal, VETORMALHAHORIZONTAL,VETORMALHAHORIZONTAL);
 		gerenteTrab5.SalvaDoisVetorescsv(NomeVetorVertical, VETORMALHAVERTICAL,VETORMALHAVERTICAL);
-		NumerodePontosH[0]=NumerodePontosH[0]*2;
-		NumerodePontosV[0]=NumerodePontosV[0]*2;
+		NumerodePontosH[0]=NumerodePontosH[0]+2;
+		NumerodePontosV[0]=NumerodePontosV[0]+2;
 	}
 	return 0;
 }
